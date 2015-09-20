@@ -61,6 +61,7 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         
         indicator.startAnimating()
         super.viewDidLoad()
+        
         cityLabel.textColor = UIColor.redColor()
         areaLabel.textColor = UIColor.redColor()
         venueLabel.textColor = UIColor.redColor()
