@@ -59,7 +59,7 @@ class KSTokenField: UITextField {
    var promptTextColor: UIColor = UIColor.grayColor()
    
    /// default is grayColor()
-   var placeHolderColor: UIColor = UIColor(white: 0.80, alpha: 0.22)
+   var placeHolderColor: UIColor = UIColor(white: 0.80, alpha: 0.30)
    
    /// default is 120.0. After maximum limit is reached, tokens starts scrolling vertically
    var maximumHeight: CGFloat = 120.0

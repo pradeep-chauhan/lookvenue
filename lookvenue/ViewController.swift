@@ -24,7 +24,7 @@ class ViewController : UIViewController, ENSideMenuDelegate{
         // Set Background color(android app bg color)
         var bgColorCode = UIColor(red: 210, green: 63, blue: 49, alpha: 0.5)
         
-    // left bar button menu
+        // left bar button menu
         
         let leftBarButton: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
         //set image for button

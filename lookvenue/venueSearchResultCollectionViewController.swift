@@ -30,6 +30,26 @@ class venueSearchResultCollectionViewController: UICollectionViewController,UICo
         var transformation: CLTransformation = CLTransformation.transformation() as AnyObject as! CLTransformation
         transformation.setWidthWithInt(300)
         transformation.setHeightWithInt(300)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.setToolbarHidden(true, animated: true)
+        
+        self.navigationItem.title = "Search Result"
+        
+        // right bar button menu
+        
+        let rightBarButton: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+        //set image for button
+        rightBarButton.setImage(UIImage(named: "search-icon.png"), forState: UIControlState.Normal)
+        //add function for button
+        rightBarButton.addTarget(self, action: "SearchButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+        //set frame
+        rightBarButton.frame = CGRectMake(0, 0,20, 20)
+        
+        let barButton = UIBarButtonItem(customView: rightBarButton)
+        //assign button to navigationbar
+        self.navigationItem.rightBarButtonItem = barButton
+        
         //transformation.setCrop("fit")
         //var abc:String = cloudinary.url(image as String)
         
@@ -47,6 +67,12 @@ class venueSearchResultCollectionViewController: UICollectionViewController,UICo
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func SearchButtonPressed() {
+        var storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        var dash : searchPropertyWithFilterViewController = storyBoard.instantiateViewControllerWithIdentifier("searchPropertyWithFilter") as! searchPropertyWithFilterViewController
+        self.navigationController?.pushViewController(dash, animated: true)
     }
     
     func getSearchVenueArray() -> Void

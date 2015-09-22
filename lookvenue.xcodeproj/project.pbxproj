@@ -68,6 +68,7 @@
 		F99914341B73D126009F17AA /* addProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99914331B73D126009F17AA /* addProperty.swift */; };
 		F99914361B73D1D5009F17AA /* login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99914351B73D1D5009F17AA /* login.swift */; };
 		F99AEEB71BAE91E50074F311 /* PropertyImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99AEEB61BAE91E50074F311 /* PropertyImageCollectionViewCell.swift */; };
+		F99AEEC01BAFF2470074F311 /* searchPropertyWithFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99AEEBF1BAFF2470074F311 /* searchPropertyWithFilterViewController.swift */; };
 		F99DD1A01B96CE2C00B1172D /* SearchVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99DD19F1B96CE2C00B1172D /* SearchVenue.swift */; };
 		F99DD1A51B96DF2D00B1172D /* venueSearchResultCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99DD1A41B96DF2D00B1172D /* venueSearchResultCollectionViewController.swift */; };
 		F99DD1A91B970F5700B1172D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99DD1A81B970F5700B1172D /* CollectionViewCell.swift */; };
@@ -241,6 +242,7 @@
 		F99914331B73D126009F17AA /* addProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = addProperty.swift; path = ../addProperty.swift; sourceTree = "<group>"; };
 		F99914351B73D1D5009F17AA /* login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = login.swift; sourceTree = "<group>"; };
 		F99AEEB61BAE91E50074F311 /* PropertyImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		F99AEEBF1BAFF2470074F311 /* searchPropertyWithFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchPropertyWithFilterViewController.swift; sourceTree = "<group>"; };
 		F99DD19F1B96CE2C00B1172D /* SearchVenue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVenue.swift; sourceTree = "<group>"; };
 		F99DD1A41B96DF2D00B1172D /* venueSearchResultCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = venueSearchResultCollectionViewController.swift; sourceTree = "<group>"; };
 		F99DD1A81B970F5700B1172D /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				F997170B1B942E7B008BED74 /* venueSearchResultViewController.swift */,
 				F9B628CD1BAAD8600034D7EC /* MenuController.swift */,
 				F99DD1A41B96DF2D00B1172D /* venueSearchResultCollectionViewController.swift */,
+				F99AEEBF1BAFF2470074F311 /* searchPropertyWithFilterViewController.swift */,
 				F99DD1A81B970F5700B1172D /* CollectionViewCell.swift */,
 				F99AEEB61BAE91E50074F311 /* PropertyImageCollectionViewCell.swift */,
 				F99914351B73D1D5009F17AA /* login.swift */,
@@ -619,6 +622,11 @@
 					F9667D601B709AB300647DCE = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = K67B787Y75;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					F9667D751B709AB300647DCE = {
 						CreatedOnToolsVersion = 6.4;
@@ -753,6 +761,7 @@
 				F940ED341B75D7C70017FDE6 /* DMLazyScrollView.m in Sources */,
 				F995A91B1B7B5EB30064CE5D /* editPropertyViewController.swift in Sources */,
 				F940ED471B7676AC0017FDE6 /* MySideMenuNavigationController.swift in Sources */,
+				F99AEEC01BAFF2470074F311 /* searchPropertyWithFilterViewController.swift in Sources */,
 				F9B628BE1BA74E7A0034D7EC /* UIImage+MultiFormat.m in Sources */,
 				F9B628B31BA74E7A0034D7EC /* MKAnnotationView+WebCache.m in Sources */,
 				F92BBF9E1B81A6D700B468BB /* UIView+SHAdditions.m in Sources */,

@@ -1,20 +1,20 @@
 //
-//  searchProperrty.swift
+//  searchPropertyWithFilterViewController.swift
 //  lookvenue
 //
-//  Created by Pradeep Chauhan on 8/6/15.
+//  Created by Pradeep Chauhan on 9/21/15.
 //  Copyright (c) 2015 Pradeep Chauhan. All rights reserved.
 //
 
 import UIKit
 
-class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDelegate,KSTokenViewDelegate,ENSideMenuDelegate{
-    
+class searchPropertyWithFilterViewController: UIViewController, UITextFieldDelegate,SHMultipleSelectDelegate,KSTokenViewDelegate {
+
     @IBOutlet weak var dateOfEnquiry: UITextField!
     @IBOutlet weak var priceRange: UITextField!
     @IBOutlet weak var venueType: UITextField!
     @IBOutlet weak var city: UITextField!
-   
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var venueLabel: UILabel!
     @IBOutlet weak var areaLabel: UILabel!
@@ -50,38 +50,11 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
     var selectedLocationsArray = NSMutableArray()
     
     //var priceSelected:String!
-
+    
     override func viewDidLoad() {
         
-        if UIDevice().userInterfaceIdiom == .Phone {
-            switch UIScreen.mainScreen().nativeBounds.height {
-            case 480:
-                self.scrollView.contentSize = CGSize(width: 0, height: 800)
-                self.scrollView.showsVerticalScrollIndicator = true
-                //print("iPhone Classic")
-            case 960:
-                self.scrollView.contentSize = CGSize(width: 0, height: 800)
-                self.scrollView.showsVerticalScrollIndicator = true
-                //print("iPhone 4 or 4S")
-            case 1136:
-                self.scrollView.showsVerticalScrollIndicator = false
-                self.scrollView.scrollEnabled = false
-                //print("iPhone 5 or 5S or 5C")
-            case 1334:
-                self.scrollView.showsVerticalScrollIndicator = false
-                self.scrollView.scrollEnabled = false
-                //print("iPhone 6 or 6S")
-            case 2208:
-                self.scrollView.showsVerticalScrollIndicator = false
-                self.scrollView.scrollEnabled = false
-                //print("iPhone 6+ or 6S+")
-            default:
-                print("unknown")
-            }
-        }
-        
-        //self.scrollView.contentSize = CGSize(width: 0, height: 600)
-        //self.scrollView.showsVerticalScrollIndicator = true
+        self.scrollView.contentSize = CGSize(width: 0, height: 800)
+        self.scrollView.showsVerticalScrollIndicator = true
         view.addSubview(scrollView)
         
         indicator.startAnimating()
@@ -92,31 +65,32 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         venueLabel.textColor = UIColor.redColor()
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.sideMenuController()?.sideMenu?.delegate = self
+        
         
         // center image in nav bar
         
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
-        imageView.contentMode = .ScaleAspectFit
-        
-        let image = UIImage(named: "look-venue-logo.png")
-        imageView.image = image
-        
-        self.navigationItem.titleView = imageView
-        
+//        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+//        imageView.contentMode = .ScaleAspectFit
+//        
+//        let image = UIImage(named: "look-venue-logo.png")
+//        imageView.image = image
+//        
+//        self.navigationItem.titleView = imageView
+        self.navigationItem.title = "Apply Filter"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "OpenSans", size: 10)!]
         self.navigationController?.setToolbarHidden(true, animated: true)
         
-        let leftBarButton: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
-        //set image for button
-        leftBarButton.setImage(UIImage(named: "menu-icon.png"), forState: UIControlState.Normal)
-        //add function for button
-        leftBarButton.addTarget(self, action: "ToggleButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        //set frame
-        leftBarButton.frame = CGRectMake(0, 0,20, 20)
-        
-        let leftMenubarButton = UIBarButtonItem(customView: leftBarButton)
-        //assign button to navigationbar
-        self.navigationItem.leftBarButtonItem = leftMenubarButton
+//        let leftBarButton: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+//        //set image for button
+//        leftBarButton.setImage(UIImage(named: "menu-icon.png"), forState: UIControlState.Normal)
+//        //add function for button
+//        leftBarButton.addTarget(self, action: "ToggleButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+//        //set frame
+//        leftBarButton.frame = CGRectMake(0, 0,20, 20)
+//        
+//        let leftMenubarButton = UIBarButtonItem(customView: leftBarButton)
+//        //assign button to navigationbar
+//        self.navigationItem.leftBarButtonItem = leftMenubarButton
         
         self.area.delegate=self
         self.dateOfEnquiry.delegate=self
@@ -141,7 +115,7 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         var serviceCall : WebServiceCall = WebServiceCall()
         
         serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, completion: {(resultData : NSData) -> Void in
-             self.areaListArray = serviceCall.getAreaArray(resultData)
+            self.areaListArray = serviceCall.getAreaArray(resultData)
             self.getAreasArray()
             self.indicator.stopAnimating()
         })
@@ -176,7 +150,7 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
     }
     
     @IBAction func datePicker(sender: AnyObject) {
-       dateOfEnquiry.resignFirstResponder()
+        dateOfEnquiry.resignFirstResponder()
         DatePickerDialog().show(title: "Select Date", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .Date) {
             
             (date) -> Void in
@@ -201,7 +175,7 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         var serviceCall : WebServiceCall = WebServiceCall()
         indicator.startAnimating()
         serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, completion: {(resultData : NSData) -> Void in
-             self.vanueListArray = serviceCall.getAreaArray(resultData)
+            self.vanueListArray = serviceCall.getAreaArray(resultData)
             self.getVanuesArray()
             self.indicator.stopAnimating()
             
@@ -367,7 +341,7 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         //println(canSelect)
         return canSelect
     }
-
+    
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
@@ -419,22 +393,22 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         return true
     }
     
-
+    
 }
 
-extension searchProperrty: KSTokenViewDelegate {
+extension searchPropertyWithFilterViewController: KSTokenViewDelegate {
     
     func tokenView(token: KSTokenView, performSearchWithString string: String, completion: ((results: Array<AnyObject>) -> Void)?) {
         
         if (isEmpty(string)){
             
             completion!(results: areaArray as Array)
-
+            
             return
         }
         
         var data: NSMutableArray = NSMutableArray()
-//        for value: String in names {
+        //        for value: String in names {
         for value in areaArray {
             
             if ((value as! NSDictionary).valueForKey("name") as! String).lowercaseString.rangeOfString(string.lowercaseString) != nil {
@@ -463,12 +437,12 @@ extension searchProperrty: KSTokenViewDelegate {
         return NSNumber(int: 0)
     }
     
-//    func tokenView(tokenView: KSTokenView, willDeleteToken token: KSToken) {
-//        println(token.title)
-//        var idOfObject = self.getIdOfObject(token.title)
-//        selectedLocationsArray.removeObject(idOfObject)
-//    }
-//    
+    //    func tokenView(tokenView: KSTokenView, willDeleteToken token: KSToken) {
+    //        println(token.title)
+    //        var idOfObject = self.getIdOfObject(token.title)
+    //        selectedLocationsArray.removeObject(idOfObject)
+    //    }
+    //
     func tokenView(token: KSTokenView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var object = areaArray.objectAtIndex(indexPath.row) as! NSDictionary
         selectedLocationsArray.addObject(object["id"] as! NSNumber)
@@ -487,5 +461,6 @@ extension searchProperrty: KSTokenViewDelegate {
         }
         
     }
-    
+
+
 }

@@ -203,7 +203,7 @@ class KSTokenView: UIView {
    }
    
    /// default is UIFont.systemFontOfSize(16)
-   var font: UIFont = UIFont.systemFontOfSize(14) {
+   var font: UIFont = UIFont.systemFontOfSize(12) {
       didSet {
          if (oldValue != font) {
             _updateTokenField()
@@ -356,7 +356,6 @@ class KSTokenView: UIView {
       _searchTableView.frame = CGRectMake(0, frame.height, searchResultSize.width, searchResultSize.height)
       _searchTableView.delegate = self
       _searchTableView.dataSource = self
-      
       if KSUtils.isIpad() {
          let viewController = UIViewController()
          viewController.view = _searchTableView
