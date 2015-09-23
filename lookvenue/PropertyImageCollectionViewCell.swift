@@ -12,4 +12,7 @@ class PropertyImageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var images: UIImageView!
     @IBOutlet weak var slideNo: UILabel!
+    
+    
+    
 }

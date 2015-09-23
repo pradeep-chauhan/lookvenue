@@ -17,7 +17,7 @@ class venueSearchResultCollectionViewController: UICollectionViewController,UICo
     let cloudinary: CLCloudinary = CLCloudinary()
     var image:NSString = ""
     
-    let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+    let sectionInsets = UIEdgeInsets(top: 5.0, left: 10.0, bottom: 5.0, right: 10.0)
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getSearchVenueArray()
@@ -62,6 +62,10 @@ class venueSearchResultCollectionViewController: UICollectionViewController,UICo
         //self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setToolbarHidden(true, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -126,7 +130,7 @@ class venueSearchResultCollectionViewController: UICollectionViewController,UICo
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-            return CGSize(width:(self.collectionView!.frame.width) - 20.0, height: 380)
+            return CGSize(width:(self.collectionView!.frame.width) - 20.0, height: 350)
     }
     
     

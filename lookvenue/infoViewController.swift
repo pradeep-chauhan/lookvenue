@@ -87,8 +87,9 @@ class infoViewController:UIViewController,UICollectionViewDelegate,UICollectionV
             cell.images.sd_setImageWithURL(url, placeholderImage: UIImage(named: "nophoto.jpg"))
             var currentImage = ((indexPath.row) + 1)
             var totalImageCount = (totalImages.count)
-            println(" \(currentImage) / \(totalImageCount) ")
             cell.slideNo.text = " \(currentImage) / \(totalImageCount) "
+            cell.slideNo.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+            
         return cell
         // Configure the cell+
         

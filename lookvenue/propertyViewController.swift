@@ -60,13 +60,12 @@ class propertyViewController: UIViewController, CLUploaderDelegate {
         lat = (selectedSearchVanueDictionary.valueForKey("lat") as! NSString).doubleValue
         long = (selectedSearchVanueDictionary.valueForKey("lng") as! NSString).doubleValue
         images = (selectedSearchVanueDictionary.valueForKey("images")) as! NSMutableArray
-        println("hi")
-        println(images)
         
         
         //if(selectedSearchVanueDictionary.v)
         
         self.navigationController?.setToolbarHidden(false, animated: true)
+        
         if(segmentControl.selectedSegmentIndex == 0)
         {
             //self.imageProperty.removeFromParentViewController()

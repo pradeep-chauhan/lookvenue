@@ -148,6 +148,9 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setToolbarHidden(true, animated: true)
+    }
     // venue array declare
     func getVanuesArray() -> Void
     {
@@ -176,7 +179,7 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
     }
     
     @IBAction func datePicker(sender: AnyObject) {
-       dateOfEnquiry.resignFirstResponder()
+       self.dateOfEnquiry.resignFirstResponder()
         DatePickerDialog().show(title: "Select Date", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .Date) {
             
             (date) -> Void in
@@ -192,7 +195,7 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
     
     @IBAction func venueTypeButton(sender: AnyObject) {
         //self.hideKeyBoard()
-        venueType.resignFirstResponder()
+        self.venueType.resignFirstResponder()
         multiselectViewCall = "venue"
         var methodType: String = "GET"
         var base: String = "property_types/"
@@ -214,7 +217,9 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
     }
     
     @IBAction func pricePickerRange(sender: AnyObject) {
-        priceRange.resignFirstResponder()
+        self.priceRange.resignFirstResponder()
+        self.priceRange.userInteractionEnabled = true
+        
         multiselectViewCall = "price"
         var methodType: String = "GET"
         var base: String = "price_ranges"
@@ -235,6 +240,12 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         }
         
         
+    }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.view.resignFirstResponder()
+        println("touch")
+        //return false
     }
     
     //For venue
