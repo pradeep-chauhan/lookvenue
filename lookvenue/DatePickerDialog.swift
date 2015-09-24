@@ -173,7 +173,7 @@ class DatePickerDialog: UIView {
         
         // There is a line above the button
         let lineView = UIView(frame: CGRectMake(0, dialogContainer.bounds.size.height - kDatePickerDialogDefaultButtonHeight - kDatePickerDialogDefaultButtonSpacerHeight, dialogContainer.bounds.size.width, kDatePickerDialogDefaultButtonSpacerHeight))
-        lineView.backgroundColor = UIColor(red: 198/255, green: 198/255, blue: 198/255, alpha: 1)
+        lineView.backgroundColor = UIColor(red: 210/255, green: 67/255, blue: 49/255, alpha: 1)
         dialogContainer.addSubview(lineView)
         // ˆˆˆ
         
@@ -182,6 +182,7 @@ class DatePickerDialog: UIView {
         self.titleLabel.textAlignment = NSTextAlignment.Center
         self.titleLabel.font = UIFont.boldSystemFontOfSize(17)
         self.titleLabel.text = self.title
+        self.titleLabel.textColor = UIColor(red: 210/255, green: 67/255, blue: 49/255, alpha: 1)
         dialogContainer.addSubview(self.titleLabel)
         
         self.datePicker = UIDatePicker(frame: CGRectMake(0, 30, 0, 0))
@@ -210,8 +211,8 @@ class DatePickerDialog: UIView {
         )
         self.cancelButton.tag = kDatePickerDialogCancelButtonTag
         self.cancelButton.setTitle(self.cancelButtonTitle, forState: UIControlState.Normal)
-        self.cancelButton.setTitleColor(UIColor(red: 0, green: 0.5, blue: 1, alpha: 1), forState: UIControlState.Normal)
-        self.cancelButton.setTitleColor(UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.5), forState: UIControlState.Highlighted)
+        self.cancelButton.setTitleColor(UIColor(red: 210/255, green: 67/255, blue: 49/255, alpha: 1), forState: UIControlState.Normal)
+        self.cancelButton.setTitleColor(UIColor(red: 210/255, green: 67/255, blue: 49/255, alpha: 0.5), forState: UIControlState.Highlighted)
         self.cancelButton.titleLabel!.font = UIFont.boldSystemFontOfSize(14)
         self.cancelButton.layer.cornerRadius = kDatePickerDialogCornerRadius
         self.cancelButton.addTarget(self, action: "buttonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -226,8 +227,9 @@ class DatePickerDialog: UIView {
         )
         self.doneButton.tag = kDatePickerDialogDoneButtonTag
         self.doneButton.setTitle(self.doneButtonTitle, forState: UIControlState.Normal)
-        self.doneButton.setTitleColor(UIColor(red: 0, green: 0.5, blue: 1, alpha: 1), forState: UIControlState.Normal)
-        self.doneButton.setTitleColor(UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.5), forState: UIControlState.Highlighted)
+        self.doneButton.setTitleColor(UIColor(red: 210/255, green: 67/255, blue: 49/255, alpha: 1), forState: UIControlState.Normal)
+        self.doneButton.setTitleColor(UIColor(red: 210/255, green: 67/255, blue: 49/255, alpha: 0.5), forState: UIControlState.Highlighted)
+    
         self.doneButton.titleLabel!.font = UIFont.boldSystemFontOfSize(14)
         self.doneButton.layer.cornerRadius = kDatePickerDialogCornerRadius
         self.doneButton.addTarget(self, action: "buttonTapped:", forControlEvents: UIControlEvents.TouchUpInside)

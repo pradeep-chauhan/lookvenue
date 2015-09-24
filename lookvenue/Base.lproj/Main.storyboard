@@ -351,7 +351,7 @@
         <!--My Side Menu Navigation Controller-->
         <scene sceneID="Jon-ZU-vXA">
             <objects>
-                <navigationController toolbarHidden="NO" id="vma-Qi-hd2" customClass="MySideMenuNavigationController" customModule="lookvenue" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="vma-Qi-hd2" customClass="MySideMenuNavigationController" customModule="lookvenue" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="jFY-PW-0gn"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -773,7 +773,6 @@
                                             </view>
                                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="v7t-QO-RCp" customClass="KSTokenView" customModule="lookvenue">
                                                 <rect key="frame" x="16" y="128" width="382" height="25"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="dBp-Os-Kmq"/>
                                                 </constraints>
