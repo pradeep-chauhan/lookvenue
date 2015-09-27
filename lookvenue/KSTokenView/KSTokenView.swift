@@ -72,7 +72,7 @@ class KSTokenView: UIView {
    //
    private var _tokenField: KSTokenField!
    private var _searchTableView: UITableView = UITableView(frame: .zeroRect, style: UITableViewStyle.Plain)
-   private var _resultArray = [AnyObject]()
+    var _resultArray = [AnyObject]()
    private var _showingSearchResult = false
    private var _indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
    private var _popover: UIPopoverController?
@@ -356,14 +356,16 @@ class KSTokenView: UIView {
       _searchTableView.frame = CGRectMake(0, frame.height, searchResultSize.width, searchResultSize.height)
       _searchTableView.delegate = self
       _searchTableView.dataSource = self
+    _searchTableView.backgroundColor = UIColor.greenColor()
       if KSUtils.isIpad() {
          let viewController = UIViewController()
          viewController.view = _searchTableView
          _popover = UIPopoverController(contentViewController: viewController)
          _popover?.delegate = self
-         _popover?.backgroundColor = searchResultBackgroundColor
+         _popover?.backgroundColor = UIColor.greenColor()
          _popover?.passthroughViews = subviews
          _popover?.popoverContentSize = searchResultSize
+        
          
       } else {
          addSubview(_searchTableView)
@@ -907,7 +909,7 @@ extension KSTokenView : UITableViewDataSource {
    }
    
    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      
+      _searchTableView.backgroundColor = UIColor.whiteColor()
       var cell: UITableViewCell? = delegate?.tokenView?(self, withObject: _resultArray[indexPath.row], tableView: tableView, cellForRowAtIndexPath: indexPath)
       if cell != nil {
          return cell!
@@ -922,6 +924,7 @@ extension KSTokenView : UITableViewDataSource {
       let title = delegate?.tokenView(self, displayTitleForObject: _resultArray[indexPath.row])
       cell!.textLabel!.text = (title != nil) ? title : "No Title"
       cell!.selectionStyle = UITableViewCellSelectionStyle.None
+        cell?.backgroundColor = UIColor.whiteColor()//UIColor.redColor()
       return cell!
    }
 }

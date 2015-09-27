@@ -8,7 +8,7 @@
 
 import UIKit
 
-class signUp: ViewController, ENSideMenuDelegate{
+class signUp: UIViewController, ENSideMenuDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()

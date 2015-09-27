@@ -47,6 +47,9 @@
 		F979A5151B787ACE00D72F5D /* Setting.png in Resources */ = {isa = PBXBuildFile; fileRef = F979A5131B787ACE00D72F5D /* Setting.png */; };
 		F98EDAD71B997EE3007E07FD /* propertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98EDAD61B997EE2007E07FD /* propertyViewController.swift */; };
 		F98EDAD91B99847D007E07FD /* infoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98EDAD81B99847C007E07FD /* infoViewController.swift */; };
+		F99043AD1BB6B35F00F39773 /* SBPickerSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = F99043A91BB6B35F00F39773 /* SBPickerSelector.xib */; };
+		F99043AE1BB6B35F00F39773 /* SBPickerSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = F99043AC1BB6B35F00F39773 /* SBPickerSelector.m */; };
+		F99043B51BB6B59100F39773 /* SearchDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99043B41BB6B59100F39773 /* SearchDetails.swift */; };
 		F995A8FD1B7B27570064CE5D /* OpenSans.swift in Sources */ = {isa = PBXBuildFile; fileRef = F995A8FC1B7B27570064CE5D /* OpenSans.swift */; };
 		F995A90B1B7B28510064CE5D /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = F995A9001B7B28510064CE5D /* LICENSE.txt */; };
 		F995A90C1B7B28510064CE5D /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F995A9011B7B28510064CE5D /* OpenSans-Bold.ttf */; };
@@ -214,6 +217,10 @@
 		F979A5131B787ACE00D72F5D /* Setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Setting.png; path = ../Setting.png; sourceTree = "<group>"; };
 		F98EDAD61B997EE2007E07FD /* propertyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = propertyViewController.swift; sourceTree = "<group>"; };
 		F98EDAD81B99847C007E07FD /* infoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = infoViewController.swift; sourceTree = "<group>"; };
+		F99043A91BB6B35F00F39773 /* SBPickerSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBPickerSelector.xib; sourceTree = "<group>"; };
+		F99043AB1BB6B35F00F39773 /* SBPickerSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPickerSelector.h; sourceTree = "<group>"; };
+		F99043AC1BB6B35F00F39773 /* SBPickerSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPickerSelector.m; sourceTree = "<group>"; };
+		F99043B41BB6B59100F39773 /* SearchDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetails.swift; sourceTree = "<group>"; };
 		F995A8FB1B7B27570064CE5D /* OpenSansSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenSansSwift.h; sourceTree = "<group>"; };
 		F995A8FC1B7B27570064CE5D /* OpenSans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSans.swift; sourceTree = "<group>"; };
 		F995A9001B7B28510064CE5D /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -448,8 +455,35 @@
 				F9522BB41B903C7800E8F3C6 /* Price.swift */,
 				F99DD19F1B96CE2C00B1172D /* SearchVenue.swift */,
 				F9DE5CE61BA5C33C0033ABBE /* images.swift */,
+				F99043B41BB6B59100F39773 /* SearchDetails.swift */,
 			);
 			name = Entities;
+			sourceTree = "<group>";
+		};
+		F99043A71BB6B35F00F39773 /* SBPickerSelector */ = {
+			isa = PBXGroup;
+			children = (
+				F99043A81BB6B35F00F39773 /* Resources */,
+				F99043AA1BB6B35F00F39773 /* Source */,
+			);
+			path = SBPickerSelector;
+			sourceTree = "<group>";
+		};
+		F99043A81BB6B35F00F39773 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F99043A91BB6B35F00F39773 /* SBPickerSelector.xib */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F99043AA1BB6B35F00F39773 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				F99043AB1BB6B35F00F39773 /* SBPickerSelector.h */,
+				F99043AC1BB6B35F00F39773 /* SBPickerSelector.m */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 		F995A8FF1B7B282B0064CE5D /* Fonts */ = {
@@ -473,6 +507,7 @@
 		F995A9181B7B3FEB0064CE5D /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				F99043A71BB6B35F00F39773 /* SBPickerSelector */,
 				F9B628911BA74E7A0034D7EC /* SDWebImage */,
 				F99716FF1B9421A2008BED74 /* Cloudinary */,
 				F92BBFB11B8310E800B468BB /* KSTokenView */,
@@ -709,6 +744,7 @@
 				F979A5151B787ACE00D72F5D /* Setting.png in Resources */,
 				F995A90D1B7B28510064CE5D /* OpenSans-BoldItalic.ttf in Resources */,
 				F9667D6E1B709AB300647DCE /* Images.xcassets in Resources */,
+				F99043AD1BB6B35F00F39773 /* SBPickerSelector.xib in Resources */,
 				F995A9131B7B28510064CE5D /* OpenSans-Regular.ttf in Resources */,
 				F995A90B1B7B28510064CE5D /* LICENSE.txt in Resources */,
 				F995A9101B7B28510064CE5D /* OpenSans-Italic.ttf in Resources */,
@@ -758,6 +794,7 @@
 				F995A91D1B7B64F10064CE5D /* locationViewController.swift in Sources */,
 				F90AB89C1B78BB1B002931E6 /* DPNotify.swift in Sources */,
 				F995A8FD1B7B27570064CE5D /* OpenSans.swift in Sources */,
+				F99043B51BB6B59100F39773 /* SearchDetails.swift in Sources */,
 				F940ED341B75D7C70017FDE6 /* DMLazyScrollView.m in Sources */,
 				F995A91B1B7B5EB30064CE5D /* editPropertyViewController.swift in Sources */,
 				F940ED471B7676AC0017FDE6 /* MySideMenuNavigationController.swift in Sources */,
@@ -767,6 +804,7 @@
 				F92BBF9E1B81A6D700B468BB /* UIView+SHAdditions.m in Sources */,
 				F995A9211B7BA2630064CE5D /* BaseViewController.swift in Sources */,
 				F9B628BD1BA74E7A0034D7EC /* UIImage+GIF.m in Sources */,
+				F99043AE1BB6B35F00F39773 /* SBPickerSelector.m in Sources */,
 				F9667D671B709AB300647DCE /* AppDelegate.swift in Sources */,
 				F97672C41BB178A500FA626B /* KSToken.swift in Sources */,
 				F9522BB51B903C7800E8F3C6 /* Price.swift in Sources */,
@@ -945,6 +983,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "lookvenue/lookvenue-BridgingHeader.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -967,6 +1006,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "lookvenue/lookvenue-BridgingHeader.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

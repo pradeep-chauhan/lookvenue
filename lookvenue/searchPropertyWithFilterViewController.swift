@@ -49,6 +49,7 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
     
     var selectedLocationsArray = NSMutableArray()
     
+    var searchDetails: SearchDetails = SearchDetails()
     //var priceSelected:String!
     
     override func viewDidLoad() {
@@ -300,8 +301,7 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
             }
             
             
-        }
-        
+        }        
     }
     
     

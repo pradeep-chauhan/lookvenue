@@ -31,6 +31,7 @@
     UIView* _coverView;
 }
 
+@property (nonatomic, retain) UITextField *selectedTextField;
 @property (nonatomic, assign) id<SHMultipleSelectDelegate> delegate;
 @property (nonatomic, assign) NSInteger rowsCount;
 

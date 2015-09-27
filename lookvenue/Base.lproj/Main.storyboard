@@ -234,8 +234,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="414" height="736"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XmB-Gz-RPk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -250,11 +249,11 @@
                         <viewControllerLayoutGuide type="bottom" id="mwK-Ye-GMo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="KHk-kp-Po1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email:" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="VaN-Je-19y">
-                                <rect key="frame" x="16" y="194" width="382" height="30"/>
+                                <rect key="frame" x="16" y="194" width="288" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="9b7-bs-4yM"/>
                                 </constraints>
@@ -262,7 +261,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password:" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7RP-UN-9te">
-                                <rect key="frame" x="16" y="241" width="382" height="30"/>
+                                <rect key="frame" x="16" y="241" width="288" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="gl5-qx-HYT"/>
                                 </constraints>
@@ -270,7 +269,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUz-yu-i0Q">
-                                <rect key="frame" x="16" y="335" width="382" height="38"/>
+                                <rect key="frame" x="16" y="335" width="288" height="38"/>
                                 <color key="backgroundColor" red="0.7890625" green="0.32825899559999999" blue="0.29760343480000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="t9t-QW-UKa"/>
@@ -292,14 +291,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="look-venue" translatesAutoresizingMaskIntoConstraints="NO" id="IIk-fl-lO7">
-                                <rect key="frame" x="157" y="46" width="100" height="100"/>
+                                <rect key="frame" x="110" y="46" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="17v-CI-JTa"/>
                                     <constraint firstAttribute="width" constant="100" id="ntd-8Z-sHf"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password:" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dav-k2-du2">
-                                <rect key="frame" x="16" y="288" width="382" height="30"/>
+                                <rect key="frame" x="16" y="288" width="288" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="IZJ-BT-egS"/>
                                 </constraints>
@@ -342,7 +341,7 @@
                             <constraint firstItem="DUz-yu-i0Q" firstAttribute="top" secondItem="dav-k2-du2" secondAttribute="bottom" constant="17" id="w2C-9f-MGm"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zf8-Za-mi1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -352,7 +351,10 @@
         <scene sceneID="Jon-ZU-vXA">
             <objects>
                 <navigationController navigationBarHidden="YES" id="vma-Qi-hd2" customClass="MySideMenuNavigationController" customModule="lookvenue" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="G4q-I3-b6i"/>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="pcj-0W-Yqh"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="jFY-PW-0gn"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleAspectFit" id="kbN-NJ-RAx">
@@ -729,17 +731,65 @@
                         <viewControllerLayoutGuide type="bottom" id="gnT-rl-R0I"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6kj-aR-cBK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uo-Cz-YCB">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yCz-R7-ABI">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yCz-R7-ABI" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please select price range:" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="MaK-Bi-uA7">
-                                                <rect key="frame" x="16" y="326" width="382" height="25"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Area *" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOD-eW-PhJ">
+                                                <rect key="frame" x="16" y="104" width="288" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="16" id="9VC-PV-7IZ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venue Type *" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXO-ub-Kx5">
+                                                <rect key="frame" x="16" y="170" width="288" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="16" id="cZb-mx-oDH"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please select date of enquiry:" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9cF-fT-Pms">
+                                                <rect key="frame" x="16" y="260" width="288" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="OMF-Sz-UeM"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="dateEndEditing:" destination="aDr-Pm-Xtk" eventType="editingDidEnd" id="STj-m0-4vA"/>
+                                                    <action selector="datePicker:" destination="aDr-Pm-Xtk" eventType="editingDidBegin" id="ueN-o0-1PM"/>
+                                                </connections>
+                                            </textField>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of enquiry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQj-4m-cly">
+                                                <rect key="frame" x="16" y="236" width="288" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="16" id="pfN-qz-Td3"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price range" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilJ-Ts-lZV">
+                                                <rect key="frame" x="16" y="302" width="288" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="16" id="wXX-GQ-Xk2"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please select price range:" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="MaK-Bi-uA7">
+                                                <rect key="frame" x="16" y="326" width="288" height="25"/>
                                                 <accessibility key="accessibilityConfiguration" hint=""/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="yVm-4R-Wbf"/>
@@ -748,110 +798,68 @@
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
                                                     <action selector="pricePickerRange:" destination="aDr-Pm-Xtk" eventType="editingDidBegin" id="RYH-S4-iL7"/>
+                                                    <action selector="priceRangeEndEditing:" destination="aDr-Pm-Xtk" eventType="editingDidEnd" id="PQC-Wn-TCS"/>
                                                 </connections>
                                             </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please select venue Type:" clearsOnBeginEditing="YES" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4xz-rf-0Fi">
+                                                <rect key="frame" x="16" y="194" width="288" height="25"/>
+                                                <accessibility key="accessibilityConfiguration" hint=""/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="byH-7w-OgZ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                                <connections>
+                                                    <action selector="venueEndEditing:" destination="aDr-Pm-Xtk" eventType="editingDidEnd" id="frw-e4-2OI"/>
+                                                    <action selector="venueTypeButton:" destination="aDr-Pm-Xtk" eventType="editingDidBegin" id="mCM-oD-hQH"/>
+                                                    <outlet property="delegate" destination="aDr-Pm-Xtk" id="7t9-iE-dJD"/>
+                                                </connections>
+                                            </textField>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQ5-te-h8h">
+                                                <rect key="frame" x="16" y="161" width="288" height="1"/>
+                                                <color key="backgroundColor" red="0.91644965280000001" green="0.91644965280000001" blue="0.91644965280000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="jbW-Ce-IQ8"/>
+                                                </constraints>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uYo-u3-q5U">
-                                                <rect key="frame" x="16" y="95" width="382" height="1"/>
+                                                <rect key="frame" x="16" y="95" width="288" height="1"/>
                                                 <color key="backgroundColor" red="0.91644965277777768" green="0.91644965277777768" blue="0.91644965277777768" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="Olo-V3-UKf"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wrc-5H-QQM">
-                                                <rect key="frame" x="16" y="227" width="382" height="1"/>
-                                                <color key="backgroundColor" red="0.91644965280000001" green="0.91644965280000001" blue="0.91644965280000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <rect key="frame" x="16" y="227" width="288" height="1"/>
+                                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="DAD-VC-WlZ"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m2Q-wG-5qX">
-                                                <rect key="frame" x="16" y="293" width="382" height="1"/>
+                                                <rect key="frame" x="16" y="293" width="288" height="1"/>
                                                 <color key="backgroundColor" red="0.91644965280000001" green="0.91644965280000001" blue="0.91644965280000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="e1o-rI-Ol8"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="v7t-QO-RCp" customClass="KSTokenView" customModule="lookvenue">
-                                                <rect key="frame" x="16" y="128" width="382" height="25"/>
+                                            <view opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="v7t-QO-RCp" customClass="KSTokenView" customModule="lookvenue">
+                                                <rect key="frame" x="16" y="128" width="288" height="25"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="dBp-Os-Kmq"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Area *" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOD-eW-PhJ">
-                                                <rect key="frame" x="16" y="104" width="382" height="16"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="16" id="9VC-PV-7IZ"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City:" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6qw-X7-uaK">
-                                                <rect key="frame" x="16" y="62" width="382" height="25"/>
+                                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City:" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6qw-X7-uaK">
+                                                <rect key="frame" x="16" y="62" width="288" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="86B-jh-77o"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venue Type *" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXO-ub-Kx5">
-                                                <rect key="frame" x="16" y="170" width="382" height="16"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="16" id="cZb-mx-oDH"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please select venue Type:" clearsOnBeginEditing="YES" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4xz-rf-0Fi">
-                                                <rect key="frame" x="16" y="194" width="382" height="25"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="25" id="byH-7w-OgZ"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <action selector="venueTypeButton:" destination="aDr-Pm-Xtk" eventType="editingDidEnd" id="qW4-DK-B0B"/>
-                                                </connections>
-                                            </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please select date of enquiry:" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9cF-fT-Pms">
-                                                <rect key="frame" x="16" y="260" width="382" height="25"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="25" id="OMF-Sz-UeM"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <action selector="datePicker:" destination="aDr-Pm-Xtk" eventType="editingDidBegin" id="ueN-o0-1PM"/>
-                                                </connections>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of enquiry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQj-4m-cly">
-                                                <rect key="frame" x="16" y="236" width="382" height="16"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="16" id="pfN-qz-Td3"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price range" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilJ-Ts-lZV">
-                                                <rect key="frame" x="16" y="302" width="382" height="16"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="16" id="wXX-GQ-Xk2"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQ5-te-h8h">
-                                                <rect key="frame" x="16" y="161" width="382" height="1"/>
-                                                <color key="backgroundColor" red="0.91644965280000001" green="0.91644965280000001" blue="0.91644965280000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="jbW-Ce-IQ8"/>
-                                                </constraints>
-                                            </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City *" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ed-cx-U2s">
-                                                <rect key="frame" x="16" y="38" width="382" height="16"/>
+                                                <rect key="frame" x="16" y="38" width="288" height="16"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="16" id="O1R-fP-7Tm"/>
                                                 </constraints>
@@ -860,14 +868,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGG-n2-Wne">
-                                                <rect key="frame" x="16" y="359" width="382" height="1"/>
+                                                <rect key="frame" x="16" y="359" width="288" height="1"/>
                                                 <color key="backgroundColor" red="0.91644965280000001" green="0.91644965280000001" blue="0.91644965280000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="Iwf-Wv-Zo4"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L18-gl-Xab">
-                                                <rect key="frame" x="162" y="402" width="90" height="38"/>
+                                                <rect key="frame" x="115" y="402" width="90" height="38"/>
                                                 <color key="backgroundColor" red="0.7890625" green="0.32825899559999999" blue="0.29760343480000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="90" id="X2h-Sn-gGk"/>
@@ -935,7 +943,7 @@
                                         </constraints>
                                     </view>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="acM-h5-NLZ">
-                                        <rect key="frame" x="189" y="381" width="37" height="37"/>
+                                        <rect key="frame" x="142" y="265" width="37" height="37"/>
                                         <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </activityIndicatorView>
                                 </subviews>
@@ -956,13 +964,14 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="8uo-Cz-YCB" secondAttribute="trailing" id="AwS-XF-sL9"/>
                             <constraint firstAttribute="bottom" secondItem="8uo-Cz-YCB" secondAttribute="bottom" id="gTb-kM-qao"/>
+                            <constraint firstItem="yCz-R7-ABI" firstAttribute="height" secondItem="6kj-aR-cBK" secondAttribute="height" priority="250" id="gVa-zt-VTf"/>
                             <constraint firstItem="8uo-Cz-YCB" firstAttribute="top" secondItem="6kj-aR-cBK" secondAttribute="top" id="tgJ-Mn-qun"/>
                             <constraint firstItem="8uo-Cz-YCB" firstAttribute="leading" secondItem="6kj-aR-cBK" secondAttribute="leading" id="v8I-6E-3LB"/>
+                            <constraint firstItem="yCz-R7-ABI" firstAttribute="width" secondItem="6kj-aR-cBK" secondAttribute="width" id="zWY-Vc-sdO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cMi-vg-Hky"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="414" height="800"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="area" destination="v7t-QO-RCp" id="dUs-i4-pfa"/>
                         <outlet property="areaLabel" destination="EOD-eW-PhJ" id="N1X-Oi-qnM"/>
@@ -970,6 +979,7 @@
                         <outlet property="cityLabel" destination="7Ed-cx-U2s" id="MLB-M9-QZD"/>
                         <outlet property="dateOfEnquiry" destination="9cF-fT-Pms" id="TuM-gP-Rrf"/>
                         <outlet property="indicator" destination="acM-h5-NLZ" id="QQD-GE-1Ag"/>
+                        <outlet property="pageView" destination="yCz-R7-ABI" id="LnK-NI-WeL"/>
                         <outlet property="priceRange" destination="MaK-Bi-uA7" id="mdo-md-9dG"/>
                         <outlet property="scrollView" destination="8uo-Cz-YCB" id="KiB-VG-HXA"/>
                         <outlet property="venueLabel" destination="oXO-ub-Kx5" id="p41-Ct-Xn2"/>
@@ -1121,17 +1131,17 @@
                         <viewControllerLayoutGuide type="bottom" id="SHx-GY-hbH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Gj9-Rk-Brn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="nX0-Ep-wBx">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Npl-yi-kUs">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please select price range:" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Grx-Jd-AZ5">
-                                                <rect key="frame" x="16" y="327" width="382" height="25"/>
+                                                <rect key="frame" x="16" y="327" width="288" height="25"/>
                                                 <accessibility key="accessibilityConfiguration" hint=""/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="cg3-hf-jVf"/>
@@ -1144,46 +1154,46 @@
                                                 </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H1X-SW-U8q">
-                                                <rect key="frame" x="16" y="96" width="382" height="1"/>
+                                                <rect key="frame" x="16" y="96" width="288" height="1"/>
                                                 <color key="backgroundColor" red="0.91644965280000001" green="0.91644965280000001" blue="0.91644965280000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="a3Y-Mb-BVo"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qFU-vz-dZP">
-                                                <rect key="frame" x="16" y="228" width="382" height="1"/>
+                                                <rect key="frame" x="16" y="228" width="288" height="1"/>
                                                 <color key="backgroundColor" red="0.91644965280000001" green="0.91644965280000001" blue="0.91644965280000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="3fW-dw-2Da"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ku-g9-MZY">
-                                                <rect key="frame" x="16" y="294" width="382" height="1"/>
+                                                <rect key="frame" x="16" y="294" width="288" height="1"/>
                                                 <color key="backgroundColor" red="0.91644965280000001" green="0.91644965280000001" blue="0.91644965280000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="MtD-dS-N6x"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WIC-96-Ysq">
-                                                <rect key="frame" x="16" y="360" width="382" height="1"/>
+                                                <rect key="frame" x="16" y="360" width="288" height="1"/>
                                                 <color key="backgroundColor" red="0.91644965280000001" green="0.91644965280000001" blue="0.91644965280000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="x1x-0W-hOu"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="DKb-H7-98A" customClass="KSTokenView" customModule="lookvenue">
-                                                <rect key="frame" x="16" y="129" width="382" height="25"/>
+                                                <rect key="frame" x="16" y="129" width="288" height="25"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="88d-hd-83n"/>
                                                 </constraints>
                                             </view>
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="1eP-Fc-Bk1">
-                                                <rect key="frame" x="189" y="432" width="37" height="37"/>
+                                                <rect key="frame" x="142" y="266" width="37" height="37"/>
                                                 <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             </activityIndicatorView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Area *" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLI-Ns-FHE">
-                                                <rect key="frame" x="16" y="105" width="382" height="16"/>
+                                                <rect key="frame" x="16" y="105" width="288" height="16"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="16" id="c49-nZ-Qcp"/>
                                                 </constraints>
@@ -1192,7 +1202,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City:" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Uoy-Lh-Re5">
-                                                <rect key="frame" x="16" y="63" width="382" height="25"/>
+                                                <rect key="frame" x="16" y="63" width="288" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="rTD-kz-r8a"/>
                                                 </constraints>
@@ -1200,7 +1210,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venue Type *" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HhT-mz-Z9J">
-                                                <rect key="frame" x="16" y="171" width="382" height="16"/>
+                                                <rect key="frame" x="16" y="171" width="288" height="16"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="16" id="W1q-ST-baR"/>
                                                 </constraints>
@@ -1209,7 +1219,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please select venue Type:" clearsOnBeginEditing="YES" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4Rg-Nb-9Zt">
-                                                <rect key="frame" x="16" y="195" width="382" height="25"/>
+                                                <rect key="frame" x="16" y="195" width="288" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="a9G-vR-HK6"/>
                                                 </constraints>
@@ -1221,7 +1231,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please select date of enquiry:" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2ET-xR-r2O">
-                                                <rect key="frame" x="16" y="261" width="382" height="25"/>
+                                                <rect key="frame" x="16" y="261" width="288" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="rs2-TP-FT0"/>
                                                 </constraints>
@@ -1233,7 +1243,7 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Enquiry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7U-VU-RBH">
-                                                <rect key="frame" x="16" y="237" width="382" height="16"/>
+                                                <rect key="frame" x="16" y="237" width="288" height="16"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="16" id="TR7-0U-8J1"/>
                                                 </constraints>
@@ -1242,7 +1252,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price range" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7M-zq-ydL">
-                                                <rect key="frame" x="16" y="303" width="382" height="16"/>
+                                                <rect key="frame" x="16" y="303" width="288" height="16"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="16" id="KGI-Zn-eJs"/>
                                                 </constraints>
@@ -1251,7 +1261,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please select capacity range:" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vus-C3-RIw">
-                                                <rect key="frame" x="16" y="393" width="382" height="25"/>
+                                                <rect key="frame" x="16" y="393" width="288" height="25"/>
                                                 <accessibility key="accessibilityConfiguration" hint=""/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="mVs-PH-14s"/>
@@ -1264,14 +1274,14 @@
                                                 </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vde-Z9-2N8">
-                                                <rect key="frame" x="16" y="426" width="382" height="1"/>
+                                                <rect key="frame" x="16" y="426" width="288" height="1"/>
                                                 <color key="backgroundColor" red="0.91644965280000001" green="0.91644965280000001" blue="0.91644965280000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="AAO-SO-cxZ"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capacity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqd-2e-c4g">
-                                                <rect key="frame" x="16" y="369" width="382" height="16"/>
+                                                <rect key="frame" x="16" y="369" width="288" height="16"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="16" id="6NV-1j-tBt"/>
                                                 </constraints>
@@ -1280,7 +1290,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please select covered area range:" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xDH-cT-d92">
-                                                <rect key="frame" x="16" y="459" width="382" height="25"/>
+                                                <rect key="frame" x="16" y="459" width="288" height="25"/>
                                                 <accessibility key="accessibilityConfiguration" hint=""/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="9kO-ET-Bgw"/>
@@ -1293,14 +1303,14 @@
                                                 </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pOG-sT-Cb8">
-                                                <rect key="frame" x="16" y="492" width="382" height="1"/>
+                                                <rect key="frame" x="16" y="492" width="288" height="1"/>
                                                 <color key="backgroundColor" red="0.91644965280000001" green="0.91644965280000001" blue="0.91644965280000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="q3K-i0-U1h"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Covered area" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3s5-Dn-gwd">
-                                                <rect key="frame" x="16" y="435" width="382" height="16"/>
+                                                <rect key="frame" x="16" y="435" width="288" height="16"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="16" id="1q6-nL-FUa"/>
                                                 </constraints>
@@ -1309,14 +1319,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNQ-bQ-kT7">
-                                                <rect key="frame" x="16" y="162" width="382" height="1"/>
+                                                <rect key="frame" x="16" y="162" width="288" height="1"/>
                                                 <color key="backgroundColor" red="0.91644965280000001" green="0.91644965280000001" blue="0.91644965280000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="471-U6-Nza"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City *" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZ0-fd-aHR">
-                                                <rect key="frame" x="16" y="39" width="382" height="16"/>
+                                                <rect key="frame" x="16" y="39" width="288" height="16"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="16" id="xeF-RL-1LX"/>
                                                 </constraints>
@@ -1325,7 +1335,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfz-aX-5fq">
-                                                <rect key="frame" x="154" y="533" width="107" height="38"/>
+                                                <rect key="frame" x="107" y="533" width="107" height="38"/>
                                                 <color key="backgroundColor" red="0.7890625" green="0.32825899559999999" blue="0.29760343480000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="38" id="JCJ-yz-qzz"/>
@@ -1432,8 +1442,7 @@
                             <constraint firstAttribute="trailing" secondItem="nX0-Ep-wBx" secondAttribute="trailing" id="wcR-nh-KK5"/>
                         </constraints>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="414" height="900"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="area" destination="DKb-H7-98A" id="GzN-Uc-lof"/>
                         <outlet property="areaLabel" destination="QLI-Ns-FHE" id="niV-Wi-r6e"/>
@@ -1870,8 +1879,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="414" height="736"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2V2-T8-pFG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

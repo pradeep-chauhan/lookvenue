@@ -22,8 +22,10 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     //@IBOutlet weak var tokanView: KSTokenField!
     
+    @IBOutlet weak var pageView: UIView!
     @IBOutlet weak var area: KSTokenView!
-    
+
+    var currentlySelectedTextField = UITextField()
     //var scrollView:UIScrollView!
     
     //scrollView.delegate = self
@@ -43,8 +45,8 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
     
     //selected value
     
-    var priceSelected: [Int] = []
-    var venueSelected: [Int] = []
+    var searchDetails: SearchDetails = SearchDetails()
+    //var venueSelected: [Int] = []
     var areaSelected: [Int] = []
     
     var selectedLocationsArray = NSMutableArray()
@@ -78,12 +80,14 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
             default:
                 print("unknown")
             }
+            
         }
+        
+        city.text = "Delhi/NCR"
         
         //self.scrollView.contentSize = CGSize(width: 0, height: 600)
         //self.scrollView.showsVerticalScrollIndicator = true
         view.addSubview(scrollView)
-        
         indicator.startAnimating()
         super.viewDidLoad()
         
@@ -118,11 +122,11 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         //assign button to navigationbar
         self.navigationItem.leftBarButtonItem = leftMenubarButton
         
-        self.area.delegate=self
-        self.dateOfEnquiry.delegate=self
-        self.priceRange.delegate=self
-        self.venueType.delegate=self
-        self.city.delegate=self
+        area.delegate=self
+        dateOfEnquiry.delegate = self
+        priceRange.delegate = self
+        venueType.delegate = self
+        city.delegate = self
         
         //tokanView.promptText = "Top 5: "
         area.placeholder = "Type to search area"
@@ -145,7 +149,6 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
             self.getAreasArray()
             self.indicator.stopAnimating()
         })
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -179,14 +182,14 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
     }
     
     @IBAction func datePicker(sender: AnyObject) {
-       self.dateOfEnquiry.resignFirstResponder()
+       
         DatePickerDialog().show(title: "Select Date", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .Date) {
             
             (date) -> Void in
             var dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "dd-MMM-yyyy"
             self.dateOfEnquiry.text = dateFormatter.stringFromDate(date)
-            
+            self.dateOfEnquiry.resignFirstResponder()
         }
         
         
@@ -195,7 +198,6 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
     
     @IBAction func venueTypeButton(sender: AnyObject) {
         //self.hideKeyBoard()
-        self.venueType.resignFirstResponder()
         multiselectViewCall = "venue"
         var methodType: String = "GET"
         var base: String = "property_types/"
@@ -209,16 +211,16 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
             self.indicator.stopAnimating()
             
             var venueTypemultipleSelect = SHMultipleSelect()
+            venueTypemultipleSelect.selectedTextField = self.currentlySelectedTextField
             venueTypemultipleSelect.delegate = self
             venueTypemultipleSelect.rowsCount = self.vanueListArray.count
             venueTypemultipleSelect.show()
+            self.venueType.resignFirstResponder()
         })
         
     }
     
     @IBAction func pricePickerRange(sender: AnyObject) {
-        self.priceRange.resignFirstResponder()
-        self.priceRange.userInteractionEnabled = true
         
         multiselectViewCall = "price"
         var methodType: String = "GET"
@@ -234,19 +236,20 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
             self.indicator.stopAnimating()
             
             var priceRangemultipleSelect = SHMultipleSelect()
+            priceRangemultipleSelect.selectedTextField = self.currentlySelectedTextField
             priceRangemultipleSelect.delegate = self
             priceRangemultipleSelect.rowsCount = self.priceListArray.count
             priceRangemultipleSelect.show()
+            self.priceRange.resignFirstResponder()
+
         }
-        
-        
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        self.view.resignFirstResponder()
-        println("touch")
-        //return false
-    }
+//    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+//        self.view.resignFirstResponder()
+//        println("touch")
+//        //return false
+//    }
     
     //For venue
     
@@ -254,13 +257,15 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         
         if (multiselectViewCall == "venue") {
             if(selectedIndexPaths == nil) {
-                venueSelected.removeAll()
+                searchDetails.venueSelected.removeAllObjects()
                 self.venueType.text=""
+                self.venueType.resignFirstResponder()
             }
             else {
+                //multipleSelectView.selectedTextField.resignFirstResponder()
                 if(clickedBtnIndex != 0)
                 {
-                    venueSelected.removeAll()
+                    searchDetails.venueSelected.removeAllObjects()
                     var indexPathsArray = selectedIndexPaths as NSArray
                     
                     for(var i = 0; i < indexPathsArray.count; i++)
@@ -270,12 +275,12 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
                         {
                             
                             self.venueType.text = (vanuesArray[index.row]["name"] as! String)
-                            venueSelected.append(vanuesArray[index.row]["id"] as! Int)
+                            searchDetails.venueSelected.addObject(vanuesArray[index.row]["id"] as! Int)
                         }
                         else if(self.venueType.text != nil || self.venueType.text != "")
                         {
                             self.venueType.text = self.venueType.text + "," + (vanuesArray[index.row]["name"] as! String)
-                            venueSelected.append(vanuesArray[index.row]["id"] as! Int)
+                            searchDetails.venueSelected.addObject(vanuesArray[index.row]["id"] as! Int)
                             
                         }
                         else {
@@ -294,8 +299,9 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         
         if (multiselectViewCall == "price") {
             if(selectedIndexPaths == nil) {
-                priceSelected.removeAll()
+                searchDetails.priceSelected.removeAllObjects()
                 self.priceRange.text=""
+                self.priceRange.resignFirstResponder()
             }
             else {
                 if(clickedBtnIndex != 0)
@@ -303,24 +309,24 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
                     if(selectedIndexPaths != nil) {
                         var indexPathsArray = selectedIndexPaths as NSArray
                         
-                        priceSelected.removeAll()
+                        searchDetails.priceSelected.removeAllObjects()
                         for(var i = 0; i < indexPathsArray.count; i++)
                         {
                             var index = indexPathsArray[i] as! NSIndexPath
                             if(self.priceRange.text == nil || self.priceRange.text == "")
                             {
                                 self.priceRange.text = (priceArray[index.row]["name"] as! String)
-                                priceSelected.append(priceArray[index.row]["id"] as! Int)
+                                searchDetails.priceSelected.addObject(priceArray[index.row]["id"] as! Int)
                                 
                             }
                             else if(self.priceRange.text != nil || self.priceRange.text != "")
                             {
                                 self.priceRange.text = self.priceRange.text + "," + (priceArray[index.row]["name"] as! String)
-                                priceSelected.append(priceArray[index.row]["id"] as! Int)
+                                searchDetails.priceSelected.addObject(priceArray[index.row]["id"] as! Int)
                                 
                             }
                             else {
-                                priceSelected.removeAll()
+                                searchDetails.priceSelected.removeAllObjects()
                                 self.priceRange.text=""
                             }
                         }
@@ -338,6 +344,9 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
             
             
         }
+        
+        //==
+        currentlySelectedTextField.resignFirstResponder()
         
     }
     
@@ -359,8 +368,8 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         var canSelect: Bool = false
         
         if(multiselectViewCall == "venue") {
-            for (var i = 0; i < venueSelected.count; i++){
-                var selectedCheck = (venueSelected[i]) - 1
+            for (var i = 0; i < searchDetails.venueSelected.count; i++){
+                var selectedCheck = (searchDetails.venueSelected[i] as! Int) - 1
                 if((indexPath.item) == selectedCheck) {
                     canSelect = true
                 }
@@ -368,8 +377,8 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         }
         
         if(multiselectViewCall == "price") {
-            for (var i = 0; i < priceSelected.count; i++){
-                var selectedCheck = (priceSelected[i]) - 1
+            for (var i = 0; i < searchDetails.priceSelected.count; i++){
+                var selectedCheck = (searchDetails.priceSelected[i] as! Int) - 1
                 if((indexPath.item) == selectedCheck) {
                     canSelect = true
                 }
@@ -378,11 +387,23 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         //println(canSelect)
         return canSelect
     }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        currentlySelectedTextField = textField
+        textField.resignFirstResponder()
 
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        currentlySelectedTextField.resignFirstResponder()
+        textField.resignFirstResponder()
+    }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
+        //self.view.endEditing(true)
+        
+        textField.resignFirstResponder()
+        return true
         
     }
     
@@ -461,9 +482,12 @@ extension searchProperrty: KSTokenViewDelegate {
         for var i = 0; i < areaArray.count; i++
         {
             var tempDictionary = areaArray[i] as! NSDictionary
+            println(tempDictionary)
             if(tempDictionary.valueForKey("name") as! NSString == title)
             {
+                println(tempDictionary.valueForKey("id") as! NSNumber)
                 return tempDictionary.valueForKey("id") as! NSNumber
+                
             }
             else
             {
@@ -474,16 +498,18 @@ extension searchProperrty: KSTokenViewDelegate {
         return NSNumber(int: 0)
     }
     
-//    func tokenView(tokenView: KSTokenView, willDeleteToken token: KSToken) {
-//        println(token.title)
-//        var idOfObject = self.getIdOfObject(token.title)
-//        selectedLocationsArray.removeObject(idOfObject)
-//    }
-//    
+    func tokenView(tokenView: KSTokenView, willDeleteToken token: KSToken) {
+        println(token.title)
+        var idOfObject = self.getIdOfObject(token.title)
+        selectedLocationsArray.removeObject(idOfObject)
+        println(idOfObject)
+    }
+    
     func tokenView(token: KSTokenView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var object = areaArray.objectAtIndex(indexPath.row) as! NSDictionary
-        selectedLocationsArray.addObject(object["id"] as! NSNumber)
-        
+        var object1 = (token._resultArray as NSArray).objectAtIndex(indexPath.row) as! NSDictionary
+        println(object1)
+        selectedLocationsArray.addObject(object1["id"] as! NSNumber)
+        println(selectedLocationsArray)
     }
     
     func tokenView(token: KSTokenView, displayTitleForObject object: AnyObject) -> String {
@@ -497,6 +523,15 @@ extension searchProperrty: KSTokenViewDelegate {
             return object as! String
         }
         
+    }
+    @IBAction func venueEndEditing(sender: AnyObject) {
+        self.venueType.resignFirstResponder()
+    }
+    @IBAction func dateEndEditing(sender: AnyObject) {
+        self.dateOfEnquiry.resignFirstResponder()
+    }
+    @IBAction func priceRangeEndEditing(sender: AnyObject) {
+        self.priceRange.resignFirstResponder()
     }
     
 }

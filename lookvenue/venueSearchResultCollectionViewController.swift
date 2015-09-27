@@ -18,6 +18,9 @@ class venueSearchResultCollectionViewController: UICollectionViewController,UICo
     var image:NSString = ""
     
     let sectionInsets = UIEdgeInsets(top: 5.0, left: 10.0, bottom: 5.0, right: 10.0)
+    
+    var searchDetails:SearchDetails = SearchDetails()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getSearchVenueArray()
@@ -35,7 +38,7 @@ class venueSearchResultCollectionViewController: UICollectionViewController,UICo
         self.navigationController?.setToolbarHidden(true, animated: true)
         
         self.navigationItem.title = "Search Result"
-        
+        self.navigationController!.navigationItem.leftBarButtonItem!.title = " "
         // right bar button menu
         
         let rightBarButton: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
@@ -76,6 +79,7 @@ class venueSearchResultCollectionViewController: UICollectionViewController,UICo
     func SearchButtonPressed() {
         var storyBoard = UIStoryboard(name: "Main", bundle: nil)
         var dash : searchPropertyWithFilterViewController = storyBoard.instantiateViewControllerWithIdentifier("searchPropertyWithFilter") as! searchPropertyWithFilterViewController
+        dash.searchDetails = self.searchDetails
         self.navigationController?.pushViewController(dash, animated: true)
     }
     

@@ -42,7 +42,7 @@ class KSUtils : NSObject {
 
 extension UIColor {
    func darkendColor(darkRatio: CGFloat) -> UIColor {
-      var h: CGFloat = 0.0, s: CGFloat = 0.0, b: CGFloat = 0.0, a: CGFloat = 0.0
+      var h: CGFloat = 0.0, s: CGFloat = 0.0, b: CGFloat = 0.0, a: CGFloat = 1.0
       if (getHue(&h, saturation: &s, brightness: &b, alpha: &a)) {
          return UIColor(hue: h, saturation: s, brightness: b*darkRatio, alpha: a)
       } else {

@@ -22,7 +22,7 @@ class ViewController : UIViewController, ENSideMenuDelegate{
         //UIButton.appearance()= UIFont(name: "OpenSans", size: 20)
         
         // Set Background color(android app bg color)
-        var bgColorCode = UIColor(red: 210, green: 63, blue: 49, alpha: 0.5)
+        var bgColorCode = UIColor(red: 210, green: 63, blue: 49, alpha: 1)
         
         // left bar button menu
         

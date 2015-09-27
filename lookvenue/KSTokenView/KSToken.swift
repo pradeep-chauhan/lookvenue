@@ -86,7 +86,7 @@ class KSToken : UIControl {
       self.title = title
       self.object = object
       super.init(frame: CGRect.zeroRect)
-      backgroundColor = UIColor.clearColor()
+//      backgroundColor = UIColor.clearColor()
    }
    
    //MARK: - Drawing code

@@ -17,6 +17,7 @@
 
 
 @implementation SHMultipleSelect
+@synthesize selectedTextField;
 
 const int selectionRowHeight = 40;
 const int selectionBtnHeight = 40;
@@ -168,12 +169,14 @@ const int selectionTopMargin = 30;
 }
 
 - (void)btnClick:(UIButton *)sender {
+    [self.selectedTextField resignFirstResponder];
     [UIView animateWithDuration:0.2
                      animations:^{
                          self.layer.opacity = 0;
                      }
                      completion:^(BOOL finished) {
                          [self removeFromSuperview];
+                         [self.selectedTextField resignFirstResponder];
                          if ([_delegate respondsToSelector:@selector(multipleSelectView:clickedBtnAtIndex:withSelectedIndexPaths:)]) {
                              [_delegate multipleSelectView:self clickedBtnAtIndex:sender.tag withSelectedIndexPaths:_table.indexPathsForSelectedRows];
                          }
