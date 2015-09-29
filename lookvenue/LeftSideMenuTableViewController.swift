@@ -1,18 +1,20 @@
 //
-//  MenuController.swift
-//  SidebarMenu
+//  LeftSideMenuTableViewController.swift
+//  lookvenue
 //
-//  Created by Simon Ng on 2/2/15.
-//  Copyright (c) 2015 AppCoda. All rights reserved.
+//  Created by Pradeep Chauhan on 9/28/15.
+//  Copyright (c) 2015 Pradeep Chauhan. All rights reserved.
 //
 
 import UIKit
 
-class MenuController: UITableViewController {
-
+class LeftSideMenuTableViewController: UITableViewController {
+    let reuseIdentifier = "Cell"
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        self.view.backgroundColor = UIColor(red: 53.0, green: 55.0, blue: 44.0, alpha: 0.7)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -25,20 +27,45 @@ class MenuController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
-    
     // MARK: - Table view data source
 
-
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
-
-        // Configure the cell...
-
-        return cell
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Potentially incomplete method implementation.
+        // Return the number of sections.
+        return 1
     }
-    */
+
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete method implementation.
+        // Return the number of rows in the section.
+        return 5
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if(indexPath.row == 0) {
+            var cell = tableView.dequeueReusableCellWithIdentifier("Tcell") as! UITableViewCell
+            cell.backgroundColor = UIColor(red: 210.0, green: 67.0, blue: 49.0, alpha: 1.0)
+            // Configure the cell...
+            return cell
+        }
+        else {
+            var cell = tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
+            
+            // Configure the cell...
+            
+            return cell
+        }
+        
+    }
+//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        if(indexPath.row == 0) {
+//            
+//            // Configure the cell...
+//            return 76
+//        }
+//        
+//    }
+
 
     /*
     // Override to support conditional editing of the table view.

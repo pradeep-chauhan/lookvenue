@@ -8,13 +8,34 @@
 
 import UIKit
 
-class login:ViewController, ENSideMenuDelegate{
+class login:UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Calling side mune bar
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.sideMenuController()?.sideMenu?.delegate = self
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1.0)
+        // center image in nav bar
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        imageView.contentMode = .ScaleAspectFit
+        
+        let image = UIImage(named: "look-venue-logo.png")
+        imageView.image = image
+        //self.navigationController?.setToolbarHidden(true, animated: false)
+        self.navigationItem.titleView = imageView
+        
+        let leftBarButton: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+        //set image for button
+        leftBarButton.setImage(UIImage(named: "menu-icon.png"), forState: UIControlState.Normal)
+        //add function for button
+        leftBarButton.addTarget(self, action: "leftSideMenuButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+        //set frame
+        leftBarButton.frame = CGRectMake(0, 0,20, 20)
+        
+        let leftMenubarButton = UIBarButtonItem(customView: leftBarButton)
+        //assign button to navigationbar
+        self.navigationItem.leftBarButtonItem = leftMenubarButton
         
     }
 
@@ -23,24 +44,14 @@ class login:ViewController, ENSideMenuDelegate{
         // Dispose of any resources that can be recreated.
     }
     
-    func ToggleButtonAction(sender:UIButton)
-    {
-        toggleSideMenuView()
+    func leftSideMenuButtonPressed() {
+        self.menuContainerViewController.toggleLeftSideMenuCompletion { () -> Void in
+            
+        }
     }
     
     // MARK: - ENSideMenu Delegate
-    func sideMenuWillOpen() {
-        println("sideMenuWillOpen")
-    }
     
-    func sideMenuWillClose() {
-        println("sideMenuWillClose")
-    }
-    
-    func sideMenuShouldOpenSideMenu() -> Bool {
-        println("sideMenuShouldOpenSideMenu")
-        return true
-    }
 
     @IBAction func showForgotPasswordAction(sender: AnyObject) {
     }

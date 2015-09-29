@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>A7FB667B-7E9F-4E84-9B3E-AAF2AF685B5F</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>lookvenue</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>0B938989A607007B9CE796CB85DEC9C78E03C490</key>
 		<string>https://github.com/pradeep-chauhan/lookvenue.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>lookvenue.xcodeproj/project.xcworkspace</string>
+	<string>lookvenue.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>0B938989A607007B9CE796CB85DEC9C78E03C490</key>

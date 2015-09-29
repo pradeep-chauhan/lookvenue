@@ -64,7 +64,7 @@ class propertyViewController: UIViewController, CLUploaderDelegate {
         
         //if(selectedSearchVanueDictionary.v)
         
-        self.navigationController?.setToolbarHidden(false, animated: true)
+        //self.navigationController?.setToolbarHidden(false, animated: true)
         
         if(segmentControl.selectedSegmentIndex == 0)
         {

@@ -9,11 +9,17 @@
 import UIKit
 //import Alamofire
 
-class ViewController : UIViewController, ENSideMenuDelegate{
+class ViewController : UIViewController{
     //@IBAction var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        
+        
+        
         
         //initialize font
         OpenSans.registerFonts()

@@ -24,8 +24,6 @@ class venueSearchResultCollectionViewController: UICollectionViewController,UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getSearchVenueArray()
-        
-        
         cloudinary.config().setValue("dtpcuqqq2", forKey: "cloud_name")
         cloudinary.config().setValue("897166688766548", forKey: "api_key")
         cloudinary.config().setValue("HZ3xp9PcVYWyaUaNB8yivz9FX8E", forKey: "api_secret")
@@ -35,10 +33,10 @@ class venueSearchResultCollectionViewController: UICollectionViewController,UICo
         transformation.setHeightWithInt(300)
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationController?.setToolbarHidden(true, animated: true)
+        //self.navigationController?.setToolbarHidden(true, animated: false)
         
         self.navigationItem.title = "Search Result"
-        self.navigationController!.navigationItem.leftBarButtonItem!.title = " "
+        //self.navigationController!.navigationItem.leftBarButtonItem!.title = " "
         // right bar button menu
         
         let rightBarButton: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
@@ -68,7 +66,7 @@ class venueSearchResultCollectionViewController: UICollectionViewController,UICo
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.navigationController?.setToolbarHidden(true, animated: true)
+        //self.navigationController?.setToolbarHidden(true, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -149,7 +147,6 @@ class venueSearchResultCollectionViewController: UICollectionViewController,UICo
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         var storyBoard = UIStoryboard(name: "Main", bundle: nil)
         var dash : propertyViewController = storyBoard.instantiateViewControllerWithIdentifier("propertyView") as! propertyViewController
-        println(indexPath.row)
         dash.selectedSearchVanueDictionary = self.searchVenueListArray.objectAtIndex(indexPath.row) as! NSDictionary
         self.navigationController?.pushViewController(dash, animated: true)
     }

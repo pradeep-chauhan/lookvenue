@@ -8,7 +8,7 @@
 
 import UIKit
 
-class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDelegate,KSTokenViewDelegate,ENSideMenuDelegate{
+class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDelegate,KSTokenViewDelegate{
     
     @IBOutlet weak var dateOfEnquiry: UITextField!
     @IBOutlet weak var priceRange: UITextField!
@@ -22,6 +22,7 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     //@IBOutlet weak var tokanView: KSTokenField!
     
+    @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var pageView: UIView!
     @IBOutlet weak var area: KSTokenView!
 
@@ -84,7 +85,7 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         }
         
         city.text = "Delhi/NCR"
-        
+        searchButton.backgroundColor = UIColor(red: 210.0/255.0, green: 67.0/255.0, blue: 49.0/255.0, alpha: 1.0)
         //self.scrollView.contentSize = CGSize(width: 0, height: 600)
         //self.scrollView.showsVerticalScrollIndicator = true
         view.addSubview(scrollView)
@@ -96,8 +97,7 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         venueLabel.textColor = UIColor.redColor()
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.sideMenuController()?.sideMenu?.delegate = self
-        
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1.0)
         // center image in nav bar
         
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
@@ -105,16 +105,14 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         
         let image = UIImage(named: "look-venue-logo.png")
         imageView.image = image
-        
+        //self.navigationController?.setToolbarHidden(true, animated: false)
         self.navigationItem.titleView = imageView
-        
-        self.navigationController?.setToolbarHidden(true, animated: true)
         
         let leftBarButton: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
         //set image for button
         leftBarButton.setImage(UIImage(named: "menu-icon.png"), forState: UIControlState.Normal)
         //add function for button
-        leftBarButton.addTarget(self, action: "ToggleButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        leftBarButton.addTarget(self, action: "leftSideMenuButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
         //set frame
         leftBarButton.frame = CGRectMake(0, 0,20, 20)
         
@@ -151,8 +149,14 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         })
     }
     
+    func leftSideMenuButtonPressed() {
+        self.menuContainerViewController.toggleLeftSideMenuCompletion { () -> Void in
+            
+        }
+    }
+    
     override func viewWillAppear(animated: Bool) {
-        self.navigationController?.setToolbarHidden(true, animated: true)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     // venue array declare
     func getVanuesArray() -> Void
@@ -180,6 +184,7 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
     @IBAction func datePicker(sender: AnyObject) {
        
@@ -416,12 +421,14 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         
         serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, completion: {(resultData : NSData) -> Void in
             self.searchListArray = serviceCall.getSearchVenueArray(resultData)
+            //println(self.searchListArray)
             self.getSearchVenueArray()
             self.indicator.stopAnimating()
             if((self.searchListArray.count) > 0) {
                 var storyBoard = UIStoryboard(name: "Main", bundle: nil)
                 var dash : venueSearchResultCollectionViewController = storyBoard.instantiateViewControllerWithIdentifier("venueSearchResult") as! venueSearchResultCollectionViewController
                 dash.searchVenueListArray = self.searchListArray
+                //println(searchVenueListArray)
                 self.navigationController?.pushViewController(dash, animated: true)
             }
             else {
@@ -431,25 +438,7 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         
     }
     
-    // side bar call
     
-    func ToggleButtonAction(sender:UIButton)
-    {
-        toggleSideMenuView()
-    }
-    // MARK: - ENSideMenu Delegate
-    func sideMenuWillOpen() {
-        //println("sideMenuWillOpen")
-    }
-    
-    func sideMenuWillClose() {
-        //println("sideMenuWillClose")
-    }
-    
-    func sideMenuShouldOpenSideMenu() -> Bool {
-        //println("sideMenuShouldOpenSideMenu")
-        return true
-    }
     
 
 }

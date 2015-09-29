@@ -114,13 +114,14 @@ class WebServiceCall: NSObject {
             var searchVenue : SearchVenue = SearchVenue()
             var tempDict : NSDictionary = searchVenueListArray[i] as! NSDictionary
             var images : NSArray = tempDict.objectForKey("images") as! NSArray
-            //println(images)
+            //println(tempDict)
             searchVenue.images = images
             //            venue.name = (tempDict.valueForKey("name")!)
             
             searchVenueArray.addObject(tempDict)
             //priceArray.addObject(tempDict.valueForKey("id")!)
         }
+        //println(searchVenueArray)
         return searchVenueArray
     }
 

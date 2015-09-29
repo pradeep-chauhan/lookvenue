@@ -19,6 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        var mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+        let mfSideMenuContainer = mainStoryBoard.instantiateViewControllerWithIdentifier("MFSideMenuContainerViewController") as! MFSideMenuContainerViewController
+        let leftViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("LeftSideMenuViewController") as! LeftSideMenuViewController
+        let centerViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("navigationStart") as! UINavigationController
+        self.window?.rootViewController = mfSideMenuContainer
+        mfSideMenuContainer.leftMenuViewController = leftViewController
+        mfSideMenuContainer.centerViewController = centerViewController
+        
+        
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
         return true
