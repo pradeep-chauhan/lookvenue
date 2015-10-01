@@ -8,7 +8,7 @@
 
 import UIKit
 
-class propertyViewController: UIViewController, CLUploaderDelegate {
+class propertyViewController: UIViewController, CLUploaderDelegate, UITabBarDelegate {
 
     @IBOutlet weak var containerView: UIView!
     //@IBOutlet weak var containerView: UIView!
@@ -16,6 +16,7 @@ class propertyViewController: UIViewController, CLUploaderDelegate {
     var information : infoViewController = infoViewController()
     var location : locationViewController = locationViewController()
     
+    @IBOutlet weak var mainTabBar: UITabBar!
     // cloudinary setup
     
     var selectedSearchVanueDictionary = NSDictionary()
@@ -37,12 +38,19 @@ class propertyViewController: UIViewController, CLUploaderDelegate {
     var lat:Double!
     var long:Double!
     var images: NSMutableArray!
+    var phone:String!
+    var email:String!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.mainTabBar.delegate = self
         
-        
+        self.mainTabBar.barTintColor = UIColor(red: 210.0/255.0, green: 69.0/255.0, blue: 49.0/255.0, alpha: 1.0)
+        UITabBar.appearance().tintColor = UIColor.whiteColor()
+        phone = selectedSearchVanueDictionary.valueForKey("mobile_number") as! NSString as String
+        email = selectedSearchVanueDictionary.valueForKey("email") as! NSString as String
         name = selectedSearchVanueDictionary.valueForKey("name") as! NSString as String
         website = selectedSearchVanueDictionary.valueForKey("website") as! NSString as String
         Description = selectedSearchVanueDictionary.valueForKey("description") as! NSString as String
@@ -115,7 +123,8 @@ class propertyViewController: UIViewController, CLUploaderDelegate {
             location.didMoveToParentViewController(self)
             
         }
-
+        
+        
 
         // Do any additional setup after loading the view.
     }
@@ -127,6 +136,36 @@ class propertyViewController: UIViewController, CLUploaderDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
+        if(item.tag == 0) {
+            if(phone != nil) {
+                UIApplication.sharedApplication().openURL(NSURL(string: "tel://" + phone)!)
+            }
+            else {
+                let alert = UIAlertView()
+                alert.title = "Sorry!"
+                alert.message = "Phone number is not available for this business"
+                alert.addButtonWithTitle("Ok")
+                alert.show()
+            }
+        }
+        else if(item.tag == 1) {
+            if( email != nil) {
+                 UIApplication.sharedApplication().openURL(NSURL(string: "mailto://" + email)!)
+            }
+            else {
+                let alert = UIAlertView()
+                alert.title = "Sorry!"
+                alert.message = "Email is not available for this business"
+                alert.addButtonWithTitle("Ok")
+                alert.show()
+            }
+        }
+        else {
+            println("tab bar")
+        }
     }
     
     @IBAction func segmentControlAction(sender: AnyObject) {

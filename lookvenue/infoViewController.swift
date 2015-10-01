@@ -47,7 +47,7 @@ class infoViewController:UIViewController,UICollectionViewDelegate,UICollectionV
         
         
         // Adding scroll bar
-        self.scrollView.contentSize=CGSize(width: 0, height: 800);
+        self.scrollView.contentSize=CGSize(width: 0, height: 750);
         self.scrollView.showsVerticalScrollIndicator = true
          view.addSubview(scrollView)
          //println(selectedSearchVanueDictionary.valueForKey("name") as! NSString)
@@ -65,7 +65,7 @@ class infoViewController:UIViewController,UICollectionViewDelegate,UICollectionV
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-            return CGSize(width:imageCollectionView.frame.width, height: 300)
+            return CGSize(width:imageCollectionView.frame.width, height: imageCollectionView.frame.height)
             
     }
     func collectionView(collectionView: UICollectionView,
@@ -81,9 +81,9 @@ class infoViewController:UIViewController,UICollectionViewDelegate,UICollectionV
             var cloudinary_image_id:String = (totalImages[indexPath.row]["cloudinary_image_id"]) as! NSString as String
             var cloudinaryUrl:String = cloudinary.url(cloudinary_image_id as String)
             var url = NSURL(string: cloudinaryUrl)
-            println(url)
+            //println(url)
             displayImagesUrl.addObject(url!)
-            println(displayImagesUrl)
+            //println(displayImagesUrl)
             cell.images.sd_setImageWithURL(url, placeholderImage: UIImage(named: "nophoto.jpg"))
             var currentImage = ((indexPath.row) + 1)
             var totalImageCount = (totalImages.count)

@@ -18,7 +18,7 @@
 @synthesize shadowedView;
 
 + (MFSideMenuShadow *)shadowWithView:(UIView *)shadowedView {
-    MFSideMenuShadow *shadow = [MFSideMenuShadow shadowWithColor:[UIColor blackColor] radius:10.0f opacity:0.75f];
+    MFSideMenuShadow *shadow = [MFSideMenuShadow shadowWithColor:[UIColor blackColor] radius:2.0f opacity:0.75f];
     shadow.shadowedView = shadowedView;
     return shadow;
 }

@@ -45,10 +45,22 @@
 		F979A5151B787ACE00D72F5D /* Setting.png in Resources */ = {isa = PBXBuildFile; fileRef = F979A5131B787ACE00D72F5D /* Setting.png */; };
 		F97CE39B1BBA788A001CFACD /* LeftMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97CE39A1BBA788A001CFACD /* LeftMenuTableViewCell.swift */; };
 		F97CE39D1BBA9578001CFACD /* LeftSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97CE39C1BBA9578001CFACD /* LeftSideMenuViewController.swift */; };
+		F97CE3BB1BBC39EF001CFACD /* calendar-clock.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3B41BBC39EF001CFACD /* calendar-clock.png */; };
+		F97CE3BC1BBC39EF001CFACD /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3B51BBC39EF001CFACD /* home.png */; };
+		F97CE3BD1BBC39EF001CFACD /* magnify.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3B61BBC39EF001CFACD /* magnify.png */; };
+		F97CE3BE1BBC39EF001CFACD /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3B71BBC39EF001CFACD /* menu.png */; };
+		F97CE3BF1BBC39EF001CFACD /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3B81BBC39EF001CFACD /* phone.png */; };
+		F97CE3C01BBC39EF001CFACD /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3B91BBC39EF001CFACD /* settings.png */; };
+		F97CE3C51BBC3DEC001CFACD /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3C31BBC3DEC001CFACD /* menu-icon.png */; };
+		F97CE3C61BBC3DEC001CFACD /* search-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3C41BBC3DEC001CFACD /* search-icon.png */; };
+		F97CE3CD1BBC3F4E001CFACD /* arrow-left.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3CB1BBC3F4E001CFACD /* arrow-left.png */; };
+		F97CE3CE1BBC3F4E001CFACD /* filter-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3CC1BBC3F4E001CFACD /* filter-outline.png */; };
+		F97CE3D01BBD0DF6001CFACD /* small-phone.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3CF1BBD0DF6001CFACD /* small-phone.png */; };
+		F97CE3D41BBD0F05001CFACD /* tab-phone.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3D31BBD0F05001CFACD /* tab-phone.png */; };
+		F97CE3D61BBD0F7F001CFACD /* tab-email.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3D51BBD0F7F001CFACD /* tab-email.png */; };
 		F98DFC051BB90667005D4FA4 /* MFSideMenuContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F98DFC001BB90667005D4FA4 /* MFSideMenuContainerViewController.m */; };
 		F98DFC061BB90667005D4FA4 /* MFSideMenuShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = F98DFC021BB90667005D4FA4 /* MFSideMenuShadow.m */; };
 		F98DFC071BB90667005D4FA4 /* UIViewController+MFSideMenuAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F98DFC041BB90667005D4FA4 /* UIViewController+MFSideMenuAdditions.m */; };
-		F98DFC0F1BB992EC005D4FA4 /* LeftSideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98DFC0E1BB992EC005D4FA4 /* LeftSideMenuTableViewController.swift */; };
 		F98DFC161BB9A510005D4FA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F98DFC141BB9A510005D4FA4 /* Main.storyboard */; };
 		F98EDAD71B997EE3007E07FD /* propertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98EDAD61B997EE2007E07FD /* propertyViewController.swift */; };
 		F98EDAD91B99847D007E07FD /* infoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98EDAD81B99847C007E07FD /* infoViewController.swift */; };
@@ -99,10 +111,6 @@
 		F9B628C11BA74E7A0034D7EC /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B628B01BA74E7A0034D7EC /* UIImageView+WebCache.m */; };
 		F9B628C21BA74E7A0034D7EC /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B628B21BA74E7A0034D7EC /* UIView+WebCacheOperation.m */; };
 		F9B628C41BA750990034D7EC /* nophoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9B628C31BA750990034D7EC /* nophoto.jpg */; };
-		F9C670E01B7DC3B900E19DF3 /* menu-toggle.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C670DF1B7DC3B900E19DF3 /* menu-toggle.png */; };
-		F9C670E21B7DC6FD00E19DF3 /* search-button.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C670E11B7DC6FD00E19DF3 /* search-button.png */; };
-		F9C670E41B7DCB3600E19DF3 /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C670E31B7DCB3600E19DF3 /* menu-icon.png */; };
-		F9C670E61B7DCC2600E19DF3 /* search-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C670E51B7DCC2600E19DF3 /* search-icon.png */; };
 		F9DE5CE71BA5C33C0033ABBE /* images.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DE5CE61BA5C33C0033ABBE /* images.swift */; };
 /* End PBXBuildFile section */
 
@@ -217,6 +225,19 @@
 		F979A5131B787ACE00D72F5D /* Setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Setting.png; path = ../Setting.png; sourceTree = "<group>"; };
 		F97CE39A1BBA788A001CFACD /* LeftMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuTableViewCell.swift; sourceTree = "<group>"; };
 		F97CE39C1BBA9578001CFACD /* LeftSideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSideMenuViewController.swift; sourceTree = "<group>"; };
+		F97CE3B41BBC39EF001CFACD /* calendar-clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-clock.png"; sourceTree = "<group>"; };
+		F97CE3B51BBC39EF001CFACD /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		F97CE3B61BBC39EF001CFACD /* magnify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magnify.png; sourceTree = "<group>"; };
+		F97CE3B71BBC39EF001CFACD /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		F97CE3B81BBC39EF001CFACD /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
+		F97CE3B91BBC39EF001CFACD /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		F97CE3C31BBC3DEC001CFACD /* menu-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon.png"; sourceTree = "<group>"; };
+		F97CE3C41BBC3DEC001CFACD /* search-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-icon.png"; sourceTree = "<group>"; };
+		F97CE3CB1BBC3F4E001CFACD /* arrow-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-left.png"; sourceTree = "<group>"; };
+		F97CE3CC1BBC3F4E001CFACD /* filter-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter-outline.png"; sourceTree = "<group>"; };
+		F97CE3CF1BBD0DF6001CFACD /* small-phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "small-phone.png"; sourceTree = "<group>"; };
+		F97CE3D31BBD0F05001CFACD /* tab-phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-phone.png"; sourceTree = "<group>"; };
+		F97CE3D51BBD0F7F001CFACD /* tab-email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-email.png"; sourceTree = "<group>"; };
 		F98DFBFE1BB90667005D4FA4 /* MFSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenu.h; sourceTree = "<group>"; };
 		F98DFBFF1BB90667005D4FA4 /* MFSideMenuContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenuContainerViewController.h; sourceTree = "<group>"; };
 		F98DFC001BB90667005D4FA4 /* MFSideMenuContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuContainerViewController.m; sourceTree = "<group>"; };
@@ -224,7 +245,6 @@
 		F98DFC021BB90667005D4FA4 /* MFSideMenuShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuShadow.m; sourceTree = "<group>"; };
 		F98DFC031BB90667005D4FA4 /* UIViewController+MFSideMenuAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MFSideMenuAdditions.h"; sourceTree = "<group>"; };
 		F98DFC041BB90667005D4FA4 /* UIViewController+MFSideMenuAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MFSideMenuAdditions.m"; sourceTree = "<group>"; };
-		F98DFC0E1BB992EC005D4FA4 /* LeftSideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSideMenuTableViewController.swift; sourceTree = "<group>"; };
 		F98DFC151BB9A510005D4FA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F98EDAD61B997EE2007E07FD /* propertyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = propertyViewController.swift; sourceTree = "<group>"; };
 		F98EDAD81B99847C007E07FD /* infoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = infoViewController.swift; sourceTree = "<group>"; };
@@ -298,10 +318,6 @@
 		F9B628B11BA74E7A0034D7EC /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		F9B628B21BA74E7A0034D7EC /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		F9B628C31BA750990034D7EC /* nophoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nophoto.jpg; sourceTree = "<group>"; };
-		F9C670DF1B7DC3B900E19DF3 /* menu-toggle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-toggle.png"; sourceTree = "<group>"; };
-		F9C670E11B7DC6FD00E19DF3 /* search-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-button.png"; sourceTree = "<group>"; };
-		F9C670E31B7DCB3600E19DF3 /* menu-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon.png"; sourceTree = "<group>"; };
-		F9C670E51B7DCC2600E19DF3 /* search-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-icon.png"; sourceTree = "<group>"; };
 		F9DE5CE61BA5C33C0033ABBE /* images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = images.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -394,7 +410,6 @@
 				F9667D661B709AB300647DCE /* AppDelegate.swift */,
 				F9667D681B709AB300647DCE /* ViewController.swift */,
 				F97CE39C1BBA9578001CFACD /* LeftSideMenuViewController.swift */,
-				F98DFC0E1BB992EC005D4FA4 /* LeftSideMenuTableViewController.swift */,
 				F915A7EF1B8AF13900BBAFED /* SwiftyJSON.swift */,
 				F90AB89B1B78BB1B002931E6 /* DPNotify.swift */,
 				F92BBF941B80D66000B468BB /* DatePickerDialog.swift */,
@@ -466,6 +481,19 @@
 			name = Entities;
 			sourceTree = "<group>";
 		};
+		F97CE3B21BBC3275001CFACD /* SHMultiselect */ = {
+			isa = PBXGroup;
+			children = (
+				F92BBF961B81A6D700B468BB /* SHMultipleSelect.h */,
+				F92BBF981B81A6D700B468BB /* UIImage+SHAdditions.h */,
+				F92BBF991B81A6D700B468BB /* UIImage+SHAdditions.m */,
+				F92BBF9B1B81A6D700B468BB /* UIView+SHAdditions.m */,
+				F92BBF9A1B81A6D700B468BB /* UIView+SHAdditions.h */,
+				F92BBF971B81A6D700B468BB /* SHMultipleSelect.m */,
+			);
+			name = SHMultiselect;
+			sourceTree = "<group>";
+		};
 		F98DFBFD1BB90667005D4FA4 /* MFSideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,12 +559,7 @@
 				F9B628911BA74E7A0034D7EC /* SDWebImage */,
 				F99716FF1B9421A2008BED74 /* Cloudinary */,
 				F92BBFB11B8310E800B468BB /* KSTokenView */,
-				F92BBF961B81A6D700B468BB /* SHMultipleSelect.h */,
-				F92BBF971B81A6D700B468BB /* SHMultipleSelect.m */,
-				F92BBF981B81A6D700B468BB /* UIImage+SHAdditions.h */,
-				F92BBF991B81A6D700B468BB /* UIImage+SHAdditions.m */,
-				F92BBF9A1B81A6D700B468BB /* UIView+SHAdditions.h */,
-				F92BBF9B1B81A6D700B468BB /* UIView+SHAdditions.m */,
+				F97CE3B21BBC3275001CFACD /* SHMultiselect */,
 				F995A8FC1B7B27570064CE5D /* OpenSans.swift */,
 				F995A8FB1B7B27570064CE5D /* OpenSansSwift.h */,
 				F995A9191B7B401D0064CE5D /* Images */,
@@ -551,12 +574,21 @@
 			isa = PBXGroup;
 			children = (
 				F9B628C31BA750990034D7EC /* nophoto.jpg */,
-				F9C670E51B7DCC2600E19DF3 /* search-icon.png */,
-				F9C670E31B7DCB3600E19DF3 /* menu-icon.png */,
-				F9C670E11B7DC6FD00E19DF3 /* search-button.png */,
-				F9C670DF1B7DC3B900E19DF3 /* menu-toggle.png */,
 				F979A5121B787ACE00D72F5D /* contact.png */,
+				F97CE3B41BBC39EF001CFACD /* calendar-clock.png */,
+				F97CE3CB1BBC3F4E001CFACD /* arrow-left.png */,
+				F97CE3CC1BBC3F4E001CFACD /* filter-outline.png */,
+				F97CE3B51BBC39EF001CFACD /* home.png */,
+				F97CE3B61BBC39EF001CFACD /* magnify.png */,
+				F97CE3B71BBC39EF001CFACD /* menu.png */,
+				F97CE3CF1BBD0DF6001CFACD /* small-phone.png */,
+				F97CE3D31BBD0F05001CFACD /* tab-phone.png */,
+				F97CE3D51BBD0F7F001CFACD /* tab-email.png */,
+				F97CE3B81BBC39EF001CFACD /* phone.png */,
+				F97CE3B91BBC39EF001CFACD /* settings.png */,
 				F90AB8A11B7A8410002931E6 /* look-venue-logo.png */,
+				F97CE3C31BBC3DEC001CFACD /* menu-icon.png */,
+				F97CE3C41BBC3DEC001CFACD /* search-icon.png */,
 				F979A5131B787ACE00D72F5D /* Setting.png */,
 			);
 			name = Images;
@@ -751,29 +783,38 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9C670E01B7DC3B900E19DF3 /* menu-toggle.png in Resources */,
 				F995A9111B7B28510064CE5D /* OpenSans-Light.ttf in Resources */,
 				F995A9121B7B28510064CE5D /* OpenSans-LightItalic.ttf in Resources */,
+				F97CE3BC1BBC39EF001CFACD /* home.png in Resources */,
 				F90AB8A21B7A8410002931E6 /* look-venue-logo.png in Resources */,
+				F97CE3C01BBC39EF001CFACD /* settings.png in Resources */,
 				F995A9141B7B28510064CE5D /* OpenSans-Semibold.ttf in Resources */,
 				F995A9151B7B28510064CE5D /* OpenSans-SemiboldItalic.ttf in Resources */,
 				F995A90C1B7B28510064CE5D /* OpenSans-Bold.ttf in Resources */,
 				F9667D711B709AB300647DCE /* LaunchScreen.xib in Resources */,
 				F9B628C41BA750990034D7EC /* nophoto.jpg in Resources */,
+				F97CE3C51BBC3DEC001CFACD /* menu-icon.png in Resources */,
+				F97CE3C61BBC3DEC001CFACD /* search-icon.png in Resources */,
+				F97CE3D61BBD0F7F001CFACD /* tab-email.png in Resources */,
+				F97CE3BF1BBC39EF001CFACD /* phone.png in Resources */,
+				F97CE3CE1BBC3F4E001CFACD /* filter-outline.png in Resources */,
 				F979A5141B787ACE00D72F5D /* contact.png in Resources */,
+				F97CE3BB1BBC39EF001CFACD /* calendar-clock.png in Resources */,
 				F979A5151B787ACE00D72F5D /* Setting.png in Resources */,
 				F995A90D1B7B28510064CE5D /* OpenSans-BoldItalic.ttf in Resources */,
+				F97CE3BE1BBC39EF001CFACD /* menu.png in Resources */,
 				F98DFC161BB9A510005D4FA4 /* Main.storyboard in Resources */,
 				F9667D6E1B709AB300647DCE /* Images.xcassets in Resources */,
 				F99043AD1BB6B35F00F39773 /* SBPickerSelector.xib in Resources */,
+				F97CE3D41BBD0F05001CFACD /* tab-phone.png in Resources */,
+				F97CE3D01BBD0DF6001CFACD /* small-phone.png in Resources */,
 				F995A9131B7B28510064CE5D /* OpenSans-Regular.ttf in Resources */,
 				F995A90B1B7B28510064CE5D /* LICENSE.txt in Resources */,
 				F995A9101B7B28510064CE5D /* OpenSans-Italic.ttf in Resources */,
+				F97CE3BD1BBC39EF001CFACD /* magnify.png in Resources */,
 				F995A90F1B7B28510064CE5D /* OpenSans-ExtraBoldItalic.ttf in Resources */,
-				F9C670E21B7DC6FD00E19DF3 /* search-button.png in Resources */,
+				F97CE3CD1BBC3F4E001CFACD /* arrow-left.png in Resources */,
 				F995A90E1B7B28510064CE5D /* OpenSans-ExtraBold.ttf in Resources */,
-				F9C670E41B7DCB3600E19DF3 /* menu-icon.png in Resources */,
-				F9C670E61B7DCC2600E19DF3 /* search-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -810,7 +851,6 @@
 				F99DD1A51B96DF2D00B1172D /* venueSearchResultCollectionViewController.swift in Sources */,
 				F9B628B71BA74E7A0034D7EC /* SDWebImageDecoder.m in Sources */,
 				F9522BAF1B8F59F300E8F3C6 /* WebServiceCall.swift in Sources */,
-				F98DFC0F1BB992EC005D4FA4 /* LeftSideMenuTableViewController.swift in Sources */,
 				F97672C71BB178A500FA626B /* KSUtils.swift in Sources */,
 				F9B628C01BA74E7A0034D7EC /* UIImageView+HighlightedWebCache.m in Sources */,
 				F995A91D1B7B64F10064CE5D /* locationViewController.swift in Sources */,
@@ -1008,7 +1048,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "lookvenue/lookvenue-BridgingHeader.h";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1031,7 +1071,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "lookvenue/lookvenue-BridgingHeader.h";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

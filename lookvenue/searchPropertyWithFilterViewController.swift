@@ -8,13 +8,15 @@
 
 import UIKit
 
-class searchPropertyWithFilterViewController: UIViewController, UITextFieldDelegate,SHMultipleSelectDelegate,KSTokenViewDelegate {
+class searchPropertyWithFilterViewController: UIViewController, UITextFieldDelegate,SHMultipleSelectDelegate,KSTokenViewDelegate, SBPickerSelectorDelegate {
 
     @IBOutlet weak var dateOfEnquiry: UITextField!
     @IBOutlet weak var priceRange: UITextField!
     @IBOutlet weak var venueType: UITextField!
     @IBOutlet weak var city: UITextField!
     
+    @IBOutlet weak var capacity: UITextField!
+    @IBOutlet weak var coverdArea: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var venueLabel: UILabel!
     @IBOutlet weak var areaLabel: UILabel!
@@ -22,11 +24,14 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     //@IBOutlet weak var tokanView: KSTokenField!
     
+    @IBOutlet weak var pageView: UIView!
     @IBOutlet weak var area: KSTokenView!
     
     //var scrollView:UIScrollView!
     
     //scrollView.delegate = self
+    var currentlySelectedTextField = UITextField()
+    var pickerSelectValue = ""
     var multiselectViewCall: String!
     
     var vanueListArray : NSArray!
@@ -43,14 +48,11 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
     
     //selected value
     
-    var priceSelected: [Int] = []
-    var venueSelected: [Int] = []
+    var searchDetails: SearchDetails = SearchDetails()
+    //var venueSelected: [Int] = []
     var areaSelected: [Int] = []
     
     var selectedLocationsArray = NSMutableArray()
-    
-    var searchDetails: SearchDetails = SearchDetails()
-    //var priceSelected:String!
     
     override func viewDidLoad() {
         
@@ -66,39 +68,27 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
         venueLabel.textColor = UIColor.redColor()
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        
-        
-        // center image in nav bar
-        
-//        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
-//        imageView.contentMode = .ScaleAspectFit
-//        
-//        let image = UIImage(named: "look-venue-logo.png")
-//        imageView.image = image
-//        
-//        self.navigationItem.titleView = imageView
         self.navigationItem.title = "Apply Filter"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "OpenSans", size: 10)!]
-        self.navigationController?.setToolbarHidden(true, animated: true)
         
-//        let leftBarButton: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
-//        //set image for button
-//        leftBarButton.setImage(UIImage(named: "menu-icon.png"), forState: UIControlState.Normal)
-//        //add function for button
-//        leftBarButton.addTarget(self, action: "ToggleButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-//        //set frame
-//        leftBarButton.frame = CGRectMake(0, 0,20, 20)
-//        
-//        let leftMenubarButton = UIBarButtonItem(customView: leftBarButton)
-//        //assign button to navigationbar
-//        self.navigationItem.leftBarButtonItem = leftMenubarButton
+        
+        let leftBarButton: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+        // image for button
+        leftBarButton.setImage(UIImage(named: "arrow-left.png"), forState: UIControlState.Normal)
+        //set frame
+        leftBarButton.frame = CGRectMake(0, 0,20, 20)
+        leftBarButton.addTarget(self, action: "backButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        let leftMenubarButton = UIBarButtonItem(customView: leftBarButton)
+        //assign button to navigationbar
+        self.navigationItem.leftBarButtonItem = leftMenubarButton
         
         self.area.delegate=self
         self.dateOfEnquiry.delegate=self
         self.priceRange.delegate=self
         self.venueType.delegate=self
         self.city.delegate=self
-        
+        self.coverdArea.delegate = self
+        self.capacity.delegate = self
         //tokanView.promptText = "Top 5: "
         area.placeholder = "Type to search area"
         //tokanView.descriptionText = "Languages"
@@ -151,23 +141,20 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
     }
     
     @IBAction func datePicker(sender: AnyObject) {
-        dateOfEnquiry.resignFirstResponder()
         DatePickerDialog().show(title: "Select Date", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .Date) {
             
             (date) -> Void in
             var dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "dd-MMM-yyyy"
             self.dateOfEnquiry.text = dateFormatter.stringFromDate(date)
-            
+            self.dateOfEnquiry.resignFirstResponder()
         }
-        
         
     }
     
     
     @IBAction func venueTypeButton(sender: AnyObject) {
         //self.hideKeyBoard()
-        venueType.resignFirstResponder()
         multiselectViewCall = "venue"
         var methodType: String = "GET"
         var base: String = "property_types/"
@@ -181,15 +168,16 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
             self.indicator.stopAnimating()
             
             var venueTypemultipleSelect = SHMultipleSelect()
+            venueTypemultipleSelect.selectedTextField = self.currentlySelectedTextField
             venueTypemultipleSelect.delegate = self
             venueTypemultipleSelect.rowsCount = self.vanueListArray.count
             venueTypemultipleSelect.show()
+            self.venueType.resignFirstResponder()
         })
         
     }
     
     @IBAction func pricePickerRange(sender: AnyObject) {
-        priceRange.resignFirstResponder()
         multiselectViewCall = "price"
         var methodType: String = "GET"
         var base: String = "price_ranges"
@@ -204,27 +192,68 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
             self.indicator.stopAnimating()
             
             var priceRangemultipleSelect = SHMultipleSelect()
+            priceRangemultipleSelect.selectedTextField = self.currentlySelectedTextField
             priceRangemultipleSelect.delegate = self
             priceRangemultipleSelect.rowsCount = self.priceListArray.count
             priceRangemultipleSelect.show()
+            self.priceRange.resignFirstResponder()
+            
         }
-        
         
     }
     
+    @IBAction func capacity(sender: AnyObject) {
+        self.capacity.resignFirstResponder()
+        pickerSelectValue = "capacity"
+        let picker: SBPickerSelector = SBPickerSelector.picker()
+        
+        picker.pickerData = [["100","500","800","1000","1200","1500","2000","2500","2500"],["-"],["500","800","1000","1200","1500","2000","2500","3000","5000"]] //picker content
+        picker.delegate = self
+        picker.pickerType = SBPickerSelectorType.Text
+        picker.doneButtonTitle = "Done"
+        picker.cancelButtonTitle = "Cancel"
+        picker.optionsToolBar.tintColor =  UIColor(red: 210.0/255.0, green: 67.0/255.0, blue: 49.0/255.0, alpha: 1.0)
+        
+        let point: CGPoint = view.convertPoint(sender.frame.origin, fromView: sender.superview)
+        var frame: CGRect = sender.frame
+        frame.origin = point
+        picker.showPickerIpadFromRect(frame, inView: view)
+        //self.capacity.resignFirstResponder()
+        
+    }
     //For venue
+    @IBAction func coveredArea(sender: AnyObject) {
+        self.coverdArea.resignFirstResponder()
+        pickerSelectValue = "coveredArea"
+        let picker: SBPickerSelector = SBPickerSelector.picker()
+        
+        picker.pickerData = [["1","100","500"],["-"],["100","500","800"]] //picker content
+        picker.delegate = self
+        picker.pickerType = SBPickerSelectorType.Text
+        picker.doneButtonTitle = "Done"
+        picker.cancelButtonTitle = "Cancel"
+        picker.optionsToolBar.tintColor =  UIColor(red: 210.0/255.0, green: 67.0/255.0, blue: 49.0/255.0, alpha: 1.0)
+        
+        let point: CGPoint = view.convertPoint(sender.frame.origin, fromView: sender.superview)
+        var frame: CGRect = sender.frame
+        frame.origin = point
+        picker.showPickerIpadFromRect(frame, inView: view)
+        
+    }
     
     func multipleSelectView(multipleSelectView: SHMultipleSelect!, clickedBtnAtIndex clickedBtnIndex: Int, withSelectedIndexPaths selectedIndexPaths:[AnyObject]!) {
         
         if (multiselectViewCall == "venue") {
             if(selectedIndexPaths == nil) {
-                venueSelected.removeAll()
+                searchDetails.venueSelected.removeAllObjects()
                 self.venueType.text=""
+                self.venueType.resignFirstResponder()
             }
             else {
+                //multipleSelectView.selectedTextField.resignFirstResponder()
                 if(clickedBtnIndex != 0)
                 {
-                    venueSelected.removeAll()
+                    searchDetails.venueSelected.removeAllObjects()
                     var indexPathsArray = selectedIndexPaths as NSArray
                     
                     for(var i = 0; i < indexPathsArray.count; i++)
@@ -234,12 +263,12 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
                         {
                             
                             self.venueType.text = (vanuesArray[index.row]["name"] as! String)
-                            venueSelected.append(vanuesArray[index.row]["id"] as! Int)
+                            searchDetails.venueSelected.addObject(vanuesArray[index.row]["id"] as! Int)
                         }
                         else if(self.venueType.text != nil || self.venueType.text != "")
                         {
                             self.venueType.text = self.venueType.text + "," + (vanuesArray[index.row]["name"] as! String)
-                            venueSelected.append(vanuesArray[index.row]["id"] as! Int)
+                            searchDetails.venueSelected.addObject(vanuesArray[index.row]["id"] as! Int)
                             
                         }
                         else {
@@ -258,8 +287,9 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
         
         if (multiselectViewCall == "price") {
             if(selectedIndexPaths == nil) {
-                priceSelected.removeAll()
+                searchDetails.priceSelected.removeAllObjects()
                 self.priceRange.text=""
+                self.priceRange.resignFirstResponder()
             }
             else {
                 if(clickedBtnIndex != 0)
@@ -267,24 +297,24 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
                     if(selectedIndexPaths != nil) {
                         var indexPathsArray = selectedIndexPaths as NSArray
                         
-                        priceSelected.removeAll()
+                        searchDetails.priceSelected.removeAllObjects()
                         for(var i = 0; i < indexPathsArray.count; i++)
                         {
                             var index = indexPathsArray[i] as! NSIndexPath
                             if(self.priceRange.text == nil || self.priceRange.text == "")
                             {
                                 self.priceRange.text = (priceArray[index.row]["name"] as! String)
-                                priceSelected.append(priceArray[index.row]["id"] as! Int)
+                                searchDetails.priceSelected.addObject(priceArray[index.row]["id"] as! Int)
                                 
                             }
                             else if(self.priceRange.text != nil || self.priceRange.text != "")
                             {
                                 self.priceRange.text = self.priceRange.text + "," + (priceArray[index.row]["name"] as! String)
-                                priceSelected.append(priceArray[index.row]["id"] as! Int)
+                                searchDetails.priceSelected.addObject(priceArray[index.row]["id"] as! Int)
                                 
                             }
                             else {
-                                priceSelected.removeAll()
+                                searchDetails.priceSelected.removeAllObjects()
                                 self.priceRange.text=""
                             }
                         }
@@ -301,7 +331,10 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
             }
             
             
-        }        
+        }
+        
+        //==
+        currentlySelectedTextField.resignFirstResponder()
     }
     
     
@@ -322,8 +355,8 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
         var canSelect: Bool = false
         
         if(multiselectViewCall == "venue") {
-            for (var i = 0; i < venueSelected.count; i++){
-                var selectedCheck = (venueSelected[i]) - 1
+            for (var i = 0; i < searchDetails.venueSelected.count; i++){
+                var selectedCheck = (searchDetails.venueSelected[i] as! Int) - 1
                 if((indexPath.item) == selectedCheck) {
                     canSelect = true
                 }
@@ -331,8 +364,8 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
         }
         
         if(multiselectViewCall == "price") {
-            for (var i = 0; i < priceSelected.count; i++){
-                var selectedCheck = (priceSelected[i]) - 1
+            for (var i = 0; i < searchDetails.priceSelected.count; i++){
+                var selectedCheck = (searchDetails.priceSelected[i] as! Int) - 1
                 if((indexPath.item) == selectedCheck) {
                     canSelect = true
                 }
@@ -343,13 +376,28 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
     }
     
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
+    func textFieldDidBeginEditing(textField: UITextField) {
+        currentlySelectedTextField = textField
+        textField.resignFirstResponder()
         
     }
     
-    @IBAction func searchButton(sender: AnyObject) {
+    func textFieldDidEndEditing(textField: UITextField) {
+        currentlySelectedTextField.resignFirstResponder()
+        textField.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        //self.view.endEditing(true)
+        
+        textField.resignFirstResponder()
+        return true
+        
+    }
+    
+
+    
+    @IBAction func applyFilter(sender: AnyObject) {
         var methodType: String = "GET"
         var base: String = "search.json?area_ids=1&property_type_ids=1,2,3&price_range_ids=1"
         var param: String = "Delhi/NCR"
@@ -370,28 +418,9 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
                 println("Data not found")
             }
         })
-        
     }
     
     // side bar call
-    
-    func ToggleButtonAction(sender:UIButton)
-    {
-        toggleSideMenuView()
-    }
-    // MARK: - ENSideMenu Delegate
-    func sideMenuWillOpen() {
-        //println("sideMenuWillOpen")
-    }
-    
-    func sideMenuWillClose() {
-        //println("sideMenuWillClose")
-    }
-    
-    func sideMenuShouldOpenSideMenu() -> Bool {
-        //println("sideMenuShouldOpenSideMenu")
-        return true
-    }
     
     
 }
@@ -424,9 +453,12 @@ extension searchPropertyWithFilterViewController: KSTokenViewDelegate {
         for var i = 0; i < areaArray.count; i++
         {
             var tempDictionary = areaArray[i] as! NSDictionary
+            println(tempDictionary)
             if(tempDictionary.valueForKey("name") as! NSString == title)
             {
+                println(tempDictionary.valueForKey("id") as! NSNumber)
                 return tempDictionary.valueForKey("id") as! NSNumber
+                
             }
             else
             {
@@ -437,15 +469,17 @@ extension searchPropertyWithFilterViewController: KSTokenViewDelegate {
         return NSNumber(int: 0)
     }
     
-    //    func tokenView(tokenView: KSTokenView, willDeleteToken token: KSToken) {
-    //        println(token.title)
-    //        var idOfObject = self.getIdOfObject(token.title)
-    //        selectedLocationsArray.removeObject(idOfObject)
-    //    }
-    //
+    func tokenView(tokenView: KSTokenView, willDeleteToken token: KSToken) {
+        println(token.title)
+        var idOfObject = self.getIdOfObject(token.title)
+        selectedLocationsArray.removeObject(idOfObject)
+        println(idOfObject)
+    }
     func tokenView(token: KSTokenView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var object = areaArray.objectAtIndex(indexPath.row) as! NSDictionary
-        selectedLocationsArray.addObject(object["id"] as! NSNumber)
+        var object1 = (token._resultArray as NSArray).objectAtIndex(indexPath.row) as! NSDictionary
+        println(object1)
+        selectedLocationsArray.addObject(object1["id"] as! NSNumber)
+        println(selectedLocationsArray)
         
     }
     
@@ -461,6 +495,39 @@ extension searchPropertyWithFilterViewController: KSTokenViewDelegate {
         }
         
     }
+    
+    
+    func pickerSelector(selector: SBPickerSelector!, selectedValue value: String!, index idx: Int) {
+        if(pickerSelectValue == "coveredArea") {
+            coverdArea.text = value
+        }
+        if(pickerSelectValue == "capacity") {
+            capacity.text = value
+        }
+    }
+    
+    func backButtonPressed() {
+        
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    @IBAction func venueEndEditing(sender: AnyObject) {
+        self.venueType.resignFirstResponder()
+    }
+    
+    @IBAction func dateEndEditing(sender: AnyObject) {
+        self.dateOfEnquiry.resignFirstResponder()
+    }
+    
+    @IBAction func priceRangeEndEditing(sender: AnyObject) {
+        self.priceRange.resignFirstResponder()
+    }
 
+    @IBAction func capacityEndEditing(sender: AnyObject) {
+        self.capacity.resignFirstResponder()
+    }
+    @IBAction func coveredEndEditing(sender: AnyObject) {
+        self.coverdArea.resignFirstResponder()
+    }
 
 }

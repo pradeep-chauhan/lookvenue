@@ -120,7 +120,7 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         //assign button to navigationbar
         self.navigationItem.leftBarButtonItem = leftMenubarButton
         
-        area.delegate=self
+        area.delegate = self
         dateOfEnquiry.delegate = self
         priceRange.delegate = self
         venueType.delegate = self

@@ -18,7 +18,7 @@ class LeftSideMenuViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //self.navigationController?.delegate = self
         self.navigationController?.setNavigationBarHidden(true, animated: true)
 //        self.navigationController?.navigationBar.barTintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1.0)
 //        // center image in nav bar
@@ -100,6 +100,7 @@ class LeftSideMenuViewController: UIViewController, UITableViewDelegate, UITable
         else if (indexPath.row == 2) {
             var dash : signUp = storyboard.instantiateViewControllerWithIdentifier("SignupView") as! signUp
             self.navigationController?.pushViewController(dash, animated: true)
+            //self.presentViewController(dash, animated: true, completion: nil)
         }
         else {
             println(indexPath.row)

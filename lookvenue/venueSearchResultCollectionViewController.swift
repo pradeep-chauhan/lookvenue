@@ -17,7 +17,7 @@ class venueSearchResultCollectionViewController: UICollectionViewController,UICo
     let cloudinary: CLCloudinary = CLCloudinary()
     var image:NSString = ""
     
-    let sectionInsets = UIEdgeInsets(top: 5.0, left: 10.0, bottom: 5.0, right: 10.0)
+    let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
     
     var searchDetails:SearchDetails = SearchDetails()
     
@@ -41,7 +41,7 @@ class venueSearchResultCollectionViewController: UICollectionViewController,UICo
         
         let rightBarButton: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
         //set image for button
-        rightBarButton.setImage(UIImage(named: "search-icon.png"), forState: UIControlState.Normal)
+        rightBarButton.setImage(UIImage(named: "filter-outline.png"), forState: UIControlState.Normal)
         //add function for button
         rightBarButton.addTarget(self, action: "SearchButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
         //set frame
@@ -50,6 +50,18 @@ class venueSearchResultCollectionViewController: UICollectionViewController,UICo
         let barButton = UIBarButtonItem(customView: rightBarButton)
         //assign button to navigationbar
         self.navigationItem.rightBarButtonItem = barButton
+        
+        
+        let leftBarButton: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+        // image for button
+        leftBarButton.setImage(UIImage(named: "arrow-left.png"), forState: UIControlState.Normal)
+        //set frame
+        leftBarButton.frame = CGRectMake(0, 0,20, 20)
+        leftBarButton.addTarget(self, action: "backButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        let leftMenubarButton = UIBarButtonItem(customView: leftBarButton)
+        //assign button to navigationbar
+        self.navigationItem.leftBarButtonItem = leftMenubarButton
         
         //transformation.setCrop("fit")
         //var abc:String = cloudinary.url(image as String)
@@ -87,6 +99,11 @@ class venueSearchResultCollectionViewController: UICollectionViewController,UICo
         searchVenuesArray = searchVenueListArray as! NSMutableArray
         
         
+    }
+    
+    func backButtonPressed() {
+        
+        self.navigationController?.popViewControllerAnimated(true)
     }
 
 
