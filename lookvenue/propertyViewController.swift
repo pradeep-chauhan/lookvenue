@@ -47,7 +47,7 @@ class propertyViewController: UIViewController, CLUploaderDelegate, UITabBarDele
         
         self.mainTabBar.delegate = self
         
-        self.mainTabBar.barTintColor = UIColor(red: 210.0/255.0, green: 69.0/255.0, blue: 49.0/255.0, alpha: 1.0)
+        self.mainTabBar.barTintColor = UIColor(red: 210.0/255.0, green: 67.0/255.0, blue: 49.0/255.0, alpha: 1.0)
         UITabBar.appearance().tintColor = UIColor.whiteColor()
         phone = selectedSearchVanueDictionary.valueForKey("mobile_number") as! NSString as String
         email = selectedSearchVanueDictionary.valueForKey("email") as! NSString as String

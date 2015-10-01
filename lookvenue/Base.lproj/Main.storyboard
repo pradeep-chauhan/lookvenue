@@ -380,8 +380,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v8y-Rr-Th4">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="look-venue-logo" translatesAutoresizingMaskIntoConstraints="NO" id="g5R-Q4-iVx">
+                                        <rect key="frame" x="129" y="17" width="62" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="62" id="MCB-Bc-4OF"/>
+                                            <constraint firstAttribute="height" constant="40" id="gSg-9n-rmR"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.73333333329999995" green="0.24313725489999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="g5R-Q4-iVx" firstAttribute="top" secondItem="v8y-Rr-Th4" secondAttribute="top" constant="17" id="9Kp-sj-UrG"/>
+                                    <constraint firstAttribute="height" constant="65" id="WJo-Dm-WJQ"/>
+                                    <constraint firstAttribute="centerX" secondItem="g5R-Q4-iVx" secondAttribute="centerX" id="WNo-eo-C3r"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GtU-Ea-bHE">
-                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="453"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="LeftMenuTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="R9A-gW-Y4s" customClass="LeftMenuTableViewCell" customModule="lookvenue">
@@ -413,42 +431,42 @@
                                     <outlet property="delegate" destination="18n-YG-7eJ" id="Xac-ir-YmF"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v8y-Rr-Th4">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="look-venue-logo" translatesAutoresizingMaskIntoConstraints="NO" id="g5R-Q4-iVx">
-                                        <rect key="frame" x="129" y="17" width="62" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="62" id="MCB-Bc-4OF"/>
-                                            <constraint firstAttribute="height" constant="40" id="gSg-9n-rmR"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.73333333329999995" green="0.24313725489999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <tabBar contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="kTH-0x-Wuv">
+                                <rect key="frame" x="0.0" y="519" width="320" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="g5R-Q4-iVx" firstAttribute="top" secondItem="v8y-Rr-Th4" secondAttribute="top" constant="17" id="9Kp-sj-UrG"/>
-                                    <constraint firstAttribute="height" constant="65" id="WJo-Dm-WJQ"/>
-                                    <constraint firstAttribute="centerX" secondItem="g5R-Q4-iVx" secondAttribute="centerX" id="WNo-eo-C3r"/>
+                                    <constraint firstAttribute="height" constant="49" id="iD7-JM-62G"/>
                                 </constraints>
-                            </view>
+                                <items>
+                                    <tabBarItem title="Share" image="share.png" id="cTO-uc-7qj"/>
+                                    <tabBarItem tag="1" title="Rate" image="star.png" id="ylM-IC-q0g"/>
+                                    <tabBarItem tag="2" title="Feedback" image="feedback.png" id="cK1-FF-iBm"/>
+                                </items>
+                                <color key="barTintColor" red="0.73333333329999995" green="0.24313725489999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="kTH-0x-Wuv" firstAttribute="leading" secondItem="xq2-5I-gnG" secondAttribute="leading" id="0lr-Qm-4Hg"/>
                             <constraint firstItem="v8y-Rr-Th4" firstAttribute="leading" secondItem="xq2-5I-gnG" secondAttribute="leading" id="6YL-ve-tzZ"/>
+                            <constraint firstItem="kTH-0x-Wuv" firstAttribute="top" secondItem="GtU-Ea-bHE" secondAttribute="bottom" id="AH3-Zj-VGJ"/>
                             <constraint firstItem="v8y-Rr-Th4" firstAttribute="top" secondItem="xq2-5I-gnG" secondAttribute="top" id="Aau-Wx-vcb"/>
                             <constraint firstItem="v8y-Rr-Th4" firstAttribute="top" secondItem="xq2-5I-gnG" secondAttribute="top" id="CBN-sv-Hux"/>
-                            <constraint firstItem="GtU-Ea-bHE" firstAttribute="top" secondItem="v8y-Rr-Th4" secondAttribute="bottom" id="JSC-QH-zKK"/>
+                            <constraint firstItem="GtU-Ea-bHE" firstAttribute="top" secondItem="v8y-Rr-Th4" secondAttribute="bottom" constant="1" id="JSC-QH-zKK"/>
+                            <constraint firstAttribute="trailing" secondItem="kTH-0x-Wuv" secondAttribute="trailing" id="KDA-D2-b8I"/>
                             <constraint firstAttribute="trailing" secondItem="v8y-Rr-Th4" secondAttribute="trailing" id="Lsn-Mc-3X7"/>
                             <constraint firstAttribute="trailing" secondItem="v8y-Rr-Th4" secondAttribute="trailing" id="R4d-yC-Axz"/>
                             <constraint firstItem="v8y-Rr-Th4" firstAttribute="leading" secondItem="xq2-5I-gnG" secondAttribute="leading" id="g8w-if-zTb"/>
                             <constraint firstItem="GtU-Ea-bHE" firstAttribute="leading" secondItem="xq2-5I-gnG" secondAttribute="leading" id="mb6-R4-YrL"/>
                             <constraint firstAttribute="trailing" secondItem="GtU-Ea-bHE" secondAttribute="trailing" id="q2a-HK-bVS"/>
-                            <constraint firstItem="QEF-K7-cte" firstAttribute="top" secondItem="GtU-Ea-bHE" secondAttribute="bottom" id="qzp-Ym-GWV"/>
+                            <constraint firstItem="QEF-K7-cte" firstAttribute="top" secondItem="kTH-0x-Wuv" secondAttribute="bottom" id="qLT-eg-nxk"/>
+                            <constraint firstItem="QEF-K7-cte" firstAttribute="top" secondItem="GtU-Ea-bHE" secondAttribute="bottom" constant="49" id="qzp-Ym-GWV"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="bannerView" destination="v8y-Rr-Th4" id="Glb-eP-bgA"/>
+                        <outlet property="leftMenuTabBar" destination="kTH-0x-Wuv" id="H80-b0-jwr"/>
                         <outlet property="tableView" destination="GtU-Ea-bHE" id="FlJ-bo-TRt"/>
                     </connections>
                 </viewController>
@@ -1400,9 +1418,9 @@
                                                     <constraint firstAttribute="height" constant="25" id="88d-hd-83n"/>
                                                 </constraints>
                                             </view>
-                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="1eP-Fc-Bk1">
-                                                <rect key="frame" x="142" y="404" width="37" height="37"/>
-                                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="1eP-Fc-Bk1">
+                                                <rect key="frame" x="151" y="413" width="20" height="20"/>
+                                                <color key="color" red="0.73333333329999995" green="0.24313725489999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                             </activityIndicatorView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vde-Z9-2N8">
                                                 <rect key="frame" x="16" y="462" width="288" height="1"/>
@@ -1485,7 +1503,7 @@
                                             <constraint firstItem="vus-C3-RIw" firstAttribute="leading" secondItem="Npl-yi-kUs" secondAttribute="leadingMargin" constant="8" id="lrb-wc-Qef"/>
                                             <constraint firstItem="sfz-aX-5fq" firstAttribute="top" secondItem="pOG-sT-Cb8" secondAttribute="bottom" constant="40" id="mdV-vt-7vi"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="Uoy-Lh-Re5" secondAttribute="trailing" constant="8" id="nAS-gL-Ar4"/>
-                                            <constraint firstAttribute="centerX" secondItem="1eP-Fc-Bk1" secondAttribute="centerX" id="nk0-qh-G9q"/>
+                                            <constraint firstAttribute="centerX" secondItem="1eP-Fc-Bk1" secondAttribute="centerX" constant="-1" id="nk0-qh-G9q"/>
                                             <constraint firstItem="DNQ-bQ-kT7" firstAttribute="top" secondItem="DKb-H7-98A" secondAttribute="bottom" constant="8" id="pXa-jg-gBV"/>
                                             <constraint firstItem="H7U-VU-RBH" firstAttribute="top" secondItem="qFU-vz-dZP" secondAttribute="bottom" constant="8" id="pkg-yr-FjK"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="HhT-mz-Z9J" secondAttribute="trailing" constant="8" id="qNR-pk-KtZ"/>
@@ -2416,9 +2434,12 @@
         <image name="calendar" width="124" height="125"/>
         <image name="contact.png" width="256" height="256"/>
         <image name="create-property-icon" width="75" height="75"/>
+        <image name="feedback.png" width="40" height="40"/>
         <image name="look-venue" width="235" height="190"/>
         <image name="look-venue-logo" width="235" height="190"/>
         <image name="search-property" width="75" height="75"/>
+        <image name="share.png" width="40" height="40"/>
+        <image name="star.png" width="40" height="40"/>
         <image name="tab-email.png" width="40" height="40"/>
         <image name="tab-phone.png" width="40" height="40"/>
     </resources>

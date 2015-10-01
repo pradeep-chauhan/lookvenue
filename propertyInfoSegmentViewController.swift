@@ -16,7 +16,8 @@ class propertyInfoSegmentViewController: UIViewController {
     var imageProperty : imagePropertyViewController = imagePropertyViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         // Do any additional setup after loading the view.
         
         //self.containerView.backgroundColor = UIColor.greenColor()

@@ -8,16 +8,25 @@
 
 import UIKit
 
-class LeftSideMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class LeftSideMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
     let identifier = "cell"
     var menuLabel = ["Home","List Property","Manage Property"]
-    var menuImage = ["","",""]
+    var menuImage = ["home.png","list.png","manage.png"]
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bannerView: UIView!
     
+    @IBOutlet weak var leftMenuTabBar: UITabBar!
+    
+    var share:String! = "share"
+    var feedback:String! = nil
+    var rate:String! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.leftMenuTabBar.delegate = self
+        self.leftMenuTabBar.barTintColor = UIColor(red: 210.0/255.0, green: 67.0/255.0, blue: 49.0/255.0, alpha: 1.0)
+        UITabBar.appearance().tintColor = UIColor.whiteColor()
+        
         //self.navigationController?.delegate = self
         self.navigationController?.setNavigationBarHidden(true, animated: true)
 //        self.navigationController?.navigationBar.barTintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1.0)
@@ -75,7 +84,11 @@ class LeftSideMenuViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! LeftMenuTableViewCell
-        var image = UIImage(contentsOfFile: menuImage[indexPath.row])
+        
+        var imageString = menuImage[indexPath.row]
+        var image = UIImage(named: imageString)
+        //image = imageString
+        println(image)
         cell.MenuType.text = menuLabel[indexPath.row] as String
         cell.MenuImage.image =  image
         
@@ -106,6 +119,56 @@ class LeftSideMenuViewController: UIViewController, UITableViewDelegate, UITable
             println(indexPath.row)
         }
         
+    }
+    
+    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
+        if(item.tag == 0) {
+            if( share != nil) {
+                let textToShare = "Lookvenue is awesome!  Check out this website about it!"
+                
+                if let myWebsite = NSURL(string: "http://www.lookvenue.com/")
+                {
+                    let objectsToShare = [textToShare, myWebsite]
+                    let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+                    
+                    self.presentViewController(activityVC, animated: true, completion: nil)
+                }
+            }
+            else {
+                let alert = UIAlertView()
+                alert.title = "Sorry!"
+                alert.message = "Share is not available for this business"
+                alert.addButtonWithTitle("Ok")
+                alert.show()
+            }
+        }
+        else if(item.tag == 1) {
+            if( rate != nil) {
+                UIApplication.sharedApplication().openURL(NSURL(string: "mailto://" + rate)!)
+            }
+            else {
+                let alert = UIAlertView()
+                alert.title = "Sorry!"
+                alert.message = "Rate is not available for this business"
+                alert.addButtonWithTitle("Ok")
+                alert.show()
+            }
+        }
+        else if(item.tag == 2) {
+            if( feedback != nil) {
+                UIApplication.sharedApplication().openURL(NSURL(string: "mailto://" + feedback)!)
+            }
+            else {
+                let alert = UIAlertView()
+                alert.title = "Sorry!"
+                alert.message = "Feedback is not available for this business"
+                alert.addButtonWithTitle("Ok")
+                alert.show()
+            }
+        }
+        else {
+            println("tab bar")
+        }
     }
 
     /*
