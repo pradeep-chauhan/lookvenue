@@ -8,22 +8,19 @@
 
 import UIKit
 
-class addProperty: ViewController, UITextFieldDelegate, SACalendarDelegate{
+class addProperty: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var calendar : SACalendar = SACalendar()
-    @IBOutlet var addPropertyScrollView: UIScrollView!
-   
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Adding scroll bar
-        self.addPropertyScrollView.contentSize=CGSize(width:0, height: 800);
-        self.addPropertyScrollView.showsVerticalScrollIndicator = true
-        view.addSubview(addPropertyScrollView)
-        
-        self.emailTextField.delegate = self
-        // Do any additional setup after loading the view.
+        //self.tableView.registerNib( a, forCellReuseIdentifier: "ScrollTableViewCell")
+        self.tableView.registerNib(UINib(nibName: "addPropertyTableViewCell", bundle: nil), forCellReuseIdentifier: "addPropertyTableViewCell")
+        self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,11 +36,23 @@ class addProperty: ViewController, UITextFieldDelegate, SACalendarDelegate{
     }
 
     func textFieldDidBeginEditing(textField: UITextField) {
+        textField.resignFirstResponder()
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 700
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier("addPropertyTableViewCell") as! addPropertyTableViewCell
         
-        // Calling Calendar Event
-        calendar = SACalendar(frame:CGRectMake(0, 0, 320, 400),scrollDirection:ScrollDirectionVertical,pagingEnabled:false)
-        calendar.delegate=self
-        self.view.addSubview(calendar)
+        
+        
+        return cell
     }
     
     

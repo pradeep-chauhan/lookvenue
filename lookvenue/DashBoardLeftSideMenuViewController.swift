@@ -1,15 +1,14 @@
 //
-//  LeftSideMenuViewController.swift
+//  DashBoardLeftSideMenuViewController.swift
 //  lookvenue
 //
-//  Created by Pradeep Chauhan on 9/29/15.
+//  Created by Pradeep Chauhan on 10/5/15.
 //  Copyright (c) 2015 Pradeep Chauhan. All rights reserved.
 //
 
 import UIKit
 
-class LeftSideMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
-    
+class DashBoardLeftSideMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
     let identifier = "cell"
     var menuLabel = ["Home","List Property","Manage Property"]
     var menuImage = ["home.png","list.png","manage.png"]
@@ -30,28 +29,28 @@ class LeftSideMenuViewController: UIViewController, UITableViewDelegate, UITable
         
         //self.navigationController?.delegate = self
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-//        self.navigationController?.navigationBar.barTintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1.0)
-//        // center image in nav bar
-//        
-//        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
-//        imageView.contentMode = .ScaleAspectFit
-//        
-//        let image = UIImage(named: "look-venue-logo.png")
-//        imageView.image = image
-//        //self.navigationController?.setToolbarHidden(true, animated: false)
-//        self.navigationItem.titleView = imageView
-//        
-//        let leftBarButton: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
-//        //set image for button
-//        leftBarButton.setImage(UIImage(named: "menu-icon.png"), forState: UIControlState.Normal)
-//        //add function for button
-//        leftBarButton.addTarget(self, action: "leftSideMenuButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
-//        //set frame
-//        leftBarButton.frame = CGRectMake(0, 0,20, 20)
-//        
-//        let leftMenubarButton = UIBarButtonItem(customView: leftBarButton)
-//        //assign button to navigationbar
-//        self.navigationItem.leftBarButtonItem = leftMenubarButton
+        //        self.navigationController?.navigationBar.barTintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1.0)
+        //        // center image in nav bar
+        //
+        //        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        //        imageView.contentMode = .ScaleAspectFit
+        //
+        //        let image = UIImage(named: "look-venue-logo.png")
+        //        imageView.image = image
+        //        //self.navigationController?.setToolbarHidden(true, animated: false)
+        //        self.navigationItem.titleView = imageView
+        //
+        //        let leftBarButton: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+        //        //set image for button
+        //        leftBarButton.setImage(UIImage(named: "menu-icon.png"), forState: UIControlState.Normal)
+        //        //add function for button
+        //        leftBarButton.addTarget(self, action: "leftSideMenuButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+        //        //set frame
+        //        leftBarButton.frame = CGRectMake(0, 0,20, 20)
+        //
+        //        let leftMenubarButton = UIBarButtonItem(customView: leftBarButton)
+        //        //assign button to navigationbar
+        //        self.navigationItem.leftBarButtonItem = leftMenubarButton
         
         
         
@@ -76,7 +75,7 @@ class LeftSideMenuViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         return menuLabel.count
+        return menuLabel.count
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -171,15 +170,15 @@ class LeftSideMenuViewController: UIViewController, UITableViewDelegate, UITable
             println("tab bar")
         }
     }
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

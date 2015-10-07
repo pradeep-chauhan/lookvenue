@@ -21,6 +21,7 @@ class venueSearchResultCollectionViewController: UICollectionViewController,UICo
     
     var searchDetails:SearchDetails = SearchDetails()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getSearchVenueArray()

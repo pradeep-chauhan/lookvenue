@@ -9,6 +9,12 @@
 import UIKit
 
 class SearchDetails: NSObject {
-     var priceSelected:NSMutableArray = NSMutableArray()
-     var venueSelected:NSMutableArray = NSMutableArray()
+    var priceSelected:NSMutableArray = NSMutableArray()
+    var venueSelected:NSMutableArray = NSMutableArray()
+    var selectedLocationsArray:NSMutableArray = NSMutableArray()
+    var cityTextfieldValue:String = String()
+    var areaTextfieldValue:String = String()
+    var venueTextfieldValue:String = String()
+    var dateTextfieldValue:String = String()
+    var priceTextfieldValue:String = String()
 }

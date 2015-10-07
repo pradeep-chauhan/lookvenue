@@ -1,22 +1,23 @@
 //
-//  contactUs.swift
+//  calendarViewController.swift
 //  lookvenue
 //
-//  Created by Pradeep Chauhan on 8/6/15.
+//  Created by Pradeep Chauhan on 10/6/15.
 //  Copyright (c) 2015 Pradeep Chauhan. All rights reserved.
 //
 
 import UIKit
 
-class contactUs: ViewController {
-
-    @IBOutlet weak var messageView: UITextView!
+class calendarViewController: UIViewController, PMCalendarControllerDelegate {
+    
+    var calendar: PMCalendarController = PMCalendarController()
+    var pmcc: PMCalendarView = PMCalendarView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.messageView.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.5).CGColor
-        self.messageView.layer.borderWidth = 0.5
-        self.messageView.layer.cornerRadius = 5
-        self.messageView.clipsToBounds = true
+        calendar.delegate = self
+        self.calendar = PMCalendarController(themeName: "apple calendar")
+        self.view.addSubview(pmcc)
+        showCalendar()
         // Do any additional setup after loading the view.
     }
 
@@ -25,6 +26,14 @@ class contactUs: ViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func calendarController(calendarController: PMCalendarController!, didChangePeriod newPeriod: PMPeriod!) {
+        println ("selected")
+    }
+    
+    func showCalendar () {
+        println("calendar")
+        self.calendar.calendarVisible
+    }
 
     /*
     // MARK: - Navigation

@@ -67,9 +67,11 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
         areaLabel.textColor = UIColor.redColor()
         venueLabel.textColor = UIColor.redColor()
         
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        //self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationItem.title = "Apply Filter"
         
+        println(searchDetails.selectedLocationsArray)
         
         let leftBarButton: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
         // image for button
@@ -89,6 +91,16 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
         self.city.delegate=self
         self.coverdArea.delegate = self
         self.capacity.delegate = self
+        
+        city.text = searchDetails.cityTextfieldValue
+        venueType.text = searchDetails.venueTextfieldValue
+        dateOfEnquiry.text = searchDetails.dateTextfieldValue
+        priceRange.text = searchDetails.priceTextfieldValue
+        //area.descriptionText = searchDetails.areaTextfieldValue
+        area.descriptionText = "qwerty"
+        
+        
+        
         //tokanView.promptText = "Top 5: "
         area.placeholder = "Type to search area"
         //tokanView.descriptionText = "Languages"
@@ -97,7 +109,9 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
         area.minimumCharactersToSearch = 0 // Show all results without without typing anything
         area.style = .Squared
         
-        
+//        var serviceCall : WebServiceCall = WebServiceCall()
+//        self.areaListArray = serviceCall.getAreaArray(resultData)
+//        self.getAreasArray()
         
         var methodType: String = "GET"
         var base: String = "areas/get_areas_by_city_name?city_name="
@@ -470,16 +484,21 @@ extension searchPropertyWithFilterViewController: KSTokenViewDelegate {
     }
     
     func tokenView(tokenView: KSTokenView, willDeleteToken token: KSToken) {
-        println(token.title)
+        //println(token.title)
         var idOfObject = self.getIdOfObject(token.title)
-        selectedLocationsArray.removeObject(idOfObject)
-        println(idOfObject)
+        searchDetails.selectedLocationsArray.removeObject(idOfObject)
+        //println(idOfObject)
     }
     func tokenView(token: KSTokenView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        if((searchDetails.selectedLocationsArray).count > 0) {
+//            for ( var i = 0; i < (searchDetails.selectedLocationsArray).count; i++) {
+//                
+//            }
+//        }
         var object1 = (token._resultArray as NSArray).objectAtIndex(indexPath.row) as! NSDictionary
         println(object1)
-        selectedLocationsArray.addObject(object1["id"] as! NSNumber)
-        println(selectedLocationsArray)
+        searchDetails.selectedLocationsArray.addObject(object1["id"] as! NSNumber)
+        println(searchDetails.selectedLocationsArray)
         
     }
     

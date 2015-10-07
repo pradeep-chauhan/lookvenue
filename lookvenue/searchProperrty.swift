@@ -44,13 +44,15 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
     var searchListArray : NSArray!
     var searchArray : NSMutableArray = NSMutableArray()
     
+  
+    
     //selected value
     
     var searchDetails: SearchDetails = SearchDetails()
     //var venueSelected: [Int] = []
-    var areaSelected: [Int] = []
+    //var areaSelected: [Int] = []
     
-    var selectedLocationsArray = NSMutableArray()
+    //var selectedLocationsArray = NSMutableArray()
     
     //var priceSelected:String!
 
@@ -180,6 +182,10 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
     {
         searchArray = searchListArray as! NSMutableArray
     }
+    
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -413,8 +419,63 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
     }
     
     @IBAction func searchButton(sender: AnyObject) {
+        
+        var area_ids:String!
+        var property_type_ids:String!
+        var price_range_ids:String!
+        
+        // Price range ids string
+        
+        if((searchDetails.priceSelected).count > 1) {
+            for (var i = 0; i < (searchDetails.priceSelected).count; i++) {
+                price_range_ids = price_range_ids + "," + ((searchDetails.priceSelected)[i] as! String)
+                
+            }
+        }
+        else if ((searchDetails.priceSelected).count == 1 ) {
+            price_range_ids = ((searchDetails.priceSelected)[0] as AnyObject) as! String
+        }
+        else {
+            price_range_ids = ""
+        }
+        
+        // Property type ids string
+        
+        if((searchDetails.venueSelected).count > 1) {
+            for (var i = 0; i < (searchDetails.venueSelected).count; i++) {
+                property_type_ids = property_type_ids + "," + ((searchDetails.venueSelected)[i] as! String)
+                
+            }
+        }
+        else if ((searchDetails.venueSelected).count == 1 ) {
+            property_type_ids = (searchDetails.venueSelected)[0] as! String
+        }
+        else {
+            property_type_ids = ""
+        }
+        
+        // Area ids string
+        
+        if((searchDetails.selectedLocationsArray).count > 1) {
+            for (var i = 0; i < (searchDetails.selectedLocationsArray).count; i++) {
+                area_ids = area_ids + "," + ((searchDetails.selectedLocationsArray)[i] as! String)
+                
+            }
+        }
+        else if ((searchDetails.selectedLocationsArray).count == 1 ) {
+            area_ids = (searchDetails.selectedLocationsArray)[0] as! String
+        }
+        else {
+            area_ids = ""
+        }
+        
+        println(area_ids + "+++" + property_type_ids + "+++" + price_range_ids)
+        
         var methodType: String = "GET"
-        var base: String = "search.json?area_ids=1&property_type_ids=1,2,3&price_range_ids=1"
+        var base1: String = "search.json?area_ids=1 \(area_ids) &property_type_ids= \(property_type_ids) &price_range_ids= \(price_range_ids)"
+        println(base1)
+        var base: String = "search.json?area_ids=1&property_type_ids=1,2,3&price_range_ids=1,2,3,4,5,6,7"
+        
         var param: String = "Delhi/NCR"
         var urlRequest: String = base
         var serviceCall : WebServiceCall = WebServiceCall()
@@ -425,9 +486,16 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
             self.getSearchVenueArray()
             self.indicator.stopAnimating()
             if((self.searchListArray.count) > 0) {
+                self.searchDetails.cityTextfieldValue = self.city.text
+                self.searchDetails.areaTextfieldValue = self.area.descriptionText
+                self.searchDetails.venueTextfieldValue = self.venueType.text
+                self.searchDetails.dateTextfieldValue = self.dateOfEnquiry.text
+                self.searchDetails.priceTextfieldValue = self.priceRange.text
+                
                 var storyBoard = UIStoryboard(name: "Main", bundle: nil)
                 var dash : venueSearchResultCollectionViewController = storyBoard.instantiateViewControllerWithIdentifier("venueSearchResult") as! venueSearchResultCollectionViewController
                 dash.searchVenueListArray = self.searchListArray
+                dash.searchDetails = self.searchDetails
                 //println(searchVenueListArray)
                 self.navigationController?.pushViewController(dash, animated: true)
             }
@@ -490,15 +558,15 @@ extension searchProperrty: KSTokenViewDelegate {
     func tokenView(tokenView: KSTokenView, willDeleteToken token: KSToken) {
         println(token.title)
         var idOfObject = self.getIdOfObject(token.title)
-        selectedLocationsArray.removeObject(idOfObject)
+        searchDetails.selectedLocationsArray.removeObject(idOfObject)
         println(idOfObject)
     }
     
     func tokenView(token: KSTokenView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var object1 = (token._resultArray as NSArray).objectAtIndex(indexPath.row) as! NSDictionary
         println(object1)
-        selectedLocationsArray.addObject(object1["id"] as! NSNumber)
-        println(selectedLocationsArray)
+        searchDetails.selectedLocationsArray.addObject(object1["id"] as! NSNumber)
+        println(searchDetails.selectedLocationsArray)
     }
     
     func tokenView(token: KSTokenView, displayTitleForObject object: AnyObject) -> String {
