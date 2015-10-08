@@ -16,20 +16,15 @@ class DashBoardViewController: UIViewController, UITabBarDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     var LoginDetails: loginDetails = loginDetails()
-    
-//    var menuImage = ["home.png","calendar-clock.png","settings.png","phone.png"]
-//    var menuType = ["Edit Property","Calender","Setting","contact"]
+    var LoginDetailsArray:NSMutableArray = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         DashBoardTabBar.delegate = self
-        
-        
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-       
-        
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1.0)
+        self.DashBoardTabBar.tintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1.0)
+        //self.DashBoardTabBar.barTintColor
         // center image in nav bar
         
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
@@ -42,12 +37,16 @@ class DashBoardViewController: UIViewController, UITabBarDelegate {
         let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: navigationController, action: nil)
         navigationItem.leftBarButtonItem = backButton
         
-        var storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        var dash : ListPropertyViewController = storyBoard.instantiateViewControllerWithIdentifier("ListPropertyViewController") as! ListPropertyViewController
-        dash.view.frame = CGRectMake(0, 0, self.displayControllerView.frame.size.width, self.displayControllerView.frame.size.height)
-        dash.LoginDetails = LoginDetails
-        self.displayControllerView.addSubview(dash.view)
-        self.addChildViewController(dash)
+//        var storyBoard = UIStoryboard(name: "Main", bundle: nil)
+//        var dash : ListPropertyViewController = storyBoard.instantiateViewControllerWithIdentifier("ListPropertyViewController") as! ListPropertyViewController
+//        dash.LoginDetails = LoginDetails
+//        dash.loginDetailsArray = LoginDetailsArray
+//        dash.view.frame = CGRectMake(0, 0, self.displayControllerView.frame.size.width, self.displayControllerView.frame.size.height)
+//       
+//        self.displayControllerView.addSubview(dash.view)
+//        self.addChildViewController(dash)
+        
+       tabBar(DashBoardTabBar, tag: 0)
         
         
     }
@@ -62,6 +61,8 @@ class DashBoardViewController: UIViewController, UITabBarDelegate {
         if(item.tag == 0) {
             var storyBoard = UIStoryboard(name: "Main", bundle: nil)
             var dash : ListPropertyViewController = storyBoard.instantiateViewControllerWithIdentifier("ListPropertyViewController") as! ListPropertyViewController
+            dash.LoginDetails = LoginDetails
+            dash.loginDetailsArray = LoginDetailsArray
             dash.view.frame = CGRectMake(0, 0, self.displayControllerView.frame.size.width, self.displayControllerView.frame.size.height)
             self.displayControllerView.addSubview(dash.view)
             self.addChildViewController(dash)

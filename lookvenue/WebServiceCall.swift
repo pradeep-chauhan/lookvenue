@@ -1,4 +1,4 @@
-//
+    //
 //  WebServiceCall.swift
 //  lookvenue
 //
@@ -11,10 +11,12 @@ import Alamofire
 
 class WebServiceCall: NSObject {
     
+    var login:loginDetails = loginDetails()
     var authentication = ""
     var cookies = ""
     var contentType = ""
     
+    // user api call
     
     func apiCallRequest(methodType: String, urlRequest: String, completion: (resultData : NSData) -> ()) -> Void
     {
@@ -22,56 +24,32 @@ class WebServiceCall: NSObject {
         var method: String! = methodType
         var parameter: String! = urlRequest
         var url: String = baseUrl + parameter
-        
-        
-        let headers = [
-            "Authorization": "\(authentication)",
-            "Cookies": "remenber_token=\(authentication)",
-            "Content-Type": "\(contentType)"
-        ]
+       
         //println(method)
         //println(url)
         if( method == "GET") {
-            
-            if( authentication != "" ) {
                 Alamofire.request(.GET, url)
                     .response { request, response, data, error in
                         //println(request)
-                        //println(response)
+                        println(response)
                         if(error != nil) {
                             println(response?.statusCode)
-                            //println(response?)
+                            println(error?.localizedDescription)
+                            var alert = UIAlertView(title: "Error", message: error!.localizedDescription, delegate: self, cancelButtonTitle: "Ok")
+                            alert.show()
+                            
+                        }
+                        else {
+                            completion(resultData: data!)
                         }
                         
                         
                     }
-                    .response { request, response, data, error in
-                        //println(data)
-                        
-                        completion(resultData: data!)
-                }
-            }
-            
-            else {
-                Alamofire.request(.GET, url, headers: headers)
-                    .response { request, response, data, error in
-                        //println(request)
-                        //println(response)
-                        if(error != nil) {
-                            println(response?.statusCode)
-                            //println(response?)
-                        }
-                        
-                        
-                    }
-                    .response { request, response, data, error in
-                        println(data)
-                        
-                        completion(resultData: data!)
-                }
-                
-            }
-            
+//                    .response { request, response, data, error in
+//                        //println(data)
+//                        
+//                        completion(resultData: data!)
+//                }
            
         }
         else {
@@ -88,7 +66,61 @@ class WebServiceCall: NSObject {
         }
     }
     
+    // admin call
     
+    func adminApiCallRequest(methodType: String, urlRequest: String, authentication: String , completion: (resultData : NSData) -> ()) -> Void
+    {
+        var baseUrl: String! = "http://lookvenue.herokuapp.com/"
+        var method: String! = methodType
+        var parameter: String! = urlRequest
+        var url: String = baseUrl + parameter
+        var authentication:String = authentication
+        println(login.remember_token as NSString)
+        
+        //authentication = (login.remember_token as NSString) as String
+        //println("Hello user\(authentication)")
+        let headers = [
+            "Authorization": "\(authentication)",
+            "Cookie": "remember_token=\(authentication)",
+            "Content-Type": "application/json"
+        ]
+        
+        println(headers)
+        //println(url)
+        if( method == "GET") {
+            
+                Alamofire.request(.GET, url, headers: headers)
+                    .response { request, response, data, error in
+                        //println(request)
+                        //println(response)
+                        if(error != nil) {
+                            println(response?.statusCode)
+                            println(response)
+                        }
+                        
+                        
+                    }
+                    .response { request, response, data, error in
+                        println(data)
+                        println(response)
+                        completion(resultData: data!)
+                }
+                
+            }
+        else {
+            Alamofire.request(.POST, url)
+                .response { request, response, data, error in
+                    println(request)
+                    println(response)
+                    println(error)
+                }
+                .responseJSON { request, response, data, error in
+                    completion(resultData: data as! NSData)
+                    
+            }
+        }
+    }
+
     
     
     func getAreaArray(data : NSData) -> NSArray
@@ -169,22 +201,19 @@ class WebServiceCall: NSObject {
         var loginDetailsArray : NSMutableArray = NSMutableArray()
 
         var login : loginDetails = loginDetails()
-        var tempDict : NSDictionary = loginDetailsListArray as NSDictionary
-            //println(tempDict)
         
-        var archiveInt = (tempDict.valueForKey("archive") as! NSInteger)
+        var tempDict : NSDictionary = loginDetailsListArray as NSDictionary
+        
         login.archive = String((tempDict.valueForKey("archive") as! NSInteger))
-            //login.confirmation_token = (tempDict.valueForKey("confirmation_token") as! NSString)
         login.created_at = tempDict.valueForKey("created_at") as! NSString
-            //login.device_token = tempDict.valueForKey("device_token") as! NSString
+        //login.device_token = tempDict.valueForKey("device_token") as! NSString
         login.email = tempDict.valueForKey("email") as! NSString
         login.encrypted_password = tempDict.valueForKey("encrypted_password") as! NSString
         login.id = String(tempDict.valueForKey("id") as! NSInteger)
         //login.name = tempDict.valueForKey("name") as! NSString
         login.remember_token = tempDict.valueForKey("remember_token") as! NSString
         login.updated_at = tempDict.valueForKey("updated_at") as! NSString
-                        //venue.name = (tempDict.valueForKey("name")!)
-            
+          
         loginDetailsArray.addObject(tempDict)
         
         return loginDetailsArray
@@ -193,13 +222,13 @@ class WebServiceCall: NSObject {
     func getPropertyDetailsArray(data : NSData) -> NSArray
     {
         var error : NSError?
-        var propertyDetailsListArray : NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &error) as! NSDictionary
+        var propertyDetailsListArray : NSArray = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &error) as! NSArray
         var propertyDetailsArray : NSMutableArray = NSMutableArray()
         for(var i = 0; i < propertyDetailsListArray.count; i++)
         {
             
         //var login : loginDetails = loginDetails()
-        var tempDict : NSDictionary = propertyDetailsListArray as NSDictionary
+        var tempDict : NSDictionary = propertyDetailsListArray[i] as! NSDictionary
         //println(tempDict)
         
         propertyDetailsArray.addObject(tempDict)

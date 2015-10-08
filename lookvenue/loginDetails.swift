@@ -10,13 +10,13 @@ import UIKit
 
 class loginDetails: NSObject {
     var archive: NSString! = NSString()
-    var confirmation_token: NSString! = NSString()
+    //var confirmation_token: NSString! = NSString()
     var created_at: NSString! = NSString()
-    var device_token: NSString! = NSString()
+    //var device_token: NSString! = NSString()
     var email: NSString! = NSString()
     var encrypted_password: NSString! = NSString()
     var id: NSString! = NSString()
-    var name: NSString! = NSString()
+    //var name: NSString! = NSString()
     var remember_token: NSString! = NSString()
     var updated_at: NSString! = NSString()
 }

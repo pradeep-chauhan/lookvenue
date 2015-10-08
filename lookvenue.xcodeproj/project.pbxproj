@@ -40,21 +40,6 @@
 		F9727AF41BC3CB2F005591D4 /* home-small-red.png in Resources */ = {isa = PBXBuildFile; fileRef = F9727AF31BC3CB2F005591D4 /* home-small-red.png */; };
 		F9727AF91BC3EA8F005591D4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9727AF81BC3EA8F005591D4 /* SettingsViewController.swift */; };
 		F9727AFB1BC3EF6D005591D4 /* calendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9727AFA1BC3EF6D005591D4 /* calendarViewController.swift */; };
-		F9727B1B1BC43DF0005591D4 /* NSDate+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = F9727B021BC43DF0005591D4 /* NSDate+Helpers.m */; };
-		F9727B1C1BC43DF0005591D4 /* PMCalendarBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9727B041BC43DF0005591D4 /* PMCalendarBackgroundView.m */; };
-		F9727B1D1BC43DF0005591D4 /* PMCalendarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9727B071BC43DF0005591D4 /* PMCalendarController.m */; };
-		F9727B1E1BC43DF0005591D4 /* PMCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9727B0A1BC43DF0005591D4 /* PMCalendarView.m */; };
-		F9727B1F1BC43DF0005591D4 /* PMDimmingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9727B0C1BC43DF0005591D4 /* PMDimmingView.m */; };
-		F9727B201BC43DF0005591D4 /* PMPeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = F9727B0E1BC43DF0005591D4 /* PMPeriod.m */; };
-		F9727B211BC43DF0005591D4 /* PMSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9727B101BC43DF0005591D4 /* PMSelectionView.m */; };
-		F9727B221BC43DF0005591D4 /* PMThemeEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = F9727B131BC43DF0005591D4 /* PMThemeEngine.m */; };
-		F9727B231BC43DF0005591D4 /* PMThemeShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = F9727B151BC43DF0005591D4 /* PMThemeShadow.m */; };
-		F9727B241BC43DF0005591D4 /* apple calendar.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9727B171BC43DF0005591D4 /* apple calendar.plist */; };
-		F9727B251BC43DF0005591D4 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = F9727B181BC43DF0005591D4 /* background.png */; };
-		F9727B261BC43DF0005591D4 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F9727B191BC43DF0005591D4 /* background@2x.png */; };
-		F9727B271BC43DF0005591D4 /* default.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9727B1A1BC43DF0005591D4 /* default.plist */; };
-		F9727B2D1BC44711005591D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9727B2C1BC44711005591D4 /* CoreText.framework */; };
-		F9727B2F1BC44718005591D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9727B2E1BC44718005591D4 /* CoreGraphics.framework */; };
 		F9727B341BC4EFE3005591D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9727B321BC4EFE3005591D4 /* Main.storyboard */; };
 		F9727B361BC4FCE8005591D4 /* loginDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9727B351BC4FCE8005591D4 /* loginDetails.swift */; };
 		F973DA791BC24F6900BCEF63 /* DashBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F973DA781BC24F6900BCEF63 /* DashBoardTableViewCell.swift */; };
@@ -71,6 +56,19 @@
 		F97672C51BB178A500FA626B /* KSTokenField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97672C11BB178A500FA626B /* KSTokenField.swift */; };
 		F97672C61BB178A500FA626B /* KSTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97672C21BB178A500FA626B /* KSTokenView.swift */; };
 		F97672C71BB178A500FA626B /* KSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97672C31BB178A500FA626B /* KSUtils.swift */; };
+		F976B8021BC6ED6B0003EAB3 /* NSDate+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = F976B7E91BC6ED6B0003EAB3 /* NSDate+Helpers.m */; };
+		F976B8031BC6ED6B0003EAB3 /* PMCalendarBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = F976B7EB1BC6ED6B0003EAB3 /* PMCalendarBackgroundView.m */; };
+		F976B8041BC6ED6B0003EAB3 /* PMCalendarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F976B7EE1BC6ED6B0003EAB3 /* PMCalendarController.m */; };
+		F976B8051BC6ED6B0003EAB3 /* PMCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = F976B7F11BC6ED6B0003EAB3 /* PMCalendarView.m */; };
+		F976B8061BC6ED6B0003EAB3 /* PMDimmingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F976B7F31BC6ED6B0003EAB3 /* PMDimmingView.m */; };
+		F976B8071BC6ED6B0003EAB3 /* PMPeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = F976B7F51BC6ED6B0003EAB3 /* PMPeriod.m */; };
+		F976B8081BC6ED6B0003EAB3 /* PMSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = F976B7F71BC6ED6B0003EAB3 /* PMSelectionView.m */; };
+		F976B8091BC6ED6B0003EAB3 /* PMThemeEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = F976B7FA1BC6ED6B0003EAB3 /* PMThemeEngine.m */; };
+		F976B80A1BC6ED6B0003EAB3 /* PMThemeShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = F976B7FC1BC6ED6B0003EAB3 /* PMThemeShadow.m */; };
+		F976B80B1BC6ED6B0003EAB3 /* apple calendar.plist in Resources */ = {isa = PBXBuildFile; fileRef = F976B7FE1BC6ED6B0003EAB3 /* apple calendar.plist */; };
+		F976B80C1BC6ED6B0003EAB3 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = F976B7FF1BC6ED6B0003EAB3 /* background.png */; };
+		F976B80D1BC6ED6B0003EAB3 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F976B8001BC6ED6B0003EAB3 /* background@2x.png */; };
+		F976B80E1BC6ED6B0003EAB3 /* default.plist in Resources */ = {isa = PBXBuildFile; fileRef = F976B8011BC6ED6B0003EAB3 /* default.plist */; };
 		F979A5141B787ACE00D72F5D /* contact.png in Resources */ = {isa = PBXBuildFile; fileRef = F979A5121B787ACE00D72F5D /* contact.png */; };
 		F979A5151B787ACE00D72F5D /* Setting.png in Resources */ = {isa = PBXBuildFile; fileRef = F979A5131B787ACE00D72F5D /* Setting.png */; };
 		F97CE39B1BBA788A001CFACD /* LeftMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97CE39A1BBA788A001CFACD /* LeftMenuTableViewCell.swift */; };
@@ -254,34 +252,6 @@
 		F9727AF31BC3CB2F005591D4 /* home-small-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-small-red.png"; sourceTree = "<group>"; };
 		F9727AF81BC3EA8F005591D4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F9727AFA1BC3EF6D005591D4 /* calendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = calendarViewController.swift; sourceTree = "<group>"; };
-		F9727AFF1BC43DF0005591D4 /* PMCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCalendar.h; sourceTree = "<group>"; };
-		F9727B011BC43DF0005591D4 /* NSDate+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helpers.h"; sourceTree = "<group>"; };
-		F9727B021BC43DF0005591D4 /* NSDate+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helpers.m"; sourceTree = "<group>"; };
-		F9727B031BC43DF0005591D4 /* PMCalendarBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCalendarBackgroundView.h; sourceTree = "<group>"; };
-		F9727B041BC43DF0005591D4 /* PMCalendarBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCalendarBackgroundView.m; sourceTree = "<group>"; };
-		F9727B051BC43DF0005591D4 /* PMCalendarConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCalendarConstants.h; sourceTree = "<group>"; };
-		F9727B061BC43DF0005591D4 /* PMCalendarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCalendarController.h; sourceTree = "<group>"; };
-		F9727B071BC43DF0005591D4 /* PMCalendarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCalendarController.m; sourceTree = "<group>"; };
-		F9727B081BC43DF0005591D4 /* PMCalendarHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCalendarHelpers.h; sourceTree = "<group>"; };
-		F9727B091BC43DF0005591D4 /* PMCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCalendarView.h; sourceTree = "<group>"; };
-		F9727B0A1BC43DF0005591D4 /* PMCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCalendarView.m; sourceTree = "<group>"; };
-		F9727B0B1BC43DF0005591D4 /* PMDimmingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMDimmingView.h; sourceTree = "<group>"; };
-		F9727B0C1BC43DF0005591D4 /* PMDimmingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMDimmingView.m; sourceTree = "<group>"; };
-		F9727B0D1BC43DF0005591D4 /* PMPeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMPeriod.h; sourceTree = "<group>"; };
-		F9727B0E1BC43DF0005591D4 /* PMPeriod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMPeriod.m; sourceTree = "<group>"; };
-		F9727B0F1BC43DF0005591D4 /* PMSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMSelectionView.h; sourceTree = "<group>"; };
-		F9727B101BC43DF0005591D4 /* PMSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMSelectionView.m; sourceTree = "<group>"; };
-		F9727B111BC43DF0005591D4 /* PMTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMTheme.h; sourceTree = "<group>"; };
-		F9727B121BC43DF0005591D4 /* PMThemeEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMThemeEngine.h; sourceTree = "<group>"; };
-		F9727B131BC43DF0005591D4 /* PMThemeEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMThemeEngine.m; sourceTree = "<group>"; };
-		F9727B141BC43DF0005591D4 /* PMThemeShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMThemeShadow.h; sourceTree = "<group>"; };
-		F9727B151BC43DF0005591D4 /* PMThemeShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMThemeShadow.m; sourceTree = "<group>"; };
-		F9727B171BC43DF0005591D4 /* apple calendar.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "apple calendar.plist"; sourceTree = "<group>"; };
-		F9727B181BC43DF0005591D4 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
-		F9727B191BC43DF0005591D4 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
-		F9727B1A1BC43DF0005591D4 /* default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = default.plist; sourceTree = "<group>"; };
-		F9727B2C1BC44711005591D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		F9727B2E1BC44718005591D4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F9727B331BC4EFE3005591D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F9727B351BC4FCE8005591D4 /* loginDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginDetails.swift; sourceTree = "<group>"; };
 		F973DA781BC24F6900BCEF63 /* DashBoardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashBoardTableViewCell.swift; sourceTree = "<group>"; };
@@ -298,6 +268,32 @@
 		F97672C11BB178A500FA626B /* KSTokenField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTokenField.swift; sourceTree = "<group>"; };
 		F97672C21BB178A500FA626B /* KSTokenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTokenView.swift; sourceTree = "<group>"; };
 		F97672C31BB178A500FA626B /* KSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSUtils.swift; sourceTree = "<group>"; };
+		F976B7E61BC6ED6B0003EAB3 /* PMCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCalendar.h; sourceTree = "<group>"; };
+		F976B7E81BC6ED6B0003EAB3 /* NSDate+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helpers.h"; sourceTree = "<group>"; };
+		F976B7E91BC6ED6B0003EAB3 /* NSDate+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helpers.m"; sourceTree = "<group>"; };
+		F976B7EA1BC6ED6B0003EAB3 /* PMCalendarBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCalendarBackgroundView.h; sourceTree = "<group>"; };
+		F976B7EB1BC6ED6B0003EAB3 /* PMCalendarBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCalendarBackgroundView.m; sourceTree = "<group>"; };
+		F976B7EC1BC6ED6B0003EAB3 /* PMCalendarConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCalendarConstants.h; sourceTree = "<group>"; };
+		F976B7ED1BC6ED6B0003EAB3 /* PMCalendarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCalendarController.h; sourceTree = "<group>"; };
+		F976B7EE1BC6ED6B0003EAB3 /* PMCalendarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCalendarController.m; sourceTree = "<group>"; };
+		F976B7EF1BC6ED6B0003EAB3 /* PMCalendarHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCalendarHelpers.h; sourceTree = "<group>"; };
+		F976B7F01BC6ED6B0003EAB3 /* PMCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCalendarView.h; sourceTree = "<group>"; };
+		F976B7F11BC6ED6B0003EAB3 /* PMCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCalendarView.m; sourceTree = "<group>"; };
+		F976B7F21BC6ED6B0003EAB3 /* PMDimmingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMDimmingView.h; sourceTree = "<group>"; };
+		F976B7F31BC6ED6B0003EAB3 /* PMDimmingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMDimmingView.m; sourceTree = "<group>"; };
+		F976B7F41BC6ED6B0003EAB3 /* PMPeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMPeriod.h; sourceTree = "<group>"; };
+		F976B7F51BC6ED6B0003EAB3 /* PMPeriod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMPeriod.m; sourceTree = "<group>"; };
+		F976B7F61BC6ED6B0003EAB3 /* PMSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMSelectionView.h; sourceTree = "<group>"; };
+		F976B7F71BC6ED6B0003EAB3 /* PMSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMSelectionView.m; sourceTree = "<group>"; };
+		F976B7F81BC6ED6B0003EAB3 /* PMTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMTheme.h; sourceTree = "<group>"; };
+		F976B7F91BC6ED6B0003EAB3 /* PMThemeEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMThemeEngine.h; sourceTree = "<group>"; };
+		F976B7FA1BC6ED6B0003EAB3 /* PMThemeEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMThemeEngine.m; sourceTree = "<group>"; };
+		F976B7FB1BC6ED6B0003EAB3 /* PMThemeShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMThemeShadow.h; sourceTree = "<group>"; };
+		F976B7FC1BC6ED6B0003EAB3 /* PMThemeShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMThemeShadow.m; sourceTree = "<group>"; };
+		F976B7FE1BC6ED6B0003EAB3 /* apple calendar.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "apple calendar.plist"; sourceTree = "<group>"; };
+		F976B7FF1BC6ED6B0003EAB3 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		F976B8001BC6ED6B0003EAB3 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
+		F976B8011BC6ED6B0003EAB3 /* default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = default.plist; sourceTree = "<group>"; };
 		F979A5121B787ACE00D72F5D /* contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contact.png; path = ../contact.png; sourceTree = "<group>"; };
 		F979A5131B787ACE00D72F5D /* Setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Setting.png; path = ../Setting.png; sourceTree = "<group>"; };
 		F97CE39A1BBA788A001CFACD /* LeftMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -407,8 +403,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9727B2F1BC44718005591D4 /* CoreGraphics.framework in Frameworks */,
-				F9727B2D1BC44711005591D4 /* CoreText.framework in Frameworks */,
 				F9B6288F1BA721880034D7EC /* Alamofire.framework in Frameworks */,
 				F9B628341BA6F6BB0034D7EC /* MapKit.framework in Frameworks */,
 				F99716FE1B94218D008BED74 /* libCloudinary.a in Frameworks */,
@@ -466,8 +460,6 @@
 		F9667D581B709AB300647DCE = {
 			isa = PBXGroup;
 			children = (
-				F9727B2E1BC44718005591D4 /* CoreGraphics.framework */,
-				F9727B2C1BC44711005591D4 /* CoreText.framework */,
 				F9B6287E1BA721330034D7EC /* Alamofire.xcodeproj */,
 				F99716FD1B94218D008BED74 /* libCloudinary.a */,
 				F995A91E1B7BA0320064CE5D /* MapKit.framework */,
@@ -574,51 +566,51 @@
 			name = Entities;
 			sourceTree = "<group>";
 		};
-		F9727AFE1BC43DF0005591D4 /* PMCalendar */ = {
+		F976B7E51BC6ED6B0003EAB3 /* PMCalendar */ = {
 			isa = PBXGroup;
 			children = (
-				F9727AFF1BC43DF0005591D4 /* PMCalendar.h */,
-				F9727B001BC43DF0005591D4 /* src */,
-				F9727B161BC43DF0005591D4 /* Theme */,
+				F976B7E61BC6ED6B0003EAB3 /* PMCalendar.h */,
+				F976B7E71BC6ED6B0003EAB3 /* src */,
+				F976B7FD1BC6ED6B0003EAB3 /* Theme */,
 			);
 			path = PMCalendar;
 			sourceTree = "<group>";
 		};
-		F9727B001BC43DF0005591D4 /* src */ = {
+		F976B7E71BC6ED6B0003EAB3 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				F9727B011BC43DF0005591D4 /* NSDate+Helpers.h */,
-				F9727B021BC43DF0005591D4 /* NSDate+Helpers.m */,
-				F9727B031BC43DF0005591D4 /* PMCalendarBackgroundView.h */,
-				F9727B041BC43DF0005591D4 /* PMCalendarBackgroundView.m */,
-				F9727B051BC43DF0005591D4 /* PMCalendarConstants.h */,
-				F9727B061BC43DF0005591D4 /* PMCalendarController.h */,
-				F9727B071BC43DF0005591D4 /* PMCalendarController.m */,
-				F9727B081BC43DF0005591D4 /* PMCalendarHelpers.h */,
-				F9727B091BC43DF0005591D4 /* PMCalendarView.h */,
-				F9727B0A1BC43DF0005591D4 /* PMCalendarView.m */,
-				F9727B0B1BC43DF0005591D4 /* PMDimmingView.h */,
-				F9727B0C1BC43DF0005591D4 /* PMDimmingView.m */,
-				F9727B0D1BC43DF0005591D4 /* PMPeriod.h */,
-				F9727B0E1BC43DF0005591D4 /* PMPeriod.m */,
-				F9727B0F1BC43DF0005591D4 /* PMSelectionView.h */,
-				F9727B101BC43DF0005591D4 /* PMSelectionView.m */,
-				F9727B111BC43DF0005591D4 /* PMTheme.h */,
-				F9727B121BC43DF0005591D4 /* PMThemeEngine.h */,
-				F9727B131BC43DF0005591D4 /* PMThemeEngine.m */,
-				F9727B141BC43DF0005591D4 /* PMThemeShadow.h */,
-				F9727B151BC43DF0005591D4 /* PMThemeShadow.m */,
+				F976B7E81BC6ED6B0003EAB3 /* NSDate+Helpers.h */,
+				F976B7E91BC6ED6B0003EAB3 /* NSDate+Helpers.m */,
+				F976B7EA1BC6ED6B0003EAB3 /* PMCalendarBackgroundView.h */,
+				F976B7EB1BC6ED6B0003EAB3 /* PMCalendarBackgroundView.m */,
+				F976B7EC1BC6ED6B0003EAB3 /* PMCalendarConstants.h */,
+				F976B7ED1BC6ED6B0003EAB3 /* PMCalendarController.h */,
+				F976B7EE1BC6ED6B0003EAB3 /* PMCalendarController.m */,
+				F976B7EF1BC6ED6B0003EAB3 /* PMCalendarHelpers.h */,
+				F976B7F01BC6ED6B0003EAB3 /* PMCalendarView.h */,
+				F976B7F11BC6ED6B0003EAB3 /* PMCalendarView.m */,
+				F976B7F21BC6ED6B0003EAB3 /* PMDimmingView.h */,
+				F976B7F31BC6ED6B0003EAB3 /* PMDimmingView.m */,
+				F976B7F41BC6ED6B0003EAB3 /* PMPeriod.h */,
+				F976B7F51BC6ED6B0003EAB3 /* PMPeriod.m */,
+				F976B7F61BC6ED6B0003EAB3 /* PMSelectionView.h */,
+				F976B7F71BC6ED6B0003EAB3 /* PMSelectionView.m */,
+				F976B7F81BC6ED6B0003EAB3 /* PMTheme.h */,
+				F976B7F91BC6ED6B0003EAB3 /* PMThemeEngine.h */,
+				F976B7FA1BC6ED6B0003EAB3 /* PMThemeEngine.m */,
+				F976B7FB1BC6ED6B0003EAB3 /* PMThemeShadow.h */,
+				F976B7FC1BC6ED6B0003EAB3 /* PMThemeShadow.m */,
 			);
 			path = src;
 			sourceTree = "<group>";
 		};
-		F9727B161BC43DF0005591D4 /* Theme */ = {
+		F976B7FD1BC6ED6B0003EAB3 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
-				F9727B171BC43DF0005591D4 /* apple calendar.plist */,
-				F9727B181BC43DF0005591D4 /* background.png */,
-				F9727B191BC43DF0005591D4 /* background@2x.png */,
-				F9727B1A1BC43DF0005591D4 /* default.plist */,
+				F976B7FE1BC6ED6B0003EAB3 /* apple calendar.plist */,
+				F976B7FF1BC6ED6B0003EAB3 /* background.png */,
+				F976B8001BC6ED6B0003EAB3 /* background@2x.png */,
+				F976B8011BC6ED6B0003EAB3 /* default.plist */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -697,7 +689,7 @@
 		F995A9181B7B3FEB0064CE5D /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				F9727AFE1BC43DF0005591D4 /* PMCalendar */,
+				F976B7E51BC6ED6B0003EAB3 /* PMCalendar */,
 				F99043A71BB6B35F00F39773 /* SBPickerSelector */,
 				F9B628911BA74E7A0034D7EC /* SDWebImage */,
 				F99716FF1B9421A2008BED74 /* Cloudinary */,
@@ -937,7 +929,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9727B261BC43DF0005591D4 /* background@2x.png in Resources */,
+				F976B80D1BC6ED6B0003EAB3 /* background@2x.png in Resources */,
 				F995A9111B7B28510064CE5D /* OpenSans-Light.ttf in Resources */,
 				F995A9121B7B28510064CE5D /* OpenSans-LightItalic.ttf in Resources */,
 				F97CE3BC1BBC39EF001CFACD /* home.png in Resources */,
@@ -945,7 +937,7 @@
 				F97CE3D91BBD419D001CFACD /* share.png in Resources */,
 				F97CE3C01BBC39EF001CFACD /* settings.png in Resources */,
 				F995A9141B7B28510064CE5D /* OpenSans-Semibold.ttf in Resources */,
-				F9727B241BC43DF0005591D4 /* apple calendar.plist in Resources */,
+				F976B80B1BC6ED6B0003EAB3 /* apple calendar.plist in Resources */,
 				F995A9151B7B28510064CE5D /* OpenSans-SemiboldItalic.ttf in Resources */,
 				F995A90C1B7B28510064CE5D /* OpenSans-Bold.ttf in Resources */,
 				F9667D711B709AB300647DCE /* LaunchScreen.xib in Resources */,
@@ -981,10 +973,10 @@
 				F97CE3E41BBD4B52001CFACD /* manage.png in Resources */,
 				F97CE3BD1BBC39EF001CFACD /* magnify.png in Resources */,
 				F995A90F1B7B28510064CE5D /* OpenSans-ExtraBoldItalic.ttf in Resources */,
-				F9727B271BC43DF0005591D4 /* default.plist in Resources */,
+				F976B80E1BC6ED6B0003EAB3 /* default.plist in Resources */,
 				F97CE3CD1BBC3F4E001CFACD /* arrow-left.png in Resources */,
 				F995A90E1B7B28510064CE5D /* OpenSans-ExtraBold.ttf in Resources */,
-				F9727B251BC43DF0005591D4 /* background.png in Resources */,
+				F976B80C1BC6ED6B0003EAB3 /* background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1009,12 +1001,13 @@
 				F940ED351B75D7C70017FDE6 /* SACalendar.m in Sources */,
 				F98DFC071BB90667005D4FA4 /* UIViewController+MFSideMenuAdditions.m in Sources */,
 				F9727AFB1BC3EF6D005591D4 /* calendarViewController.swift in Sources */,
+				F976B8061BC6ED6B0003EAB3 /* PMDimmingView.m in Sources */,
 				F9B628BF1BA74E7A0034D7EC /* UIImage+WebP.m in Sources */,
 				F973DA801BC28F4100BCEF63 /* ListPropertyViewController.swift in Sources */,
 				F940ECE51B73DE9E0017FDE6 /* forgotPassword.swift in Sources */,
+				F976B8051BC6ED6B0003EAB3 /* PMCalendarView.m in Sources */,
 				F9B628B61BA74E7A0034D7EC /* SDWebImageCompat.m in Sources */,
 				F9727AF91BC3EA8F005591D4 /* SettingsViewController.swift in Sources */,
-				F9727B221BC43DF0005591D4 /* PMThemeEngine.m in Sources */,
 				F940ED4A1B7677620017FDE6 /* MyMenuTableViewController.swift in Sources */,
 				F940ED331B75D7C70017FDE6 /* DateUtil.m in Sources */,
 				F9B628BB1BA74E7A0034D7EC /* SDWebImagePrefetcher.m in Sources */,
@@ -1022,27 +1015,25 @@
 				F9667D691B709AB300647DCE /* ViewController.swift in Sources */,
 				F99AEEB71BAE91E50074F311 /* PropertyImageCollectionViewCell.swift in Sources */,
 				F9DE5CE71BA5C33C0033ABBE /* images.swift in Sources */,
-				F9727B1C1BC43DF0005591D4 /* PMCalendarBackgroundView.m in Sources */,
 				F99DD1A51B96DF2D00B1172D /* venueSearchResultCollectionViewController.swift in Sources */,
 				F9B628B71BA74E7A0034D7EC /* SDWebImageDecoder.m in Sources */,
 				F9522BAF1B8F59F300E8F3C6 /* WebServiceCall.swift in Sources */,
+				F976B80A1BC6ED6B0003EAB3 /* PMThemeShadow.m in Sources */,
 				F9727B361BC4FCE8005591D4 /* loginDetails.swift in Sources */,
 				F97672C71BB178A500FA626B /* KSUtils.swift in Sources */,
 				F9B628C01BA74E7A0034D7EC /* UIImageView+HighlightedWebCache.m in Sources */,
-				F9727B231BC43DF0005591D4 /* PMThemeShadow.m in Sources */,
 				F995A91D1B7B64F10064CE5D /* locationViewController.swift in Sources */,
 				F90AB89C1B78BB1B002931E6 /* DPNotify.swift in Sources */,
 				F98DFC051BB90667005D4FA4 /* MFSideMenuContainerViewController.m in Sources */,
 				F995A8FD1B7B27570064CE5D /* OpenSans.swift in Sources */,
 				F99043B51BB6B59100F39773 /* SearchDetails.swift in Sources */,
 				F940ED341B75D7C70017FDE6 /* DMLazyScrollView.m in Sources */,
-				F9727B1E1BC43DF0005591D4 /* PMCalendarView.m in Sources */,
 				F995A91B1B7B5EB30064CE5D /* editPropertyViewController.swift in Sources */,
 				F99AEEC01BAFF2470074F311 /* searchPropertyWithFilterViewController.swift in Sources */,
+				F976B8031BC6ED6B0003EAB3 /* PMCalendarBackgroundView.m in Sources */,
 				F9B628BE1BA74E7A0034D7EC /* UIImage+MultiFormat.m in Sources */,
 				F9B628B31BA74E7A0034D7EC /* MKAnnotationView+WebCache.m in Sources */,
-				F9727B1B1BC43DF0005591D4 /* NSDate+Helpers.m in Sources */,
-				F9727B1F1BC43DF0005591D4 /* PMDimmingView.m in Sources */,
+				F976B8041BC6ED6B0003EAB3 /* PMCalendarController.m in Sources */,
 				F92BBF9E1B81A6D700B468BB /* UIView+SHAdditions.m in Sources */,
 				F995A9211B7BA2630064CE5D /* BaseViewController.swift in Sources */,
 				F9B628BD1BA74E7A0034D7EC /* UIImage+GIF.m in Sources */,
@@ -1058,23 +1049,24 @@
 				F97672C61BB178A500FA626B /* KSTokenView.swift in Sources */,
 				F99914341B73D126009F17AA /* addProperty.swift in Sources */,
 				F915A7F01B8AF13900BBAFED /* SwiftyJSON.swift in Sources */,
-				F9727B201BC43DF0005591D4 /* PMPeriod.m in Sources */,
 				F995A9171B7B34810064CE5D /* homePageViewController.swift in Sources */,
 				F98EDAD91B99847D007E07FD /* infoViewController.swift in Sources */,
 				F99914361B73D1D5009F17AA /* login.swift in Sources */,
 				F940ECE71B73DEBA0017FDE6 /* contactUs.swift in Sources */,
 				F92BBF951B80D66000B468BB /* DatePickerDialog.swift in Sources */,
 				F90AB8A01B79DF8D002931E6 /* imagePropertyViewController.swift in Sources */,
-				F9727B211BC43DF0005591D4 /* PMSelectionView.m in Sources */,
 				F92BBF9D1B81A6D700B468BB /* UIImage+SHAdditions.m in Sources */,
 				F96704171B884AE20024DCB6 /* Venue.swift in Sources */,
-				F9727B1D1BC43DF0005591D4 /* PMCalendarController.m in Sources */,
 				F99DD1A01B96CE2C00B1172D /* SearchVenue.swift in Sources */,
 				F98EDAD71B997EE3007E07FD /* propertyViewController.swift in Sources */,
+				F976B8081BC6ED6B0003EAB3 /* PMSelectionView.m in Sources */,
+				F976B8091BC6ED6B0003EAB3 /* PMThemeEngine.m in Sources */,
+				F976B8021BC6ED6B0003EAB3 /* NSDate+Helpers.m in Sources */,
 				F9B628B41BA74E7A0034D7EC /* NSData+ImageContentType.m in Sources */,
 				F973DA8D1BC30F3D00BCEF63 /* addPropertyTableViewCell.swift in Sources */,
 				F940ECE91B73DF010017FDE6 /* searchProperrty.swift in Sources */,
 				F97672C51BB178A500FA626B /* KSTokenField.swift in Sources */,
+				F976B8071BC6ED6B0003EAB3 /* PMPeriod.m in Sources */,
 				F99DD1A91B970F5700B1172D /* CollectionViewCell.swift in Sources */,
 				F973DA791BC24F6900BCEF63 /* DashBoardTableViewCell.swift in Sources */,
 				F9B628BC1BA74E7A0034D7EC /* UIButton+WebCache.m in Sources */,

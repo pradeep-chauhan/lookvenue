@@ -8,16 +8,15 @@
 
 import UIKit
 
-class calendarViewController: UIViewController, PMCalendarControllerDelegate {
+class calendarViewController: UIViewController {
     
-    var calendar: PMCalendarController = PMCalendarController()
-    var pmcc: PMCalendarView = PMCalendarView()
+    var calendar: PMCalendarController!
     override func viewDidLoad() {
         super.viewDidLoad()
-        calendar.delegate = self
         self.calendar = PMCalendarController(themeName: "apple calendar")
-        self.view.addSubview(pmcc)
-        showCalendar()
+//        self.calendar.presentCalendarFromRect(CGRectMake(0, 0, 200, 100), inView: self.view, permittedArrowDirections: PMCalendarArrowDirectionAny, animated: true)
+        //self.view.addSubview(pmcc)
+        
         // Do any additional setup after loading the view.
     }
 
@@ -26,14 +25,14 @@ class calendarViewController: UIViewController, PMCalendarControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func calendarController(calendarController: PMCalendarController!, didChangePeriod newPeriod: PMPeriod!) {
-        println ("selected")
-    }
+//    func calendarController(calendarController: PMCalendarController!, didChangePeriod newPeriod: PMPeriod!) {
+//        println ("selected")
+//    }
     
-    func showCalendar () {
-        println("calendar")
-        self.calendar.calendarVisible
-    }
+//    func showCalendar () {
+//        println("calendar")
+//        self.calendar.calendarVisible
+//    }
 
     /*
     // MARK: - Navigation

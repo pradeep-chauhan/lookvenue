@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListPropertyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class ListPropertyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -18,15 +18,14 @@ class ListPropertyViewController: UIViewController, UITableViewDelegate, UITable
     var LoginDetails: loginDetails = loginDetails()
     var webhearder: WebServiceCall = WebServiceCall()
     
+    var loginDetailsArray:NSMutableArray = NSMutableArray()
+    
     var menuType = ["a","b","c","d"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        webhearder.authentication = LoginDetails.remember_token as String
-        webhearder.contentType = "application/json"
-        
-        println( webhearder.authentication)
+        var authentication = ( LoginDetails.remember_token as NSString) as String
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -51,16 +50,17 @@ class ListPropertyViewController: UIViewController, UITableViewDelegate, UITable
         
         
         var methodType: String = "GET"
-        var base: String = "property"
+        var base: String = "properties"
         var param: String = ""
         var urlRequest: String = base
         
         var serviceCall : WebServiceCall = WebServiceCall()
         //indicator.startAnimating()
-        serviceCall.apiCallRequest(methodType, urlRequest: urlRequest) { (resultData) -> () in
+        serviceCall.adminApiCallRequest(methodType, urlRequest: urlRequest, authentication: authentication) { (resultData) -> () in
             self.propertyListArray = serviceCall.getPropertyDetailsArray(resultData)
             self.getPropertyArray()
             
+            println(self.propertyListArray)
             
         }
         

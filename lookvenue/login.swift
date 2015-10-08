@@ -25,7 +25,7 @@ class login:UIViewController, UITextFieldDelegate {
         self.username.delegate = self
         self.password.delegate = self
         // Calling side mune bar
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1.0)
         // center image in nav bar
         
@@ -38,17 +38,17 @@ class login:UIViewController, UITextFieldDelegate {
         self.navigationItem.titleView = imageView
         
         
-//        let leftBarButton: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
-//        //set image for button
-//        leftBarButton.setImage(UIImage(named: "menu-icon.png"), forState: UIControlState.Normal)
-//        //add function for button
-//        leftBarButton.addTarget(self, action: "leftSideMenuButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
-//        //set frame
-//        leftBarButton.frame = CGRectMake(0, 0,20, 20)
-//        
-//        let leftMenubarButton = UIBarButtonItem(customView: leftBarButton)
-//        //assign button to navigationbar
-//        self.navigationItem.leftBarButtonItem = leftMenubarButton
+        let leftBarButton: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+        //set image for button
+        leftBarButton.setImage(UIImage(named: "menu-icon.png"), forState: UIControlState.Normal)
+        //add function for button
+        leftBarButton.addTarget(self, action: "leftSideMenuButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+        //set frame
+        leftBarButton.frame = CGRectMake(0, 0,20, 20)
+        
+        let leftMenubarButton = UIBarButtonItem(customView: leftBarButton)
+        //assign button to navigationbar
+        self.navigationItem.leftBarButtonItem = leftMenubarButton
         
         
         
@@ -94,10 +94,20 @@ class login:UIViewController, UITextFieldDelegate {
         //indicator.startAnimating()
         
         serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, completion: {(resultData : NSData) -> Void in
-            println("hello user")
+            
             self.loginDetailsListArray = serviceCall.getLoginDetailsArray(resultData)
             self.getLoginDetailsArray()
-            println(self.loginDetailsListArray)
+            
+            self.LoginDetails.remember_token = (self.loginDetailsArray[0]["remember_token"] as! NSString as String)
+            self.LoginDetails.created_at = (self.loginDetailsArray[0]["created_at"] as! NSString as String)
+            //self.LoginDetails.id = (self.loginDetailsArray[0]["id"] as! NSString as String)
+            self.LoginDetails.updated_at = (self.loginDetailsArray[0]["updated_at"] as! NSString as String)
+            //self.LoginDetails.archive = (self.loginDetailsArray[0]["archive"] as! NSString as String)
+            self.LoginDetails.email = (self.loginDetailsArray[0]["email"] as! NSString as String)
+            self.LoginDetails.encrypted_password = (self.loginDetailsArray[0]["encrypted_password"] as! NSString as String)
+            //self.LoginDetails.email = (self.loginDetailsArray[0]["email"] as! NSString as String)
+            
+            
             if(self.loginDetailsListArray.count == 0) {
                 let alert = UIAlertView()
                 alert.title = "Sorry!"
@@ -109,7 +119,9 @@ class login:UIViewController, UITextFieldDelegate {
                  //Calling view Controller
                 var storyBoard = UIStoryboard(name: "Main", bundle: nil)
                 var dash : DashBoardViewController = storyBoard.instantiateViewControllerWithIdentifier("DashboardView") as! DashBoardViewController
+                println(self.LoginDetails.remember_token)
                 dash.LoginDetails = self.LoginDetails
+                dash.LoginDetailsArray = self.loginDetailsArray
                 self.navigationController?.pushViewController(dash, animated: true)
             }
         })
