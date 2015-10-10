@@ -87,7 +87,7 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         }
         
         city.text = "Delhi/NCR"
-        searchButton.backgroundColor = UIColor(red: 210.0/255.0, green: 67.0/255.0, blue: 49.0/255.0, alpha: 1.0)
+        searchButton.backgroundColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1.0)
         //self.scrollView.contentSize = CGSize(width: 0, height: 600)
         //self.scrollView.showsVerticalScrollIndicator = true
         view.addSubview(scrollView)

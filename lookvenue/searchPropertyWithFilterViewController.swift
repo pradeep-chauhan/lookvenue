@@ -226,7 +226,7 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
         picker.pickerType = SBPickerSelectorType.Text
         picker.doneButtonTitle = "Done"
         picker.cancelButtonTitle = "Cancel"
-        picker.optionsToolBar.tintColor =  UIColor(red: 210.0/255.0, green: 67.0/255.0, blue: 49.0/255.0, alpha: 1.0)
+        picker.optionsToolBar.tintColor =  UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1.0)
         
         let point: CGPoint = view.convertPoint(sender.frame.origin, fromView: sender.superview)
         var frame: CGRect = sender.frame
@@ -246,7 +246,7 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
         picker.pickerType = SBPickerSelectorType.Text
         picker.doneButtonTitle = "Done"
         picker.cancelButtonTitle = "Cancel"
-        picker.optionsToolBar.tintColor =  UIColor(red: 210.0/255.0, green: 67.0/255.0, blue: 49.0/255.0, alpha: 1.0)
+        picker.optionsToolBar.tintColor =  UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1.0)
         
         let point: CGPoint = view.convertPoint(sender.frame.origin, fromView: sender.superview)
         var frame: CGRect = sender.frame

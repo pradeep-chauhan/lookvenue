@@ -27,12 +27,20 @@ class WebServiceCall: NSObject {
        
         if( method == "GET") {
                 Alamofire.request(.GET, url)
+                    .validate()
                     .response { request, response, data, error in
+                         println(response)
+//                        let swiftJsonVar = JSON(json.value!)
+//                        if swiftJsonVar["meta"]["status"]["code"] > 200 {
+//                            self.navigationController?.popViewControllerAnimated(true)
+//                        }
+//                        let alert = UIAlertView(title: swiftJsonVar["meta"]["msg"]["subj"].stringValue, message: swiftJsonVar["meta"]["msg"]["body"].stringValue, delegate: nil, cancelButtonTitle: "Close")
+                        //alert.show()
                         
                         if(error != nil) {
-                            println(response?.statusCode)
+                           
                             println(error?.localizedDescription)
-                            var alert = UIAlertView(title: "Error", message: error!.localizedDescription, delegate: self, cancelButtonTitle: "Ok")
+                            var alert = UIAlertView(title: "No Internet!", message: error!.localizedDescription, delegate: self, cancelButtonTitle: "Ok")
                             alert.show()
                             
                         }

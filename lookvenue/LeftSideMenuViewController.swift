@@ -26,7 +26,7 @@ class LeftSideMenuViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         self.leftMenuTabBar.delegate = self
         //self.leftMenuTabBar.barTintColor = UIColor(red: 210.0/255.0, green: 67.0/255.0, blue: 49.0/255.0, alpha: 1.0)
-        self.leftMenuTabBar.tintColor = UIColor(red: 210.0/255.0, green: 67.0/255.0, blue: 49.0/255.0, alpha: 1.0)
+        self.leftMenuTabBar.tintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1.0)
         //UITabBar.appearance().s = UIColor.whiteColor()
         
         //self.navigationController?.delegate = self
@@ -38,7 +38,7 @@ class LeftSideMenuViewController: UIViewController, UITableViewDelegate, UITable
         tableView.backgroundColor = UIColor.clearColor()
         self.view.backgroundColor = UIColor(red: 52.0/255.0, green: 52.0/255.0, blue: 52.0/255.0, alpha: 0.8)
         
-        bannerView.backgroundColor = UIColor(red: 210.0/255.0, green: 67.0/255.0, blue: 49.0/255.0, alpha: 0.9)
+        bannerView.backgroundColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 0.9)
         // Do any additional setup after loading the view.
     }
     

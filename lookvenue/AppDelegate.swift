@@ -14,8 +14,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var jsonReturnData:NSArray=[]
     var window: UIWindow?
-
-
+    var mainColor: UIColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1)
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
