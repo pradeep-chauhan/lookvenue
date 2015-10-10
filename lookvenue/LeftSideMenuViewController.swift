@@ -35,8 +35,8 @@ class LeftSideMenuViewController: UIViewController, UITableViewDelegate, UITable
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        tableView.backgroundColor = UIColor(red: 52.0/255.0, green: 52.0/255.0, blue: 52.0/255.0, alpha: 0.8)
-        
+        tableView.backgroundColor = UIColor.clearColor()
+        self.view.backgroundColor = UIColor(red: 52.0/255.0, green: 52.0/255.0, blue: 52.0/255.0, alpha: 0.8)
         
         bannerView.backgroundColor = UIColor(red: 210.0/255.0, green: 67.0/255.0, blue: 49.0/255.0, alpha: 0.9)
         // Do any additional setup after loading the view.
@@ -65,8 +65,7 @@ class LeftSideMenuViewController: UIViewController, UITableViewDelegate, UITable
         
         var imageString = menuImage[indexPath.row]
         var image = UIImage(named: imageString)
-        //image = imageString
-        println(image)
+        
         cell.MenuType.text = menuLabel[indexPath.row] as String
         cell.MenuImage.image =  image
         
@@ -88,9 +87,8 @@ class LeftSideMenuViewController: UIViewController, UITableViewDelegate, UITable
         }
         else if(indexPath.row == 1) {
             var dash : UINavigationController = storyboard.instantiateViewControllerWithIdentifier("loginNav") as! UINavigationController
-            //self.navigationController?.pushViewController(dash, animated: true)
+            //var  dash : login = storyboard.instantiateViewControllerWithIdentifier("LoginView") as! login
             self.menuContainerViewController.centerViewController = dash
-            //self.presentViewController(dash, animated: true, completion: nil)
         }
         else if (indexPath.row == 2) {
             var dash : signUp = storyboard.instantiateViewControllerWithIdentifier("SignupView") as! signUp

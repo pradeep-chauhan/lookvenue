@@ -70,14 +70,8 @@ class propertyViewController: UIViewController, CLUploaderDelegate, UITabBarDele
         images = (selectedSearchVanueDictionary.valueForKey("images")) as! NSMutableArray
         
         
-        //if(selectedSearchVanueDictionary.v)
-        
-        //self.navigationController?.setToolbarHidden(false, animated: true)
-        
         if(segmentControl.selectedSegmentIndex == 0)
         {
-            //self.imageProperty.removeFromParentViewController()
-            //self.addpropertyViewController.view.removeFromSuperview()
             
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             var information = storyBoard.instantiateViewControllerWithIdentifier("information") as! infoViewController
@@ -102,8 +96,6 @@ class propertyViewController: UIViewController, CLUploaderDelegate, UITabBarDele
         }
         else if(segmentControl.selectedSegmentIndex == 1)
         {
-            //self.imageProperty.removeFromParentViewController()
-            //self.addpropertyViewController.view.removeFromSuperview()
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             var location = storyBoard.instantiateViewControllerWithIdentifier("locationView") as! locationViewController
             location.lat = lat
@@ -169,10 +161,9 @@ class propertyViewController: UIViewController, CLUploaderDelegate, UITabBarDele
     }
     
     @IBAction func segmentControlAction(sender: AnyObject) {
+        
         if(segmentControl.selectedSegmentIndex == 0)
         {
-            //self.imageProperty.removeFromParentViewController()
-            //self.addpropertyViewController.view.removeFromSuperview()
             
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             var information = storyBoard.instantiateViewControllerWithIdentifier("information") as! infoViewController
@@ -196,8 +187,6 @@ class propertyViewController: UIViewController, CLUploaderDelegate, UITabBarDele
         }
         else if(segmentControl.selectedSegmentIndex == 1)
         {
-            //self.imageProperty.removeFromParentViewController()
-            //self.addpropertyViewController.view.removeFromSuperview()
             
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             var location = storyBoard.instantiateViewControllerWithIdentifier("locationView") as! locationViewController

@@ -25,13 +25,10 @@ class WebServiceCall: NSObject {
         var parameter: String! = urlRequest
         var url: String = baseUrl + parameter
        
-        //println(method)
-        //println(url)
         if( method == "GET") {
                 Alamofire.request(.GET, url)
                     .response { request, response, data, error in
-                        //println(request)
-                        println(response)
+                        
                         if(error != nil) {
                             println(response?.statusCode)
                             println(error?.localizedDescription)
@@ -85,8 +82,6 @@ class WebServiceCall: NSObject {
             "Content-Type": "application/json"
         ]
         
-        println(headers)
-        //println(url)
         if( method == "GET") {
             
                 Alamofire.request(.GET, url, headers: headers)
@@ -97,15 +92,17 @@ class WebServiceCall: NSObject {
                             println(response?.statusCode)
                             println(response)
                         }
+                        else {
+                            completion(resultData: data!)
+                        }
                         
                         
                     }
-                    .response { request, response, data, error in
-                        println(data)
-                        println(response)
-                        completion(resultData: data!)
-                }
-                
+//                    .response { request, response, data, error in
+//                       
+//                        completion(resultData: data!)
+//                }
+            
             }
         else {
             Alamofire.request(.POST, url)

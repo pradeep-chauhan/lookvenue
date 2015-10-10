@@ -13,6 +13,8 @@ class login:UIViewController, UITextFieldDelegate {
     @IBOutlet weak var username: UITextField!
     
     @IBOutlet weak var password: UITextField!
+    var propertyArray : NSMutableArray = NSMutableArray()
+    var propertyListArray : NSArray!
     
     var loginDetailsListArray : NSArray!
     var loginDetailsArray : NSMutableArray = NSMutableArray()
@@ -79,6 +81,12 @@ class login:UIViewController, UITextFieldDelegate {
     @IBAction func signUpAction(sender: AnyObject) {
     }
     
+    func getPropertyArray() -> Void
+    {
+        propertyArray = propertyListArray as! NSMutableArray
+        
+    }
+    
     @IBAction func loginButtonAction(sender: AnyObject) {
         var username = "pankaj@gkmit.co"//self.username.text
         var password = "1"//self.password.text
@@ -117,12 +125,31 @@ class login:UIViewController, UITextFieldDelegate {
             }
             else {
                  //Calling view Controller
-                var storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                var dash : DashBoardViewController = storyBoard.instantiateViewControllerWithIdentifier("DashboardView") as! DashBoardViewController
-                println(self.LoginDetails.remember_token)
-                dash.LoginDetails = self.LoginDetails
-                dash.LoginDetailsArray = self.loginDetailsArray
-                self.navigationController?.pushViewController(dash, animated: true)
+                var authentication = ( self.LoginDetails.remember_token as NSString) as String
+                var methodType: String = "GET"
+                var base: String = "properties"
+                var param: String = ""
+                var urlRequest: String = base
+                var serviceCall : WebServiceCall = WebServiceCall()
+                serviceCall.adminApiCallRequest(methodType, urlRequest: urlRequest, authentication: authentication) { (resultData) -> () in
+                    self.propertyListArray = serviceCall.getPropertyDetailsArray(resultData)
+                    self.getPropertyArray()
+                    //println(self.propertyArray)
+                    var storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                    var dash : DashBoardViewController = storyBoard.instantiateViewControllerWithIdentifier("DashboardView") as! DashBoardViewController
+                    
+                    var dash1 : ListPropertyViewController = storyBoard.instantiateViewControllerWithIdentifier("ListPropertyViewController") as! ListPropertyViewController
+                    dash1.LoginDetails = self.LoginDetails
+                    dash1.LoginDetailsArray = self.loginDetailsArray
+                    dash1.propertyArray = self.propertyArray
+                    //dash.LoginDetails = self.LoginDetails
+                    dash.LoginDetailsArray = self.loginDetailsArray
+                    self.menuContainerViewController.leftMenuViewController = dash1
+                    self.navigationController?.pushViewController(dash, animated: true)
+                    
+                }
+                
+                
             }
         })
         

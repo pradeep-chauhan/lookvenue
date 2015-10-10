@@ -13,24 +13,18 @@ class propertyInfoSegmentViewController: UIViewController {
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var containerView: UIView!
     var addpropertyViewController : addProperty = addProperty()
+    var propertyArray:NSMutableArray = NSMutableArray()
     var imageProperty : imagePropertyViewController = imagePropertyViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        // Do any additional setup after loading the view.
-        
-        //self.containerView.backgroundColor = UIColor.greenColor()
-        
-        
         if(segmentControl.selectedSegmentIndex == 0)
         {
-            //self.imageProperty.removeFromParentViewController()
-            //self.addpropertyViewController.view.removeFromSuperview()
             
-            println("first index")
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             addpropertyViewController = storyBoard.instantiateViewControllerWithIdentifier("editPropertyView") as! addProperty
+            addpropertyViewController.propertyArray = propertyArray
             addpropertyViewController.view.frame = CGRectMake(0, 0, self.containerView.frame.size.width, self.containerView.frame.size.height)
             self.containerView.addSubview(addpropertyViewController.view)
             self.addChildViewController(addpropertyViewController)
@@ -39,10 +33,7 @@ class propertyInfoSegmentViewController: UIViewController {
         }
         else if(segmentControl.selectedSegmentIndex == 1)
         {
-            //self.imageProperty.removeFromParentViewController()
-            //self.addpropertyViewController.view.removeFromSuperview()
             
-            println("second index")
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             imageProperty = storyBoard.instantiateViewControllerWithIdentifier("propertyImages") as! imagePropertyViewController
             imageProperty.view.frame = self.containerView.bounds
@@ -62,12 +53,10 @@ class propertyInfoSegmentViewController: UIViewController {
     @IBAction func segmentControlAction(sender: AnyObject) {
         if(segmentControl.selectedSegmentIndex == 0)
         {
-            //self.imageProperty.removeFromParentViewController()
-            //self.addpropertyViewController.view.removeFromSuperview()
             
-            println("first index")
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             addpropertyViewController = storyBoard.instantiateViewControllerWithIdentifier("editPropertyView") as! addProperty
+            addpropertyViewController.propertyArray = propertyArray
             addpropertyViewController.view.frame = CGRectMake(0, 0, self.containerView.frame.size.width, self.containerView.frame.size.height)
             self.containerView.addSubview(addpropertyViewController.view)
             self.addChildViewController(addpropertyViewController)
@@ -76,10 +65,7 @@ class propertyInfoSegmentViewController: UIViewController {
         }
         else if(segmentControl.selectedSegmentIndex == 1)
         {
-            //self.imageProperty.removeFromParentViewController()
-           //self.addpropertyViewController.view.removeFromSuperview()
             
-            println("second index")
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             imageProperty = storyBoard.instantiateViewControllerWithIdentifier("propertyImages") as! imagePropertyViewController
             imageProperty.view.frame = self.containerView.bounds

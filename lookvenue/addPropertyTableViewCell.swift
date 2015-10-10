@@ -8,7 +8,7 @@
 
 import UIKit
 
-class addPropertyTableViewCell: UITableViewCell, SBPickerSelectorDelegate {
+class addPropertyTableViewCell: UITableViewCell {
 
     @IBOutlet weak var zipcode: UITextField!
     @IBOutlet weak var email: UITextField!
@@ -24,6 +24,9 @@ class addPropertyTableViewCell: UITableViewCell, SBPickerSelectorDelegate {
     @IBOutlet weak var rooms: UITextField!
     @IBOutlet weak var address: UITextField!
     
+    @IBOutlet weak var website: UITextField!
+    @IBOutlet weak var priceRange: UITextField!
+   
     @IBOutlet weak var mobile: UITextField!
     
     var pickerSelectValue = ""

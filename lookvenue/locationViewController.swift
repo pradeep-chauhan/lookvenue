@@ -26,12 +26,8 @@ class locationViewController: UIViewController {
    
     
     override func viewDidLoad() {
-        println("hi")
         
         self.navigationController?.setToolbarHidden(false, animated: true)
-        
-        
-        //println(zipcode)
         super.viewDidLoad()
         var loc = CLLocationCoordinate2D(
             latitude: lat,

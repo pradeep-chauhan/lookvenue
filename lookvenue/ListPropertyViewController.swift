@@ -12,82 +12,50 @@ class ListPropertyViewController: UIViewController, UITableViewDelegate, UITable
 
     @IBOutlet weak var tableView: UITableView!
     
-    var propertyListArray : NSArray!
+   
+    @IBOutlet weak var addPropertyButton: UIButton!
+    @IBOutlet weak var topBanner: UIView!
     var propertyArray : NSMutableArray = NSMutableArray()
-    
+    var propertyListArray : NSArray!
     var LoginDetails: loginDetails = loginDetails()
     var webhearder: WebServiceCall = WebServiceCall()
     
-    var loginDetailsArray:NSMutableArray = NSMutableArray()
-    
-    var menuType = ["a","b","c","d"]
+   var LoginDetailsArray:NSMutableArray = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var authentication = ( LoginDetails.remember_token as NSString) as String
-        
+        topBanner.backgroundColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1.0)
         tableView.delegate = self
         tableView.dataSource = self
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
-        
+        tableView.backgroundColor = UIColor.clearColor()
+        self.view.backgroundColor = UIColor(red: 52.0/255.0, green: 52.0/255.0, blue: 52.0/255.0, alpha: 0.8)
         //self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0);
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        
-        
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1.0)
-        // center image in nav bar
-        
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
-        imageView.contentMode = .ScaleAspectFit
-        
-        let image = UIImage(named: "look-venue-logo.png")
-        imageView.image = image
-        //self.navigationController?.setToolbarHidden(true, animated: false)
-        self.navigationItem.titleView = imageView
-        
-        
-        var methodType: String = "GET"
-        var base: String = "properties"
-        var param: String = ""
-        var urlRequest: String = base
-        
-        var serviceCall : WebServiceCall = WebServiceCall()
-        //indicator.startAnimating()
-        serviceCall.adminApiCallRequest(methodType, urlRequest: urlRequest, authentication: authentication) { (resultData) -> () in
-            self.propertyListArray = serviceCall.getPropertyDetailsArray(resultData)
-            self.getPropertyArray()
-            
-            println(self.propertyListArray)
-            
-        }
         
         
     }
     
-    func getPropertyArray() -> Void
-    {
-        propertyArray = propertyListArray as! NSMutableArray
-        
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! DashBoardTableViewCell
         
-        cell.propertyName.text = menuType[indexPath.row] as String
+        cell.propertyName.text = propertyArray[indexPath.row]["name"] as! NSString as String
+        cell.backgroundColor = UIColor.clearColor()
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuType.count
+        return propertyArray.count
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -96,10 +64,19 @@ class ListPropertyViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        if( indexPath.row == 0) {
-            var dash : addProperty = storyBoard.instantiateViewControllerWithIdentifier("editPropertyView") as! addProperty
-            self.navigationController?.pushViewController(dash, animated: true)
-        }
+        
+        var dash : propertyInfoSegmentViewController = storyBoard.instantiateViewControllerWithIdentifier("propertyInfoSegment") as! propertyInfoSegmentViewController
+       
+        var selectedPropertyDetailsArray : NSMutableArray = NSMutableArray()
+        var tempDict : NSDictionary = propertyArray[indexPath.row] as! NSDictionary
+        selectedPropertyDetailsArray.addObject(tempDict)
+        println(selectedPropertyDetailsArray)
+        dash.propertyArray = selectedPropertyDetailsArray
+        self.navigationController?.pushViewController(dash, animated: true)
+//        dash.view.frame = CGRectMake(0, 0, self.displayControllerView.frame.size.width, self.displayControllerView.frame.size.height)
+//        
+//        self.displayControllerView.addSubview(dash.view)
+        self.addChildViewController(dash)
     }
 
     

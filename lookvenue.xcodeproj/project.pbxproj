@@ -37,19 +37,23 @@
 		F9667D7D1B709AB300647DCE /* lookvenueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9667D7C1B709AB300647DCE /* lookvenueTests.swift */; };
 		F96704171B884AE20024DCB6 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96704161B884AE20024DCB6 /* Venue.swift */; };
 		F969E13F1B86FD1500D1FFDA /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969E13E1B86FD1500D1FFDA /* Area.swift */; };
+		F96D2B641BC7CED9000D18BA /* account-dash.png in Resources */ = {isa = PBXBuildFile; fileRef = F96D2B5D1BC7CED9000D18BA /* account-dash.png */; };
+		F96D2B651BC7CED9000D18BA /* bank-dash.png in Resources */ = {isa = PBXBuildFile; fileRef = F96D2B5E1BC7CED9000D18BA /* bank-dash.png */; };
+		F96D2B661BC7CED9000D18BA /* calendar-dash.png in Resources */ = {isa = PBXBuildFile; fileRef = F96D2B5F1BC7CED9000D18BA /* calendar-dash.png */; };
+		F96D2B671BC7CED9000D18BA /* home-dash.png in Resources */ = {isa = PBXBuildFile; fileRef = F96D2B601BC7CED9000D18BA /* home-dash.png */; };
+		F96D2B681BC7CED9000D18BA /* phone-dash.png in Resources */ = {isa = PBXBuildFile; fileRef = F96D2B611BC7CED9000D18BA /* phone-dash.png */; };
+		F96D2B691BC7CED9000D18BA /* settings-dash.png in Resources */ = {isa = PBXBuildFile; fileRef = F96D2B621BC7CED9000D18BA /* settings-dash.png */; };
+		F96D2B6A1BC7CED9000D18BA /* share-dash.png in Resources */ = {isa = PBXBuildFile; fileRef = F96D2B631BC7CED9000D18BA /* share-dash.png */; };
+		F96D2B6D1BC7D084000D18BA /* feedback-dash.png in Resources */ = {isa = PBXBuildFile; fileRef = F96D2B6B1BC7D084000D18BA /* feedback-dash.png */; };
+		F96D2B6E1BC7D084000D18BA /* star-dash.png in Resources */ = {isa = PBXBuildFile; fileRef = F96D2B6C1BC7D084000D18BA /* star-dash.png */; };
+		F96D2B771BC99D13000D18BA /* propertyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D2B761BC99D13000D18BA /* propertyTableViewCell.swift */; };
 		F9727AF41BC3CB2F005591D4 /* home-small-red.png in Resources */ = {isa = PBXBuildFile; fileRef = F9727AF31BC3CB2F005591D4 /* home-small-red.png */; };
 		F9727AF91BC3EA8F005591D4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9727AF81BC3EA8F005591D4 /* SettingsViewController.swift */; };
 		F9727AFB1BC3EF6D005591D4 /* calendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9727AFA1BC3EF6D005591D4 /* calendarViewController.swift */; };
 		F9727B341BC4EFE3005591D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9727B321BC4EFE3005591D4 /* Main.storyboard */; };
 		F9727B361BC4FCE8005591D4 /* loginDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9727B351BC4FCE8005591D4 /* loginDetails.swift */; };
 		F973DA791BC24F6900BCEF63 /* DashBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F973DA781BC24F6900BCEF63 /* DashBoardTableViewCell.swift */; };
-		F973DA7E1BC2691400BCEF63 /* DashBoardLeftSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F973DA7D1BC2691400BCEF63 /* DashBoardLeftSideMenuViewController.swift */; };
 		F973DA801BC28F4100BCEF63 /* ListPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F973DA7F1BC28F4100BCEF63 /* ListPropertyViewController.swift */; };
-		F973DA861BC2A4A600BCEF63 /* account.png in Resources */ = {isa = PBXBuildFile; fileRef = F973DA811BC2A4A600BCEF63 /* account.png */; };
-		F973DA871BC2A4A600BCEF63 /* bank.png in Resources */ = {isa = PBXBuildFile; fileRef = F973DA821BC2A4A600BCEF63 /* bank.png */; };
-		F973DA881BC2A4A600BCEF63 /* calendar-clock-small.png in Resources */ = {isa = PBXBuildFile; fileRef = F973DA831BC2A4A600BCEF63 /* calendar-clock-small.png */; };
-		F973DA891BC2A4A600BCEF63 /* home-small.png in Resources */ = {isa = PBXBuildFile; fileRef = F973DA841BC2A4A600BCEF63 /* home-small.png */; };
-		F973DA8A1BC2A4A600BCEF63 /* settings-small.png in Resources */ = {isa = PBXBuildFile; fileRef = F973DA851BC2A4A600BCEF63 /* settings-small.png */; };
 		F973DA8D1BC30F3D00BCEF63 /* addPropertyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F973DA8B1BC30F3C00BCEF63 /* addPropertyTableViewCell.swift */; };
 		F973DA8E1BC30F3D00BCEF63 /* addPropertyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F973DA8C1BC30F3C00BCEF63 /* addPropertyTableViewCell.xib */; };
 		F97672C41BB178A500FA626B /* KSToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97672C01BB178A500FA626B /* KSToken.swift */; };
@@ -69,26 +73,18 @@
 		F976B80C1BC6ED6B0003EAB3 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = F976B7FF1BC6ED6B0003EAB3 /* background.png */; };
 		F976B80D1BC6ED6B0003EAB3 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F976B8001BC6ED6B0003EAB3 /* background@2x.png */; };
 		F976B80E1BC6ED6B0003EAB3 /* default.plist in Resources */ = {isa = PBXBuildFile; fileRef = F976B8011BC6ED6B0003EAB3 /* default.plist */; };
-		F979A5141B787ACE00D72F5D /* contact.png in Resources */ = {isa = PBXBuildFile; fileRef = F979A5121B787ACE00D72F5D /* contact.png */; };
-		F979A5151B787ACE00D72F5D /* Setting.png in Resources */ = {isa = PBXBuildFile; fileRef = F979A5131B787ACE00D72F5D /* Setting.png */; };
 		F97CE39B1BBA788A001CFACD /* LeftMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97CE39A1BBA788A001CFACD /* LeftMenuTableViewCell.swift */; };
 		F97CE39D1BBA9578001CFACD /* LeftSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97CE39C1BBA9578001CFACD /* LeftSideMenuViewController.swift */; };
-		F97CE3BB1BBC39EF001CFACD /* calendar-clock.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3B41BBC39EF001CFACD /* calendar-clock.png */; };
 		F97CE3BC1BBC39EF001CFACD /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3B51BBC39EF001CFACD /* home.png */; };
 		F97CE3BD1BBC39EF001CFACD /* magnify.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3B61BBC39EF001CFACD /* magnify.png */; };
 		F97CE3BE1BBC39EF001CFACD /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3B71BBC39EF001CFACD /* menu.png */; };
 		F97CE3BF1BBC39EF001CFACD /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3B81BBC39EF001CFACD /* phone.png */; };
-		F97CE3C01BBC39EF001CFACD /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3B91BBC39EF001CFACD /* settings.png */; };
 		F97CE3C51BBC3DEC001CFACD /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3C31BBC3DEC001CFACD /* menu-icon.png */; };
 		F97CE3C61BBC3DEC001CFACD /* search-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3C41BBC3DEC001CFACD /* search-icon.png */; };
 		F97CE3CD1BBC3F4E001CFACD /* arrow-left.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3CB1BBC3F4E001CFACD /* arrow-left.png */; };
 		F97CE3CE1BBC3F4E001CFACD /* filter-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3CC1BBC3F4E001CFACD /* filter-outline.png */; };
-		F97CE3D01BBD0DF6001CFACD /* small-phone.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3CF1BBD0DF6001CFACD /* small-phone.png */; };
 		F97CE3D41BBD0F05001CFACD /* tab-phone.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3D31BBD0F05001CFACD /* tab-phone.png */; };
 		F97CE3D61BBD0F7F001CFACD /* tab-email.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3D51BBD0F7F001CFACD /* tab-email.png */; };
-		F97CE3D91BBD419D001CFACD /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3D81BBD419D001CFACD /* share.png */; };
-		F97CE3DE1BBD41FA001CFACD /* feedback.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3DD1BBD41FA001CFACD /* feedback.png */; };
-		F97CE3E01BBD46F1001CFACD /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3DF1BBD46F1001CFACD /* star.png */; };
 		F97CE3E21BBD4B4A001CFACD /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3E11BBD4B4A001CFACD /* list.png */; };
 		F97CE3E41BBD4B52001CFACD /* manage.png in Resources */ = {isa = PBXBuildFile; fileRef = F97CE3E31BBD4B52001CFACD /* manage.png */; };
 		F98DFC051BB90667005D4FA4 /* MFSideMenuContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F98DFC001BB90667005D4FA4 /* MFSideMenuContainerViewController.m */; };
@@ -249,19 +245,23 @@
 		F9667D7C1B709AB300647DCE /* lookvenueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lookvenueTests.swift; sourceTree = "<group>"; };
 		F96704161B884AE20024DCB6 /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		F969E13E1B86FD1500D1FFDA /* Area.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
+		F96D2B5D1BC7CED9000D18BA /* account-dash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account-dash.png"; sourceTree = "<group>"; };
+		F96D2B5E1BC7CED9000D18BA /* bank-dash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bank-dash.png"; sourceTree = "<group>"; };
+		F96D2B5F1BC7CED9000D18BA /* calendar-dash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-dash.png"; sourceTree = "<group>"; };
+		F96D2B601BC7CED9000D18BA /* home-dash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-dash.png"; sourceTree = "<group>"; };
+		F96D2B611BC7CED9000D18BA /* phone-dash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-dash.png"; sourceTree = "<group>"; };
+		F96D2B621BC7CED9000D18BA /* settings-dash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-dash.png"; sourceTree = "<group>"; };
+		F96D2B631BC7CED9000D18BA /* share-dash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-dash.png"; sourceTree = "<group>"; };
+		F96D2B6B1BC7D084000D18BA /* feedback-dash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feedback-dash.png"; sourceTree = "<group>"; };
+		F96D2B6C1BC7D084000D18BA /* star-dash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-dash.png"; sourceTree = "<group>"; };
+		F96D2B761BC99D13000D18BA /* propertyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = propertyTableViewCell.swift; sourceTree = "<group>"; };
 		F9727AF31BC3CB2F005591D4 /* home-small-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-small-red.png"; sourceTree = "<group>"; };
 		F9727AF81BC3EA8F005591D4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F9727AFA1BC3EF6D005591D4 /* calendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = calendarViewController.swift; sourceTree = "<group>"; };
 		F9727B331BC4EFE3005591D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F9727B351BC4FCE8005591D4 /* loginDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginDetails.swift; sourceTree = "<group>"; };
 		F973DA781BC24F6900BCEF63 /* DashBoardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashBoardTableViewCell.swift; sourceTree = "<group>"; };
-		F973DA7D1BC2691400BCEF63 /* DashBoardLeftSideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashBoardLeftSideMenuViewController.swift; sourceTree = "<group>"; };
 		F973DA7F1BC28F4100BCEF63 /* ListPropertyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPropertyViewController.swift; sourceTree = "<group>"; };
-		F973DA811BC2A4A600BCEF63 /* account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = account.png; sourceTree = "<group>"; };
-		F973DA821BC2A4A600BCEF63 /* bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bank.png; sourceTree = "<group>"; };
-		F973DA831BC2A4A600BCEF63 /* calendar-clock-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-clock-small.png"; sourceTree = "<group>"; };
-		F973DA841BC2A4A600BCEF63 /* home-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-small.png"; sourceTree = "<group>"; };
-		F973DA851BC2A4A600BCEF63 /* settings-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-small.png"; sourceTree = "<group>"; };
 		F973DA8B1BC30F3C00BCEF63 /* addPropertyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addPropertyTableViewCell.swift; sourceTree = "<group>"; };
 		F973DA8C1BC30F3C00BCEF63 /* addPropertyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addPropertyTableViewCell.xib; sourceTree = "<group>"; };
 		F97672C01BB178A500FA626B /* KSToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSToken.swift; sourceTree = "<group>"; };
@@ -294,26 +294,18 @@
 		F976B7FF1BC6ED6B0003EAB3 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		F976B8001BC6ED6B0003EAB3 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
 		F976B8011BC6ED6B0003EAB3 /* default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = default.plist; sourceTree = "<group>"; };
-		F979A5121B787ACE00D72F5D /* contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contact.png; path = ../contact.png; sourceTree = "<group>"; };
-		F979A5131B787ACE00D72F5D /* Setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Setting.png; path = ../Setting.png; sourceTree = "<group>"; };
 		F97CE39A1BBA788A001CFACD /* LeftMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuTableViewCell.swift; sourceTree = "<group>"; };
 		F97CE39C1BBA9578001CFACD /* LeftSideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSideMenuViewController.swift; sourceTree = "<group>"; };
-		F97CE3B41BBC39EF001CFACD /* calendar-clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-clock.png"; sourceTree = "<group>"; };
 		F97CE3B51BBC39EF001CFACD /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		F97CE3B61BBC39EF001CFACD /* magnify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magnify.png; sourceTree = "<group>"; };
 		F97CE3B71BBC39EF001CFACD /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		F97CE3B81BBC39EF001CFACD /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
-		F97CE3B91BBC39EF001CFACD /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		F97CE3C31BBC3DEC001CFACD /* menu-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon.png"; sourceTree = "<group>"; };
 		F97CE3C41BBC3DEC001CFACD /* search-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-icon.png"; sourceTree = "<group>"; };
 		F97CE3CB1BBC3F4E001CFACD /* arrow-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-left.png"; sourceTree = "<group>"; };
 		F97CE3CC1BBC3F4E001CFACD /* filter-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter-outline.png"; sourceTree = "<group>"; };
-		F97CE3CF1BBD0DF6001CFACD /* small-phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "small-phone.png"; sourceTree = "<group>"; };
 		F97CE3D31BBD0F05001CFACD /* tab-phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-phone.png"; sourceTree = "<group>"; };
 		F97CE3D51BBD0F7F001CFACD /* tab-email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-email.png"; sourceTree = "<group>"; };
-		F97CE3D81BBD419D001CFACD /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
-		F97CE3DD1BBD41FA001CFACD /* feedback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback.png; sourceTree = "<group>"; };
-		F97CE3DF1BBD46F1001CFACD /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		F97CE3E11BBD4B4A001CFACD /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
 		F97CE3E31BBD4B52001CFACD /* manage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = manage.png; sourceTree = "<group>"; };
 		F98DFBFE1BB90667005D4FA4 /* MFSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenu.h; sourceTree = "<group>"; };
@@ -491,8 +483,8 @@
 				F90AB89B1B78BB1B002931E6 /* DPNotify.swift */,
 				F92BBF941B80D66000B468BB /* DatePickerDialog.swift */,
 				F99914331B73D126009F17AA /* addProperty.swift */,
+				F96D2B761BC99D13000D18BA /* propertyTableViewCell.swift */,
 				F99DD1A41B96DF2D00B1172D /* venueSearchResultCollectionViewController.swift */,
-				F973DA7D1BC2691400BCEF63 /* DashBoardLeftSideMenuViewController.swift */,
 				F973DA781BC24F6900BCEF63 /* DashBoardTableViewCell.swift */,
 				F973DA7F1BC28F4100BCEF63 /* ListPropertyViewController.swift */,
 				F97CE39A1BBA788A001CFACD /* LeftMenuTableViewCell.swift */,
@@ -709,33 +701,29 @@
 			isa = PBXGroup;
 			children = (
 				F9B628C31BA750990034D7EC /* nophoto.jpg */,
-				F979A5121B787ACE00D72F5D /* contact.png */,
-				F97CE3B41BBC39EF001CFACD /* calendar-clock.png */,
 				F97CE3CB1BBC3F4E001CFACD /* arrow-left.png */,
 				F97CE3CC1BBC3F4E001CFACD /* filter-outline.png */,
 				F97CE3B51BBC39EF001CFACD /* home.png */,
 				F97CE3B61BBC39EF001CFACD /* magnify.png */,
-				F97CE3DD1BBD41FA001CFACD /* feedback.png */,
 				F97CE3B71BBC39EF001CFACD /* menu.png */,
-				F97CE3CF1BBD0DF6001CFACD /* small-phone.png */,
+				F96D2B5D1BC7CED9000D18BA /* account-dash.png */,
+				F96D2B5E1BC7CED9000D18BA /* bank-dash.png */,
+				F96D2B5F1BC7CED9000D18BA /* calendar-dash.png */,
+				F96D2B601BC7CED9000D18BA /* home-dash.png */,
+				F96D2B611BC7CED9000D18BA /* phone-dash.png */,
+				F96D2B621BC7CED9000D18BA /* settings-dash.png */,
+				F96D2B631BC7CED9000D18BA /* share-dash.png */,
 				F97CE3D31BBD0F05001CFACD /* tab-phone.png */,
 				F9727AF31BC3CB2F005591D4 /* home-small-red.png */,
 				F97CE3D51BBD0F7F001CFACD /* tab-email.png */,
-				F973DA811BC2A4A600BCEF63 /* account.png */,
-				F973DA821BC2A4A600BCEF63 /* bank.png */,
-				F973DA831BC2A4A600BCEF63 /* calendar-clock-small.png */,
-				F973DA841BC2A4A600BCEF63 /* home-small.png */,
-				F973DA851BC2A4A600BCEF63 /* settings-small.png */,
-				F97CE3DF1BBD46F1001CFACD /* star.png */,
+				F96D2B6B1BC7D084000D18BA /* feedback-dash.png */,
+				F96D2B6C1BC7D084000D18BA /* star-dash.png */,
 				F97CE3E31BBD4B52001CFACD /* manage.png */,
 				F97CE3E11BBD4B4A001CFACD /* list.png */,
 				F97CE3B81BBC39EF001CFACD /* phone.png */,
-				F97CE3B91BBC39EF001CFACD /* settings.png */,
-				F97CE3D81BBD419D001CFACD /* share.png */,
 				F90AB8A11B7A8410002931E6 /* look-venue-logo.png */,
 				F97CE3C31BBC3DEC001CFACD /* menu-icon.png */,
 				F97CE3C41BBC3DEC001CFACD /* search-icon.png */,
-				F979A5131B787ACE00D72F5D /* Setting.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -930,46 +918,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				F976B80D1BC6ED6B0003EAB3 /* background@2x.png in Resources */,
+				F96D2B641BC7CED9000D18BA /* account-dash.png in Resources */,
 				F995A9111B7B28510064CE5D /* OpenSans-Light.ttf in Resources */,
 				F995A9121B7B28510064CE5D /* OpenSans-LightItalic.ttf in Resources */,
 				F97CE3BC1BBC39EF001CFACD /* home.png in Resources */,
 				F90AB8A21B7A8410002931E6 /* look-venue-logo.png in Resources */,
-				F97CE3D91BBD419D001CFACD /* share.png in Resources */,
-				F97CE3C01BBC39EF001CFACD /* settings.png in Resources */,
+				F96D2B651BC7CED9000D18BA /* bank-dash.png in Resources */,
 				F995A9141B7B28510064CE5D /* OpenSans-Semibold.ttf in Resources */,
 				F976B80B1BC6ED6B0003EAB3 /* apple calendar.plist in Resources */,
 				F995A9151B7B28510064CE5D /* OpenSans-SemiboldItalic.ttf in Resources */,
 				F995A90C1B7B28510064CE5D /* OpenSans-Bold.ttf in Resources */,
 				F9667D711B709AB300647DCE /* LaunchScreen.xib in Resources */,
+				F96D2B691BC7CED9000D18BA /* settings-dash.png in Resources */,
 				F9B628C41BA750990034D7EC /* nophoto.jpg in Resources */,
-				F973DA891BC2A4A600BCEF63 /* home-small.png in Resources */,
-				F973DA8A1BC2A4A600BCEF63 /* settings-small.png in Resources */,
 				F97CE3E21BBD4B4A001CFACD /* list.png in Resources */,
-				F973DA881BC2A4A600BCEF63 /* calendar-clock-small.png in Resources */,
-				F97CE3E01BBD46F1001CFACD /* star.png in Resources */,
 				F97CE3C51BBC3DEC001CFACD /* menu-icon.png in Resources */,
 				F97CE3C61BBC3DEC001CFACD /* search-icon.png in Resources */,
 				F97CE3D61BBD0F7F001CFACD /* tab-email.png in Resources */,
-				F97CE3DE1BBD41FA001CFACD /* feedback.png in Resources */,
+				F96D2B6E1BC7D084000D18BA /* star-dash.png in Resources */,
+				F96D2B661BC7CED9000D18BA /* calendar-dash.png in Resources */,
 				F97CE3BF1BBC39EF001CFACD /* phone.png in Resources */,
+				F96D2B6D1BC7D084000D18BA /* feedback-dash.png in Resources */,
 				F97CE3CE1BBC3F4E001CFACD /* filter-outline.png in Resources */,
-				F979A5141B787ACE00D72F5D /* contact.png in Resources */,
-				F97CE3BB1BBC39EF001CFACD /* calendar-clock.png in Resources */,
-				F979A5151B787ACE00D72F5D /* Setting.png in Resources */,
+				F96D2B671BC7CED9000D18BA /* home-dash.png in Resources */,
 				F9727B341BC4EFE3005591D4 /* Main.storyboard in Resources */,
 				F995A90D1B7B28510064CE5D /* OpenSans-BoldItalic.ttf in Resources */,
 				F973DA8E1BC30F3D00BCEF63 /* addPropertyTableViewCell.xib in Resources */,
-				F973DA871BC2A4A600BCEF63 /* bank.png in Resources */,
 				F9727AF41BC3CB2F005591D4 /* home-small-red.png in Resources */,
 				F97CE3BE1BBC39EF001CFACD /* menu.png in Resources */,
-				F973DA861BC2A4A600BCEF63 /* account.png in Resources */,
 				F9667D6E1B709AB300647DCE /* Images.xcassets in Resources */,
 				F99043AD1BB6B35F00F39773 /* SBPickerSelector.xib in Resources */,
 				F97CE3D41BBD0F05001CFACD /* tab-phone.png in Resources */,
-				F97CE3D01BBD0DF6001CFACD /* small-phone.png in Resources */,
+				F96D2B6A1BC7CED9000D18BA /* share-dash.png in Resources */,
 				F995A9131B7B28510064CE5D /* OpenSans-Regular.ttf in Resources */,
 				F995A90B1B7B28510064CE5D /* LICENSE.txt in Resources */,
 				F995A9101B7B28510064CE5D /* OpenSans-Italic.ttf in Resources */,
+				F96D2B681BC7CED9000D18BA /* phone-dash.png in Resources */,
 				F97CE3E41BBD4B52001CFACD /* manage.png in Resources */,
 				F97CE3BD1BBC39EF001CFACD /* magnify.png in Resources */,
 				F995A90F1B7B28510064CE5D /* OpenSans-ExtraBoldItalic.ttf in Resources */,
@@ -1022,6 +1006,7 @@
 				F9727B361BC4FCE8005591D4 /* loginDetails.swift in Sources */,
 				F97672C71BB178A500FA626B /* KSUtils.swift in Sources */,
 				F9B628C01BA74E7A0034D7EC /* UIImageView+HighlightedWebCache.m in Sources */,
+				F96D2B771BC99D13000D18BA /* propertyTableViewCell.swift in Sources */,
 				F995A91D1B7B64F10064CE5D /* locationViewController.swift in Sources */,
 				F90AB89C1B78BB1B002931E6 /* DPNotify.swift in Sources */,
 				F98DFC051BB90667005D4FA4 /* MFSideMenuContainerViewController.m in Sources */,
@@ -1045,7 +1030,6 @@
 				F9B628C21BA74E7A0034D7EC /* UIView+WebCacheOperation.m in Sources */,
 				F92BBF9C1B81A6D700B468BB /* SHMultipleSelect.m in Sources */,
 				F9B628BA1BA74E7A0034D7EC /* SDWebImageManager.m in Sources */,
-				F973DA7E1BC2691400BCEF63 /* DashBoardLeftSideMenuViewController.swift in Sources */,
 				F97672C61BB178A500FA626B /* KSTokenView.swift in Sources */,
 				F99914341B73D126009F17AA /* addProperty.swift in Sources */,
 				F915A7F01B8AF13900BBAFED /* SwiftyJSON.swift in Sources */,

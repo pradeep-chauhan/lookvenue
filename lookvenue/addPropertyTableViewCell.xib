@@ -234,11 +234,13 @@
                 <outlet property="email" destination="iXO-Gd-zS1" id="3ww-3W-eE5"/>
                 <outlet property="mobile" destination="oSw-0W-o3Q" id="Hre-yq-Zas"/>
                 <outlet property="parkingCapacity" destination="XaA-UP-sD3" id="EnJ-BI-VFH"/>
+                <outlet property="priceRange" destination="rNE-Hk-RAy" id="ZHP-dp-Ui7"/>
                 <outlet property="propertyCapacity" destination="viZ-vI-RuP" id="AQj-gp-Pkn"/>
                 <outlet property="rooms" destination="aUF-H6-MNG" id="B3N-77-x5q"/>
                 <outlet property="state" destination="iDU-fT-Cle" id="4A1-Ii-elT"/>
                 <outlet property="venueTitle" destination="LBz-tK-KsW" id="ckZ-um-UgE"/>
                 <outlet property="venueType" destination="mF3-cA-EfF" id="qbj-zY-Jvc"/>
+                <outlet property="website" destination="Ftx-8j-dtL" id="Khg-m7-sG3"/>
                 <outlet property="zipcode" destination="3RY-cL-jb1" id="nZt-t1-eg8"/>
             </connections>
             <point key="canvasLocation" x="419" y="603"/>
