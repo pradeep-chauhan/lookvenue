@@ -73,7 +73,7 @@ class LeftSideMenuViewController: UIViewController, UITableViewDelegate, UITable
         return cell
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print(indexPath.row)
+        //print(indexPath.row)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
@@ -93,7 +93,7 @@ class LeftSideMenuViewController: UIViewController, UITableViewDelegate, UITable
         else if (indexPath.row == 2) {
             var dash : signUp = storyboard.instantiateViewControllerWithIdentifier("SignupView") as! signUp
             //self.navigationController?.pushViewController(dash, animated: true)
-            self.presentViewController(dash, animated: true, completion: nil)
+            self.menuContainerViewController.centerViewController = dash
         }
         else {
             println(indexPath.row)

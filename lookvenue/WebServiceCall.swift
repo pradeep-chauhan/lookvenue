@@ -29,7 +29,7 @@ class WebServiceCall: NSObject {
                 Alamofire.request(.GET, url)
                     .validate()
                     .response { request, response, data, error in
-                         println(response)
+                         //println(response)
 //                        let swiftJsonVar = JSON(json.value!)
 //                        if swiftJsonVar["meta"]["status"]["code"] > 200 {
 //                            self.navigationController?.popViewControllerAnimated(true)
@@ -57,6 +57,23 @@ class WebServiceCall: NSObject {
 //                }
            
         }
+        
+        else if (method == "upload") {
+            let fileURL = NSBundle.mainBundle().URLForResource("Default", withExtension: "png")
+            Alamofire.upload(.POST, url, file: fileURL!)
+                .responseJSON { request, response, data, error in
+                    if(error != nil) {
+                        println(error?.localizedDescription)
+                        var alert = UIAlertView(title: "No Internet!", message: error!.localizedDescription, delegate: self, cancelButtonTitle: "Ok")
+                        alert.show()
+
+                    }
+                    else {
+                        completion(resultData: data as! NSData)
+                    }
+            }
+        }
+            
         else {
             Alamofire.request(.POST, url)
                 .response { request, response, data, error in
@@ -80,7 +97,7 @@ class WebServiceCall: NSObject {
         var parameter: String! = urlRequest
         var url: String = baseUrl + parameter
         var authentication:String = authentication
-        println(login.remember_token as NSString)
+        //println(login.remember_token as NSString)
         
         //authentication = (login.remember_token as NSString) as String
         //println("Hello user\(authentication)")
@@ -93,12 +110,14 @@ class WebServiceCall: NSObject {
         if( method == "GET") {
             
                 Alamofire.request(.GET, url, headers: headers)
+                    
                     .response { request, response, data, error in
-                        //println(request)
-                        //println(response)
+//                        println(data)
                         if(error != nil) {
                             println(response?.statusCode)
-                            println(response)
+                            println(error?.localizedDescription)
+                            var alert = UIAlertView(title: "No Internet!", message: error!.localizedDescription, delegate: self, cancelButtonTitle: "Ok")
+                            alert.show()
                         }
                         else {
                             completion(resultData: data!)
@@ -106,10 +125,6 @@ class WebServiceCall: NSObject {
                         
                         
                     }
-//                    .response { request, response, data, error in
-//                       
-//                        completion(resultData: data!)
-//                }
             
             }
         else {
@@ -240,6 +255,44 @@ class WebServiceCall: NSObject {
             
         }
         return propertyDetailsArray
+    }
+    
+    func getEditPropertyArray(data : NSData) -> NSArray
+    {
+        var error : NSError?
+        var editPropertyListArray : NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &error) as! NSDictionary
+        var editPropertyArray : NSMutableArray = NSMutableArray()
+        
+            var EditProperty : editProperty = editProperty()
+            var tempDict : NSDictionary = editPropertyListArray as NSDictionary
+            var images : NSMutableArray = tempDict.objectForKey("images") as! NSMutableArray
+            //println(tempDict)
+            EditProperty.images = images
+            //            venue.name = (tempDict.valueForKey("name")!)
+            
+            editPropertyArray.addObject(tempDict)
+            //priceArray.addObject(tempDict.valueForKey("id")!)
+        
+        //println(searchVenueArray)
+        return editPropertyArray
+    }
+    func getCalendarDetailsArray(data : NSData) -> NSArray
+    {
+        var error : NSError?
+        var calendarDetailsListArray : NSArray = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &error) as! NSArray
+        var calendarDetailsArray : NSMutableArray = NSMutableArray()
+        
+        //var EditProperty : editProperty = editProperty()
+        for(var i = 0; i < calendarDetailsListArray.count; i++)
+        {
+            
+            //var login : loginDetails = loginDetails()
+            var tempDict : NSDictionary = calendarDetailsListArray[i] as! NSDictionary
+            
+            calendarDetailsArray.addObject(tempDict)
+            
+        }
+        return calendarDetailsArray
     }
 
 }

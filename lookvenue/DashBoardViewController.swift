@@ -23,6 +23,8 @@ class DashBoardViewController: UIViewController, UITabBarDelegate, UITableViewDe
     var menuName = [ "Edit Proprty","Calendar","Settings" ]
     var menuImage = [ "home-small-red.png","home-small-red.png","home-small-red.png" ]
     
+    var selectedPropertyDetailsArray : NSMutableArray = NSMutableArray()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,6 +90,32 @@ class DashBoardViewController: UIViewController, UITabBarDelegate, UITableViewDe
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        var storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if(indexPath.row == 0) {
+            
+            var dash : propertyInfoSegmentViewController = storyBoard.instantiateViewControllerWithIdentifier("propertyInfoSegment") as! propertyInfoSegmentViewController
+            dash.LoginDetails = LoginDetails
+            dash.selectedPropertyDetailsArray = selectedPropertyDetailsArray
+            self.navigationController?.pushViewController(dash, animated: true)
+        }
+        else if(indexPath.row == 1) {
+            
+            var dash : calendarViewController = storyBoard.instantiateViewControllerWithIdentifier("calendarViewController") as! calendarViewController
+            dash.selectedPropertyDetailsArray = selectedPropertyDetailsArray
+            dash.LoginDetails = LoginDetails
+            self.navigationController?.pushViewController(dash, animated: true)
+        }
+        else if(indexPath.row == 2) {
+            
+            var dash : SettingsViewController = storyBoard.instantiateViewControllerWithIdentifier("SettingsViewController") as! SettingsViewController
+            dash.selectedPropertyDetailsArray = selectedPropertyDetailsArray
+            self.navigationController?.pushViewController(dash, animated: true)
+        }
+        else {
+            
+        }
         
     }
     

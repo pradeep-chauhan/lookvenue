@@ -539,10 +539,10 @@ extension searchProperrty: KSTokenViewDelegate {
         for var i = 0; i < areaArray.count; i++
         {
             var tempDictionary = areaArray[i] as! NSDictionary
-            println(tempDictionary)
+            //println(tempDictionary)
             if(tempDictionary.valueForKey("name") as! NSString == title)
             {
-                println(tempDictionary.valueForKey("id") as! NSNumber)
+                //println(tempDictionary.valueForKey("id") as! NSNumber)
                 return tempDictionary.valueForKey("id") as! NSNumber
                 
             }
@@ -556,10 +556,10 @@ extension searchProperrty: KSTokenViewDelegate {
     }
     
     func tokenView(tokenView: KSTokenView, willDeleteToken token: KSToken) {
-        println(token.title)
+        //println(token.title)
         var idOfObject = self.getIdOfObject(token.title)
         searchDetails.selectedLocationsArray.removeObject(idOfObject)
-        println(idOfObject)
+        //println(idOfObject)
     }
     
     func tokenView(token: KSTokenView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

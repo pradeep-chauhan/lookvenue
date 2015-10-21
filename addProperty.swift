@@ -12,15 +12,18 @@ class addProperty: UIViewController, UITableViewDelegate, UITableViewDataSource 
 
     @IBOutlet weak var tableView: UITableView!
     var propertyArray : NSMutableArray = NSMutableArray()
+    var selectedPropertyDetailsArray : NSMutableArray = NSMutableArray()
+    var editPropertyArray : NSMutableArray = NSMutableArray()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        println(propertyArray)
         //self.tableView.registerNib( a, forCellReuseIdentifier: "ScrollTableViewCell")
         self.tableView.registerNib(UINib(nibName: "addPropertyTableViewCell", bundle: nil), forCellReuseIdentifier: "addPropertyTableViewCell")
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        //println("total edit: \(editPropertyArray.count)")
 
     }
 
@@ -49,25 +52,26 @@ class addProperty: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         var cell = tableView.dequeueReusableCellWithIdentifier("addPropertyTableViewCell") as! addPropertyTableViewCell
-        println(propertyArray[indexPath.row])
-        cell.email.text = propertyArray[indexPath.row]["email"] as! NSString as String
-        cell.venueTitle.text = propertyArray[indexPath.row]["name"] as! NSString as String
-        cell.address.text = propertyArray[indexPath.row]["area_id"] as! NSString as String
-        cell.propertyCapacity.text = propertyArray[indexPath.row]["capacity"] as! NSString as String
-        cell.city.text = propertyArray[indexPath.row]["city_id"] as! NSString as String
-        cell.venueTitle.text = propertyArray[indexPath.row]["name"] as! NSString as String
-        cell.coveredArea.text = propertyArray[indexPath.row]["covered_area"] as! NSString as String
-        cell.desc.text = propertyArray[indexPath.row]["description"] as! NSString as String
-        cell.mobile.text = propertyArray[indexPath.row]["mobile_number"] as! NSString as String
-        cell.parkingCapacity.text = propertyArray[indexPath.row]["parking"] as! NSString as String
-        cell.priceRange.text = propertyArray[indexPath.row]["price_range_id"] as! NSString as String
-        cell.venueType.text = propertyArray[indexPath.row]["property_type_id"] as! NSString as String
-        cell.desc.text = propertyArray[indexPath.row]["description"] as! NSString as String
-        cell.rooms.text = propertyArray[indexPath.row]["rooms"] as! NSString as String
-        cell.website.text = propertyArray[indexPath.row]["website"] as! NSString as String
-        cell.zipcode.text = propertyArray[indexPath.row]["zipcode"] as! NSString as String
-        cell.state.text = propertyArray[indexPath.row]["state_id"] as! NSString as String
+        
+        //println(editPropertyArray[0])
+        cell.email.text = editPropertyArray[0]["email"] as! NSString as String
+        cell.venueTitle.text = editPropertyArray[0]["name"] as! NSString as String
+        cell.address.text = (editPropertyArray[0]["area_id"] as! NSNumber).stringValue
+        cell.propertyCapacity.text = (editPropertyArray[0]["capacity"] as! NSNumber).stringValue
+        cell.city.text = (editPropertyArray[0]["city_id"] as! NSNumber).stringValue
+        cell.area.text = (editPropertyArray[0]["area_id"] as! NSNumber).stringValue
+        //cell.coveredArea.text = (selectedPropertyDetailsArray[0]["covered_area"] as! NSNumber).stringValue
+        cell.desc.text = editPropertyArray[0]["description"] as! NSString as String
+        cell.mobile.text = editPropertyArray[0]["mobile_number"] as! NSString as String
+        cell.parkingCapacity.text = (editPropertyArray[0]["parking"] as! NSNumber).stringValue
+        cell.priceRange.text = (editPropertyArray[0]["price_range_id"] as! NSNumber).stringValue
+        cell.venueType.text = (editPropertyArray[0]["property_type_id"] as! NSNumber).stringValue
+        //cell.rooms.text = (selectedPropertyDetailsArray[0]["rooms"] as! NSNumber).stringValue
+        cell.website.text = (editPropertyArray[0]["website"] as! NSString as String)
+        cell.zipcode.text = (editPropertyArray[0]["zipcode"] as! NSString as String)
+        cell.state.text = (editPropertyArray[0]["state_id"] as! NSNumber).stringValue
         
         return cell
     }

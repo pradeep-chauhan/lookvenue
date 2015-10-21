@@ -12,6 +12,7 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var emailNotification: UISwitch!
     @IBOutlet weak var pushNotification: UISwitch!
+    var selectedPropertyDetailsArray : NSMutableArray = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()

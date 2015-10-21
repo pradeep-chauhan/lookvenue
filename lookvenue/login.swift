@@ -108,12 +108,12 @@ class login:UIViewController, UITextFieldDelegate {
             
             self.LoginDetails.remember_token = (self.loginDetailsArray[0]["remember_token"] as! NSString as String)
             self.LoginDetails.created_at = (self.loginDetailsArray[0]["created_at"] as! NSString as String)
-            //self.LoginDetails.id = (self.loginDetailsArray[0]["id"] as! NSString as String)
+            self.LoginDetails.id = (self.loginDetailsArray[0]["id"] as! NSNumber).stringValue
             self.LoginDetails.updated_at = (self.loginDetailsArray[0]["updated_at"] as! NSString as String)
-            //self.LoginDetails.archive = (self.loginDetailsArray[0]["archive"] as! NSString as String)
+            self.LoginDetails.archive = (self.loginDetailsArray[0]["archive"] as! NSNumber).stringValue
             self.LoginDetails.email = (self.loginDetailsArray[0]["email"] as! NSString as String)
             self.LoginDetails.encrypted_password = (self.loginDetailsArray[0]["encrypted_password"] as! NSString as String)
-            //self.LoginDetails.email = (self.loginDetailsArray[0]["email"] as! NSString as String)
+            
             
             
             if(self.loginDetailsListArray.count == 0) {
@@ -144,6 +144,11 @@ class login:UIViewController, UITextFieldDelegate {
                     dash1.propertyArray = self.propertyArray
                     //dash.LoginDetails = self.LoginDetails
                     dash.LoginDetailsArray = self.loginDetailsArray
+                    var selectedPropertyDetailsArray:NSMutableArray = NSMutableArray()
+                    var tempDict : NSDictionary = self.propertyArray[0] as! NSDictionary
+                    selectedPropertyDetailsArray.addObject(tempDict)
+                    dash.selectedPropertyDetailsArray = selectedPropertyDetailsArray
+                    dash.LoginDetails = self.LoginDetails
                     self.menuContainerViewController.leftMenuViewController = dash1
                     self.navigationController?.pushViewController(dash, animated: true)
                     
