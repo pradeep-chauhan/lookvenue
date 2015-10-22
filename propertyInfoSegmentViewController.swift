@@ -34,6 +34,8 @@ class propertyInfoSegmentViewController: UIViewController {
         var urlRequest: String = base
         var serviceCall : WebServiceCall = WebServiceCall()
         
+        // Loading window show
+        
         var alert = UIAlertView(title: "Loading...", message: nil, delegate: self, cancelButtonTitle: nil)
         var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 20, 37, 37)) as UIActivityIndicatorView
         loadingIndicator.center = CGPointMake(alert.bounds.size.width / 2, alert.bounds.size.height - 50)

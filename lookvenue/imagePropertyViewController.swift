@@ -20,7 +20,7 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
     var editPropertyArray : NSMutableArray = NSMutableArray()
     var addImages:NSMutableArray = NSMutableArray()
     var deleteImages:NSMutableArray = NSMutableArray()
-    
+    var alert:UIAlertView!
     @IBOutlet weak var topBar: UIToolbar!
     @IBOutlet weak var toolbar: UIToolbar!
     
@@ -28,6 +28,7 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
     @IBOutlet weak var imageCollectionView: UICollectionView!
     var imagePicker = UIImagePickerController()
      var pickedImage:UIImage?
+    
     //let picker = UIImagePickerController()
     
 //    @IBAction func loadImageButtonTapped(sender: UIButton) {
@@ -51,17 +52,17 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
         
         totalImagesMutableCopyArray = editPropertyArray[0]["images"] as! NSMutableArray
         totalImages = totalImagesMutableCopyArray.mutableCopy() as! NSMutableArray
-        println(totalImages.count)
-//        cloudinary.config().setValue("dtpcuqqq2", forKey: "cloud_name")
-//        cloudinary.config().setValue("897166688766548", forKey: "api_key")
-//        cloudinary.config().setValue("HZ3xp9PcVYWyaUaNB8yivz9FX8E", forKey: "api_secret")
+        
+        cloudinary.config().setValue("dtpcuqqq2", forKey: "cloud_name")
+        cloudinary.config().setValue("897166688766548", forKey: "api_key")
+        cloudinary.config().setValue("HZ3xp9PcVYWyaUaNB8yivz9FX8E", forKey: "api_secret")
         
         
         // my cloudinary account
         
-        cloudinary.config().setValue("dykhnkdyi", forKey: "cloud_name")
-        cloudinary.config().setValue("243966527335567", forKey: "api_key")
-        cloudinary.config().setValue("2cus07IvyULcSWjJ-TaD8zMRneA", forKey: "api_secret")
+//        cloudinary.config().setValue("dykhnkdyi", forKey: "cloud_name")
+//        cloudinary.config().setValue("243966527335567", forKey: "api_key")
+//        cloudinary.config().setValue("2cus07IvyULcSWjJ-TaD8zMRneA", forKey: "api_secret")
         
         var transformation: CLTransformation = CLTransformation.transformation() as AnyObject as! CLTransformation
         transformation.setWidthWithInt(100)
@@ -112,10 +113,10 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
     override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(true)
     
-//        if let indexPath = getIndexPathForSelectedCell() {
-//        
-//            highlightCell(indexPath, flag: false)
-//        }
+        if let indexPath = getIndexPathForSelectedCell() {
+        
+            highlightCell(indexPath, flag: false)
+        }
     }
     
     // MARK:- Selected Cell IndexPath
@@ -171,7 +172,10 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
     
     
     @IBAction func editImages(sender: AnyObject) {
-        self.edit = editButtonItem()
+        //self.edit = editButtonItem()
+        if(edit.enabled == false) {
+            edit.title = "Done"
+        }
         setEditing(true, animated: true)
     }
     
@@ -181,24 +185,43 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
     
     override func setEditing(editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
+        
         imageCollectionView?.allowsMultipleSelection = editing
         toolbar.hidden = !editing
+    }
+    
+    // Delete cell or image from collection view
+    
+    @IBAction func deleteCell(sender: AnyObject) {
+        var selectedIndexPath = imageCollectionView?.indexPathsForSelectedItems()
+        if let indexPath = selectedIndexPath {
+            for item in indexPath {
+                let cell = imageCollectionView.cellForItemAtIndexPath(item as! NSIndexPath)
+                imageCollectionView?.deselectItemAtIndexPath(item as? NSIndexPath, animated: true)
+                var cloudinary_image_id = totalImages[item.row]["cloudinary_image_id"] as! NSString
+                var delete_key = ["cloudinary_image_id":"\(cloudinary_image_id)"]
+                deleteImages.addObject(delete_key)
+                totalImages.removeObjectAtIndex(item.row)
+                //println("image check = \(cloudinary_image_id)")
+            }
+            imageCollectionView?.deleteItemsAtIndexPaths(indexPath)
+        }
     }
     
     func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
         highlightCell(indexPath, flag: true)
     }
-    func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
-        highlightCell(indexPath, flag: false)
-    }
     
+    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+         highlightCell(indexPath, flag: false)
+    }
     // MARK:- Highlight
     func highlightCell(indexPath : NSIndexPath, flag: Bool) {
         
         let cell = imageCollectionView.cellForItemAtIndexPath(indexPath)
         
         if flag {
-            cell?.contentView.backgroundColor = UIColor.grayColor()
+            cell?.contentView.backgroundColor = UIColor.blueColor()
         } else {
             cell?.contentView.backgroundColor = nil
         }
@@ -216,21 +239,24 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
         //var indexPath = 3
         
         let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
-        let imageName = imageURL.path!.lastPathComponent
-        let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as! String
-        let localPath = documentDirectory.stringByAppendingPathComponent(imageName)
-        
         pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-//        let data = UIImageJPEGRepresentation(pickedImage, 0.5)
-//        data.writeToFile(localPath, atomically: true)
-        let imageData = NSData(contentsOfFile: localPath)!
-
-        let photoURL = NSURL(fileURLWithPath: localPath)
-        let imageWithData = UIImage(data: imageData)!
         
-        println(photoURL)
-        uploadToCloudinary("\(photoURL)")
+        // Loading Window Show
+        alert = UIAlertView(title: "Uploading...", message: nil, delegate: self, cancelButtonTitle: nil)
+        var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 20, 37, 37)) as UIActivityIndicatorView
+        loadingIndicator.center = CGPointMake(alert.bounds.size.width / 2, alert.bounds.size.height - 50)
         
+        loadingIndicator.hidesWhenStopped = true
+        
+        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        loadingIndicator.startAnimating();
+        
+        alert.setValue(loadingIndicator, forKey: "accessoryView")
+        loadingIndicator.startAnimating()
+        
+        alert.show();
+        
+        uploadToCloudinary("\(imageURL)")
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -242,24 +268,20 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
         //upload your metadata to your rest endpoint
         var count = totalImages.count
         var upload_key = ["cloudinary_image_id":"\(publicKey)"]
-        //println(upload_key)
         addImages.addObject(publicKey)
-        //println(addImages)
         totalImages.addObject(upload_key)
-        //println("new demo array === \(totalImages)")
         if (count < totalImages.count)
         {
-            //println(pickedImage)
             var index: Int = totalImages.count - 1
-            //println(index)
             var indexPath = NSIndexPath(forItem: index, inSection: 0)
             self.imageCollectionView.insertItemsAtIndexPaths([indexPath])
             //println(addImages)
-            
         }
+        alert.dismissWithClickedButtonIndex(0, animated: true)
     }
     
     func uploadToCloudinary(fileId:String){
+        
         var newSize: CGSize = CGSizeMake(1280, 720)
         UIGraphicsBeginImageContext(newSize)
         pickedImage!.drawInRect(CGRectMake(0, 0, 1280, 720))
@@ -267,21 +289,18 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
         let forUpload = UIImageJPEGRepresentation(pickedImage, 0.0) as NSData
         UIGraphicsEndImageContext()
         let uploader = CLUploader(cloudinary, delegate: self)
-        //println(fileId)
-        println(cloudinary.config())
         uploader.upload(forUpload, options: nil, withCompletion: onCloudinaryCompletion, andProgress: onCloudinaryProgress)
         
-        
     }
+    
     func onCloudinaryCompletion(successResult:[NSObject : AnyObject]!, errorResult:String!, code:Int, idContext:AnyObject!) {
         var public_id = successResult["public_id"] as! String
         
         if(errorResult != nil) {
-            println("Image not uploaded")
+            alert = UIAlertView(title: "Message", message: "Image is not uploaded", delegate: self, cancelButtonTitle: "Ok")
+            alert.show()
         }
         else {
-//            println(public_id)
-//            println("hey")
             uploadDetailsToServer(public_id)
         }
         
@@ -292,7 +311,5 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
     func onCloudinaryProgress(bytesWritten:Int, totalBytesWritten:Int, totalBytesExpectedToWrite:Int, idContext:AnyObject!) {
         //do any progress update you may need
     }
-    
-
 
 }

@@ -2214,22 +2214,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="114" height="101"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JqX-OA-ria">
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JqX-OA-ria">
                                                     <rect key="frame" x="47" y="41" width="20" height="20"/>
+                                                    <color key="color" red="0.73333333329999995" green="0.24313725489999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </activityIndicatorView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vof-Jh-Hpi">
-                                                    <rect key="frame" x="0.0" y="8" width="114" height="85"/>
+                                                    <rect key="frame" x="2" y="2" width="110" height="97"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Vof-Jh-Hpi" secondAttribute="trailing" id="K7q-mY-4pK"/>
-                                            <constraint firstItem="Vof-Jh-Hpi" firstAttribute="top" secondItem="BCv-sL-6Vb" secondAttribute="top" constant="8" id="Nwk-oq-kt0"/>
+                                            <constraint firstAttribute="bottom" secondItem="Vof-Jh-Hpi" secondAttribute="bottom" constant="2" id="Dns-3F-G7s"/>
+                                            <constraint firstItem="Vof-Jh-Hpi" firstAttribute="top" secondItem="BCv-sL-6Vb" secondAttribute="top" constant="2" id="KWB-PQ-fWs"/>
                                             <constraint firstAttribute="centerX" secondItem="JqX-OA-ria" secondAttribute="centerX" id="fAq-zI-Jx4"/>
                                             <constraint firstAttribute="centerY" secondItem="JqX-OA-ria" secondAttribute="centerY" id="fKQ-in-p6a"/>
-                                            <constraint firstItem="Vof-Jh-Hpi" firstAttribute="leading" secondItem="BCv-sL-6Vb" secondAttribute="leading" id="woC-en-UcA"/>
-                                            <constraint firstAttribute="bottom" secondItem="Vof-Jh-Hpi" secondAttribute="bottom" constant="8" id="zXN-Sh-QqG"/>
+                                            <constraint firstItem="Vof-Jh-Hpi" firstAttribute="leading" secondItem="BCv-sL-6Vb" secondAttribute="leading" constant="2" id="fhw-T0-OKB"/>
+                                            <constraint firstAttribute="trailing" secondItem="Vof-Jh-Hpi" secondAttribute="trailing" constant="2" id="j95-bJ-Qzv"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="activityController" destination="JqX-OA-ria" id="xod-yv-0aI"/>
@@ -2264,7 +2265,11 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Cww-BS-8aJ"/>
-                                    <barButtonItem systemItem="trash" id="4UL-tR-pQo"/>
+                                    <barButtonItem systemItem="trash" id="4UL-tR-pQo">
+                                        <connections>
+                                            <action selector="deleteCell:" destination="Z1k-2Y-FTB" id="4gj-GJ-Pxv"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="da5-5E-HPA">
