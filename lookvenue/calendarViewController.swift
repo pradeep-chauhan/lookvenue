@@ -45,8 +45,7 @@ class calendarViewController: UIViewController, PMCalendarControllerDelegate {
         var param: String = "property_id=\(propertyId)&start_date=\(startDate)&end_date=\(endDate)"
         var urlRequest: String = base + param
         var serviceCall : WebServiceCall = WebServiceCall()
-        
-        serviceCall.adminApiCallRequest(methodType, urlRequest: urlRequest, authentication: authentication, completion: { (resultData) -> () in
+        serviceCall.adminApiCallRequest(methodType, urlRequest: urlRequest, param:[:], authentication: authentication, completion: { (resultData) -> () in
             self.calendarDetailsListArray = serviceCall.getCalendarDetailsArray(resultData)
             self.getCalendarDetailsArray()
             println("calendar details====\(self.calendarDetailsArray)")

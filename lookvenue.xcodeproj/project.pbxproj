@@ -138,6 +138,9 @@
 		F9B628C21BA74E7A0034D7EC /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B628B21BA74E7A0034D7EC /* UIView+WebCacheOperation.m */; };
 		F9B628C41BA750990034D7EC /* nophoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9B628C31BA750990034D7EC /* nophoto.jpg */; };
 		F9DE5CE71BA5C33C0033ABBE /* images.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DE5CE61BA5C33C0033ABBE /* images.swift */; };
+		F9E8054E1BDAC80B00CD7839 /* dashDataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E8054D1BDAC80B00CD7839 /* dashDataList.swift */; };
+		F9E805561BDAD3E100CD7839 /* loginDashData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E805551BDAD3E100CD7839 /* loginDashData.swift */; };
+		F9FEACF71BDE4363008DB144 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F9FEACF61BDE4363008DB144 /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -379,6 +382,10 @@
 		F9B628B21BA74E7A0034D7EC /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		F9B628C31BA750990034D7EC /* nophoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nophoto.jpg; sourceTree = "<group>"; };
 		F9DE5CE61BA5C33C0033ABBE /* images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = images.swift; sourceTree = "<group>"; };
+		F9E8054D1BDAC80B00CD7839 /* dashDataList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dashDataList.swift; sourceTree = "<group>"; };
+		F9E805551BDAD3E100CD7839 /* loginDashData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginDashData.swift; sourceTree = "<group>"; };
+		F9FEACF51BDE4363008DB144 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		F9FEACF61BDE4363008DB144 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -416,6 +423,7 @@
 		F940ED411B7674140017FDE6 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				F9FEACF11BDE434C008DB144 /* MBProgressHud */,
 				F98DFBFD1BB90667005D4FA4 /* MFSideMenu */,
 				F940ED421B7674140017FDE6 /* ENSideMenu.swift */,
 				F940ED431B7674140017FDE6 /* ENSideMenuNavigationController.swift */,
@@ -529,6 +537,8 @@
 				F9727B351BC4FCE8005591D4 /* loginDetails.swift */,
 				F96306C41BCB8DF90057E36C /* editProperty.swift */,
 				F99DD19F1B96CE2C00B1172D /* SearchVenue.swift */,
+				F9E8054D1BDAC80B00CD7839 /* dashDataList.swift */,
+				F9E805551BDAD3E100CD7839 /* loginDashData.swift */,
 				F9DE5CE61BA5C33C0033ABBE /* images.swift */,
 				F99043B41BB6B59100F39773 /* SearchDetails.swift */,
 			);
@@ -767,6 +777,15 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		F9FEACF11BDE434C008DB144 /* MBProgressHud */ = {
+			isa = PBXGroup;
+			children = (
+				F9FEACF51BDE4363008DB144 /* MBProgressHUD.h */,
+				F9FEACF61BDE4363008DB144 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHud;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -961,8 +980,10 @@
 				F98DFC071BB90667005D4FA4 /* UIViewController+MFSideMenuAdditions.m in Sources */,
 				F9727AFB1BC3EF6D005591D4 /* calendarViewController.swift in Sources */,
 				F976B8061BC6ED6B0003EAB3 /* PMDimmingView.m in Sources */,
+				F9FEACF71BDE4363008DB144 /* MBProgressHUD.m in Sources */,
 				F9B628BF1BA74E7A0034D7EC /* UIImage+WebP.m in Sources */,
 				F973DA801BC28F4100BCEF63 /* ListPropertyViewController.swift in Sources */,
+				F9E805561BDAD3E100CD7839 /* loginDashData.swift in Sources */,
 				F940ECE51B73DE9E0017FDE6 /* forgotPassword.swift in Sources */,
 				F976B8051BC6ED6B0003EAB3 /* PMCalendarView.m in Sources */,
 				F9B628B61BA74E7A0034D7EC /* SDWebImageCompat.m in Sources */,
@@ -1011,6 +1032,7 @@
 				F99914361B73D1D5009F17AA /* login.swift in Sources */,
 				F940ECE71B73DEBA0017FDE6 /* contactUs.swift in Sources */,
 				F96306CA1BCBC3420057E36C /* editPropertyImagesCollectionViewCell.swift in Sources */,
+				F9E8054E1BDAC80B00CD7839 /* dashDataList.swift in Sources */,
 				F92BBF951B80D66000B468BB /* DatePickerDialog.swift in Sources */,
 				F90AB8A01B79DF8D002931E6 /* imagePropertyViewController.swift in Sources */,
 				F92BBF9D1B81A6D700B468BB /* UIImage+SHAdditions.m in Sources */,

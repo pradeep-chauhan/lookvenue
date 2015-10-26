@@ -11,58 +11,55 @@ import UIKit
 class imagePropertyViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, CLUploaderDelegate {
     
     var totalImages: NSMutableArray = NSMutableArray()
-    var totalImagesMutableCopyArray:NSMutableArray = NSMutableArray()
+    var totalImagesMutableCopyArray:NSArray = NSArray()
     var displayImagesUrl: NSMutableArray = NSMutableArray()
     var layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     let sectionInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     var selectedSearchVanueDictionary = NSDictionary()
     let cloudinary: CLCloudinary = CLCloudinary()
     var editPropertyArray : NSMutableArray = NSMutableArray()
-    var addImages:NSMutableArray = NSMutableArray()
-    var deleteImages:NSMutableArray = NSMutableArray()
+    var addImages = Set<String>()
+    var deleteImages = Set<String>()
+    var LoginDetails: loginDetails = loginDetails()
     var alert:UIAlertView!
+    var statusMode:Bool = true
     @IBOutlet weak var topBar: UIToolbar!
     @IBOutlet weak var toolbar: UIToolbar!
     
     @IBOutlet weak var edit: UIBarButtonItem!
     @IBOutlet weak var imageCollectionView: UICollectionView!
     var imagePicker = UIImagePickerController()
-     var pickedImage:UIImage?
-    
-    //let picker = UIImagePickerController()
-    
-//    @IBAction func loadImageButtonTapped(sender: UIButton) {
-//        imagePicker.allowsEditing = false
-//        imagePicker.sourceType = .PhotoLibrary
-//        //imagePicker.sourceType = .Camera
-//        
-//        presentViewController(imagePicker, animated: true, completion: nil)
-//    }
+    var pickedImage:UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         imagePicker.delegate = self
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
         
         toolbar.hidden = true
-        
-        
-        
-        totalImagesMutableCopyArray = editPropertyArray[0]["images"] as! NSMutableArray
+        imageCollectionView?.allowsSelection = false
+        edit.title = "Edit"
+        totalImagesMutableCopyArray = editPropertyArray[0]["images"] as! NSArray
         totalImages = totalImagesMutableCopyArray.mutableCopy() as! NSMutableArray
         
-        cloudinary.config().setValue("dtpcuqqq2", forKey: "cloud_name")
-        cloudinary.config().setValue("897166688766548", forKey: "api_key")
-        cloudinary.config().setValue("HZ3xp9PcVYWyaUaNB8yivz9FX8E", forKey: "api_secret")
+        for ( var i = 0; i < totalImages.count; i++ ) {
+            var cloudinary_image_id = totalImages[i]["cloudinary_image_id"] as! NSString as String
+            addImages.insert(cloudinary_image_id)
+        }
+        println(addImages)
+//        cloudinary.config().setValue("dtpcuqqq2", forKey: "cloud_name")
+//        cloudinary.config().setValue("897166688766548", forKey: "api_key")
+//        cloudinary.config().setValue("HZ3xp9PcVYWyaUaNB8yivz9FX8E", forKey: "api_secret")
         
         
         // my cloudinary account
         
-//        cloudinary.config().setValue("dykhnkdyi", forKey: "cloud_name")
-//        cloudinary.config().setValue("243966527335567", forKey: "api_key")
-//        cloudinary.config().setValue("2cus07IvyULcSWjJ-TaD8zMRneA", forKey: "api_secret")
+        cloudinary.config().setValue("dykhnkdyi", forKey: "cloud_name")
+        cloudinary.config().setValue("243966527335567", forKey: "api_key")
+        cloudinary.config().setValue("2cus07IvyULcSWjJ-TaD8zMRneA", forKey: "api_secret")
         
         var transformation: CLTransformation = CLTransformation.transformation() as AnyObject as! CLTransformation
         transformation.setWidthWithInt(100)
@@ -172,22 +169,54 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
     
     
     @IBAction func editImages(sender: AnyObject) {
-        //self.edit = editButtonItem()
-        if(edit.enabled == false) {
-            edit.title = "Done"
+        
+        if( statusMode == true) {
+            
+            self.edit.title = "Done"
+            self.edit.action = "editImages:"
+            setEditing(statusMode, animated: true)
         }
-        setEditing(true, animated: true)
+        else {
+            self.edit.title = "Edit"
+            self.edit.action = "editImages:"
+            var unselectAllImages = imageCollectionView?.indexPathsForSelectedItems()
+            if let indexPath = unselectAllImages {
+                for item in indexPath {
+                    var index = NSIndexPath(forItem: item.row, inSection: 0)
+                    highlightCell(index, flag: false)
+                    
+                }
+            }
+            
+            setEditing(statusMode, animated: statusMode)
+        }
+        
+        
     }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
-        return !editing
-    }
+//    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+//        return !editing
+//    }
     
     override func setEditing(editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
+        if( statusMode == true) {
+            
+            super.setEditing(editing, animated: animated)
+            self.imageCollectionView?.allowsSelection = true
+            self.imageCollectionView?.allowsMultipleSelection = statusMode
+            toolbar.hidden = !editing
+            statusMode = false
+        }
+        else {
+            super.setEditing(editing, animated: animated)
+            self.imageCollectionView?.allowsSelection = false
+            self.imageCollectionView?.allowsMultipleSelection = false
+            
+            toolbar.hidden = true
+            statusMode = true
+            
+        }
         
-        imageCollectionView?.allowsMultipleSelection = editing
-        toolbar.hidden = !editing
     }
     
     // Delete cell or image from collection view
@@ -198,11 +227,11 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
             for item in indexPath {
                 let cell = imageCollectionView.cellForItemAtIndexPath(item as! NSIndexPath)
                 imageCollectionView?.deselectItemAtIndexPath(item as? NSIndexPath, animated: true)
-                var cloudinary_image_id = totalImages[item.row]["cloudinary_image_id"] as! NSString
+                var cloudinary_image_id = totalImages[item.row]["cloudinary_image_id"] as! NSString as String
                 var delete_key = ["cloudinary_image_id":"\(cloudinary_image_id)"]
-                deleteImages.addObject(delete_key)
+                deleteImages.insert("\(cloudinary_image_id)")
+                
                 totalImages.removeObjectAtIndex(item.row)
-                //println("image check = \(cloudinary_image_id)")
             }
             imageCollectionView?.deleteItemsAtIndexPaths(indexPath)
         }
@@ -223,7 +252,7 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
         if flag {
             cell?.contentView.backgroundColor = UIColor.blueColor()
         } else {
-            cell?.contentView.backgroundColor = nil
+            cell?.contentView.backgroundColor = UIColor.clearColor()
         }
     }
 
@@ -241,20 +270,23 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
         let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
         pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         
+        let loadingProgress = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        loadingProgress.labelText = "Uploading"
+        loadingProgress.detailsLabelText = "Please wait"
         // Loading Window Show
-        alert = UIAlertView(title: "Uploading...", message: nil, delegate: self, cancelButtonTitle: nil)
-        var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 20, 37, 37)) as UIActivityIndicatorView
-        loadingIndicator.center = CGPointMake(alert.bounds.size.width / 2, alert.bounds.size.height - 50)
-        
-        loadingIndicator.hidesWhenStopped = true
-        
-        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
-        loadingIndicator.startAnimating();
-        
-        alert.setValue(loadingIndicator, forKey: "accessoryView")
-        loadingIndicator.startAnimating()
-        
-        alert.show();
+//        alert = UIAlertView(title: "Uploading...", message: nil, delegate: self, cancelButtonTitle: nil)
+//        var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 20, 37, 37)) as UIActivityIndicatorView
+//        loadingIndicator.center = CGPointMake(alert.bounds.size.width / 2, alert.bounds.size.height - 50)
+//        
+//        loadingIndicator.hidesWhenStopped = true
+//        
+//        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+//        loadingIndicator.startAnimating();
+//        
+//        alert.setValue(loadingIndicator, forKey: "accessoryView")
+//        loadingIndicator.startAnimating()
+//        
+//        alert.show();
         
         uploadToCloudinary("\(imageURL)")
         dismissViewControllerAnimated(true, completion: nil)
@@ -268,16 +300,61 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
         //upload your metadata to your rest endpoint
         var count = totalImages.count
         var upload_key = ["cloudinary_image_id":"\(publicKey)"]
-        addImages.addObject(publicKey)
+        addImages.insert("\(publicKey)")
+        println("addImages = \(addImages)")
+        println("addImages = \(deleteImages)")
         totalImages.addObject(upload_key)
         if (count < totalImages.count)
         {
             var index: Int = totalImages.count - 1
             var indexPath = NSIndexPath(forItem: index, inSection: 0)
+            updateImagesToserver()
             self.imageCollectionView.insertItemsAtIndexPaths([indexPath])
             //println(addImages)
         }
-        alert.dismissWithClickedButtonIndex(0, animated: true)
+        
+        //alert.dismissWithClickedButtonIndex(0, animated: true)
+    }
+    
+    func updateImagesToserver() {
+        
+        var updateImages : [String: AnyObject] = [:]
+        updateImages["add_image_ids"] = addImages
+        updateImages["remove_image_ids"] = deleteImages
+//        var updateImages = [
+//            "add_image_ids": addImages,
+//            "remove_image_ids": deleteImages
+//        ]
+        println(updateImages)
+        var authentication = NSUserDefaults.standardUserDefaults().objectForKey("remember_token") as! NSString
+        var methodType: String = "POST"
+        var base: String = "image/create_update_images.json"
+        var propertyId = (editPropertyArray[0]["id"] as! NSNumber).stringValue
+        var urlRequest: String = base
+        var serviceCall : WebServiceCall = WebServiceCall()
+        var uploadImages = [
+            "property_id": propertyId,
+            "image_ids": updateImages
+        ]
+        var dict : [String: AnyObject] = [:]
+        dict["property_id"] = propertyId
+        dict["image_ids"] = updateImages
+//        println(dict)
+//        var error : NSError?
+//        if let jsonData = NSJSONSerialization.dataWithJSONObject(dict, options: nil, error: &error) {
+//            let jsonString = NSString(data: jsonData, encoding: NSUTF8StringEncoding)! as String
+//            println(jsonString)
+//        } else {
+//            println("Error in JSON conversion: \(error!.localizedDescription)")
+//        }
+        
+         MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+        serviceCall.adminApiCallRequest(methodType, urlRequest: urlRequest, param:uploadImages as! Dictionary<String, AnyObject>, authentication: authentication as String, completion: { (resultData) -> () in
+           
+//            self.calendarDetailsListArray = serviceCall.getCalendarDetailsArray(resultData)
+//            self.getCalendarDetailsArray()
+//            println("calendar details====\(self.calendarDetailsArray)")
+        })
     }
     
     func uploadToCloudinary(fileId:String){

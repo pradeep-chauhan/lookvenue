@@ -36,27 +36,32 @@ class propertyInfoSegmentViewController: UIViewController {
         
         // Loading window show
         
-        var alert = UIAlertView(title: "Loading...", message: nil, delegate: self, cancelButtonTitle: nil)
-        var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 20, 37, 37)) as UIActivityIndicatorView
-        loadingIndicator.center = CGPointMake(alert.bounds.size.width / 2, alert.bounds.size.height - 50)
-       
-        loadingIndicator.hidesWhenStopped = true
+        let loadingProgress = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        loadingProgress.labelText = "Loading"
         
-        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
-        loadingIndicator.startAnimating();
+//        var alert = UIAlertView(title: "Loading...", message: nil, delegate: self, cancelButtonTitle: nil)
+//        var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 20, 37, 37)) as UIActivityIndicatorView
+//        loadingIndicator.center = CGPointMake(alert.bounds.size.width / 2, alert.bounds.size.height - 50)
+//       
+//        loadingIndicator.hidesWhenStopped = true
+//        
+//        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+//        loadingIndicator.startAnimating();
+//        
+//        alert.setValue(loadingIndicator, forKey: "accessoryView")
+//        loadingIndicator.startAnimating()
+//        
+//        alert.show();
         
-        alert.setValue(loadingIndicator, forKey: "accessoryView")
-        loadingIndicator.startAnimating()
         
-        alert.show();
-        
-        
-        serviceCall.adminApiCallRequest(methodType, urlRequest: urlRequest, authentication: authentication) { (resultData : NSData) -> Void in
+        serviceCall.adminApiCallRequest(methodType, urlRequest: urlRequest, param: [:], authentication: authentication) { (resultData : NSData) -> Void in
             self.editPropertyListArray = serviceCall.getEditPropertyArray(resultData)
             self.getEditPropertyArray()
             //self.indicator.stopAnimating()
             //println(self.editPropertyArray)
-            alert.dismissWithClickedButtonIndex(0, animated: true)
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            //alert.dismissWithClickedButtonIndex(0, animated: true)
+            
             if(self.segmentControl.selectedSegmentIndex == 0)
             {
                 
@@ -64,6 +69,7 @@ class propertyInfoSegmentViewController: UIViewController {
                 self.addpropertyViewController = storyBoard.instantiateViewControllerWithIdentifier("editPropertyView") as! addProperty
                 self.addpropertyViewController.editPropertyArray = self.editPropertyArray
                 self.addpropertyViewController.selectedPropertyDetailsArray = self.selectedPropertyDetailsArray
+                self.addpropertyViewController.LoginDetails = self.LoginDetails
                 self.addpropertyViewController.view.frame = CGRectMake(0, 0, self.containerView.frame.size.width, self.containerView.frame.size.height)
                 self.containerView.addSubview(self.addpropertyViewController.view)
                 self.addChildViewController(self.addpropertyViewController)
@@ -75,6 +81,7 @@ class propertyInfoSegmentViewController: UIViewController {
                 let storyBoard = UIStoryboard(name: "Main", bundle: nil)
                 self.imageProperty = storyBoard.instantiateViewControllerWithIdentifier("propertyImages") as! imagePropertyViewController
                 self.imageProperty.editPropertyArray = self.editPropertyArray
+                self.imageProperty.LoginDetails = self.LoginDetails
                 self.imageProperty.view.frame = self.containerView.bounds
                 self.containerView.addSubview(self.imageProperty.view)
                 self.addChildViewController(self.imageProperty)
@@ -105,6 +112,7 @@ class propertyInfoSegmentViewController: UIViewController {
             addpropertyViewController.propertyArray = propertyArray
             addpropertyViewController.selectedPropertyDetailsArray = self.selectedPropertyDetailsArray
             addpropertyViewController.editPropertyArray = self.editPropertyArray
+            addpropertyViewController.LoginDetails = self.LoginDetails
             addpropertyViewController.view.frame = CGRectMake(0, 0, self.containerView.frame.size.width, self.containerView.frame.size.height)
             self.containerView.addSubview(addpropertyViewController.view)
             self.addChildViewController(addpropertyViewController)
@@ -117,6 +125,7 @@ class propertyInfoSegmentViewController: UIViewController {
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             imageProperty = storyBoard.instantiateViewControllerWithIdentifier("propertyImages") as! imagePropertyViewController
              self.imageProperty.editPropertyArray = self.editPropertyArray
+            imageProperty.LoginDetails = self.LoginDetails
             imageProperty.view.frame = self.containerView.bounds
             self.containerView.addSubview(imageProperty.view)
             self.addChildViewController(imageProperty)

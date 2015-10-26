@@ -14,7 +14,7 @@ class addProperty: UIViewController, UITableViewDelegate, UITableViewDataSource 
     var propertyArray : NSMutableArray = NSMutableArray()
     var selectedPropertyDetailsArray : NSMutableArray = NSMutableArray()
     var editPropertyArray : NSMutableArray = NSMutableArray()
-    
+    var LoginDetails: loginDetails = loginDetails()
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.tableView.registerNib( a, forCellReuseIdentifier: "ScrollTableViewCell")

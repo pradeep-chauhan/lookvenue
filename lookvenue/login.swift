@@ -88,6 +88,7 @@ class login:UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginButtonAction(sender: AnyObject) {
+        let loadingProgress = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         var username = "pankaj@gkmit.co"//self.username.text
         var password = "1"//self.password.text
         var param1: String = username
@@ -96,11 +97,9 @@ class login:UIViewController, UITextFieldDelegate {
         var methodType: String = "GET"
         var base: String = "user_sign_in?email=\(param1)&password=\(param2)&device_token=\(device_token)"
         
-        
         var urlRequest: String = base
         var serviceCall : WebServiceCall = WebServiceCall()
         //indicator.startAnimating()
-        
         serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, completion: {(resultData : NSData) -> Void in
             
             self.loginDetailsListArray = serviceCall.getLoginDetailsArray(resultData)
@@ -117,11 +116,12 @@ class login:UIViewController, UITextFieldDelegate {
             
             
             if(self.loginDetailsListArray.count == 0) {
-                let alert = UIAlertView()
-                alert.title = "Sorry!"
-                alert.message = "username and password is wrong"
-                alert.addButtonWithTitle("Ok")
-                alert.show()
+//                let alert = UIAlertView()
+//                alert.title = "Sorry!"
+//                alert.message = "username and password is wrong"
+//                alert.addButtonWithTitle("Ok")
+//                alert.show()
+                loadingProgress.detailsLabelText = "username and password is wrong"
             }
             else {
                  //Calling view Controller
@@ -131,7 +131,8 @@ class login:UIViewController, UITextFieldDelegate {
                 var param: String = ""
                 var urlRequest: String = base
                 var serviceCall : WebServiceCall = WebServiceCall()
-                serviceCall.adminApiCallRequest(methodType, urlRequest: urlRequest, authentication: authentication) { (resultData) -> () in
+                serviceCall.adminApiCallRequest(methodType, urlRequest: urlRequest, param: [:], authentication: authentication) { (resultData) -> () in
+                    
                     self.propertyListArray = serviceCall.getPropertyDetailsArray(resultData)
                     self.getPropertyArray()
                     //println(self.propertyArray)
@@ -147,15 +148,16 @@ class login:UIViewController, UITextFieldDelegate {
                     var selectedPropertyDetailsArray:NSMutableArray = NSMutableArray()
                     var tempDict : NSDictionary = self.propertyArray[0] as! NSDictionary
                     selectedPropertyDetailsArray.addObject(tempDict)
-                    dash.selectedPropertyDetailsArray = selectedPropertyDetailsArray
+                    dashData.sharedInstance.selectedPropertyDetailsArray = selectedPropertyDetailsArray
                     dash.LoginDetails = self.LoginDetails
                     self.menuContainerViewController.leftMenuViewController = dash1
                     self.navigationController?.pushViewController(dash, animated: true)
-                    
+                   
                 }
-                
+               
                 
             }
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
         })
         
         // Calling view Controller

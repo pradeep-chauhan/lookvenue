@@ -90,14 +90,15 @@ class WebServiceCall: NSObject {
     
     // admin call
     
-    func adminApiCallRequest(methodType: String, urlRequest: String, authentication: String , completion: (resultData : NSData) -> ()) -> Void
+    func adminApiCallRequest(methodType: String, urlRequest: String, param: Dictionary < String, AnyObject > , authentication: String , completion: (resultData : NSData) -> ()) -> Void
     {
         var baseUrl: String! = "http://lookvenue.herokuapp.com/"
         var method: String! = methodType
-        var parameter: String! = urlRequest
-        var url: String = baseUrl + parameter
+        //var parameter: NSArray = param
+        var url: String = baseUrl + urlRequest
+        
         var authentication:String = authentication
-        //println(login.remember_token as NSString)
+        println(url)
         
         //authentication = (login.remember_token as NSString) as String
         //println("Hello user\(authentication)")
@@ -106,7 +107,11 @@ class WebServiceCall: NSObject {
             "Cookie": "remember_token=\(authentication)",
             "Content-Type": "application/json"
         ]
-        
+//        let param = [
+//            "property_id": "2",
+//            "remove_image_ids": "",
+//            "add_image_ids": ""
+//        ]
         if( method == "GET") {
             
                 Alamofire.request(.GET, url, headers: headers)
@@ -118,6 +123,7 @@ class WebServiceCall: NSObject {
                             println(error?.localizedDescription)
                             var alert = UIAlertView(title: "No Internet!", message: error!.localizedDescription, delegate: self, cancelButtonTitle: "Ok")
                             alert.show()
+                            
                         }
                         else {
                             completion(resultData: data!)
@@ -128,15 +134,16 @@ class WebServiceCall: NSObject {
             
             }
         else {
-            Alamofire.request(.POST, url)
-                .response { request, response, data, error in
+            println("parameters====\(param)")
+            
+            Alamofire.request(.POST, url, parameters: param , headers: headers)
+                .response{ request, response, data, error in
                     println(request)
                     println(response)
                     println(error)
                 }
                 .responseJSON { request, response, data, error in
-                    completion(resultData: data as! NSData)
-                    
+                    println(response)
             }
         }
     }
@@ -235,7 +242,18 @@ class WebServiceCall: NSObject {
         login.updated_at = tempDict.valueForKey("updated_at") as! NSString
           
         loginDetailsArray.addObject(tempDict)
+        NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("email") as! NSString, forKey: "email")
+        NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("archive") as! NSInteger, forKey: "archive")
+        NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("created_at") as! NSString, forKey: "created_at")
+        NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("encrypted_password") as! NSString, forKey: "encrypted_password")
+        NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("id") as! NSNumber, forKey: "id")
+        NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("remember_token") as! NSString, forKey: "remember_token")
+        //NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("device_token") as! NSString, forKey: "device_token")
+        NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("updated_at") as! NSString, forKey: "updated_at")
+        //NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("name") as! NSString, forKey: "name")
         
+        var authentication = NSUserDefaults.standardUserDefaults().objectForKey("remember_token") as! NSString
+        println(authentication)
         return loginDetailsArray
     }
     
@@ -265,7 +283,7 @@ class WebServiceCall: NSObject {
         
             var EditProperty : editProperty = editProperty()
             var tempDict : NSDictionary = editPropertyListArray as NSDictionary
-            var images : NSMutableArray = tempDict.objectForKey("images") as! NSMutableArray
+            var images : NSArray = tempDict.objectForKey("images") as! NSArray
             //println(tempDict)
             EditProperty.images = images
             //            venue.name = (tempDict.valueForKey("name")!)

@@ -27,7 +27,8 @@ class DashBoardViewController: UIViewController, UITabBarDelegate, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        selectedPropertyDetailsArray = NSMutableArray()
+        selectedPropertyDetailsArray = dashData.sharedInstance.selectedPropertyDetailsArray
         //var authentication = ( LoginDetails.remember_token as NSString) as String
         
         DashBoardTabBar.delegate = self
@@ -41,13 +42,9 @@ class DashBoardViewController: UIViewController, UITabBarDelegate, UITableViewDe
         //self.DashBoardTabBar.barTintColor
         // center image in nav bar
         
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
-        imageView.contentMode = .ScaleAspectFit
-        
-        let image = UIImage(named: "look-venue-logo.png")
-        imageView.image = image
         //self.navigationController?.setToolbarHidden(true, animated: false)
-        self.navigationItem.titleView = imageView
+        self.navigationItem.title = selectedPropertyDetailsArray[0]["name"] as! NSString as String
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         let leftBarButton: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
         //set image for button
         leftBarButton.setImage(UIImage(named: "menu-icon.png"), forState: UIControlState.Normal)

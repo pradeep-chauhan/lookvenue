@@ -91,7 +91,7 @@ class LeftSideMenuViewController: UIViewController, UITableViewDelegate, UITable
             self.menuContainerViewController.centerViewController = dash
         }
         else if (indexPath.row == 2) {
-            var dash : signUp = storyboard.instantiateViewControllerWithIdentifier("SignupView") as! signUp
+            var dash : UINavigationController = storyboard.instantiateViewControllerWithIdentifier("signUpNav") as! UINavigationController
             //self.navigationController?.pushViewController(dash, animated: true)
             self.menuContainerViewController.centerViewController = dash
         }

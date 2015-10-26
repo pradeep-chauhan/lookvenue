@@ -65,13 +65,16 @@ class ListPropertyViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var storyBoard = UIStoryboard(name: "Main", bundle: nil)
         
-        var dash : DashBoardViewController = storyBoard.instantiateViewControllerWithIdentifier("DashboardView") as! DashBoardViewController
+        var dash : UINavigationController = storyBoard.instantiateViewControllerWithIdentifier("dashNav") as! UINavigationController
        
         var selectedPropertyDetailsArray : NSMutableArray = NSMutableArray()
         var tempDict : NSDictionary = propertyArray[indexPath.row] as! NSDictionary
         selectedPropertyDetailsArray.addObject(tempDict)
         //println(selectedPropertyDetailsArray)
-        dash.selectedPropertyDetailsArray = selectedPropertyDetailsArray
+        dashData.sharedInstance.selectedPropertyDetailsArray = NSMutableArray()
+        dashData.sharedInstance.selectedPropertyDetailsArray = selectedPropertyDetailsArray
+        //loginClass.loginSharedInstance.login = NSUserDefaults()
+        loginClass.loginSharedInstance.login = LoginDetails
         self.menuContainerViewController.centerViewController = dash
         self.menuContainerViewController.toggleLeftSideMenuCompletion { () -> Void in
             
