@@ -12,13 +12,14 @@ import Alamofire
 class WebServiceCall: NSObject {
     
     var login:loginDetails = loginDetails()
+    //let loadingProcess:MBProgressHUD = MBProgressHUD()
     var authentication = ""
     var cookies = ""
     var contentType = ""
-    
+    var window = UIApplication.sharedApplication().delegate!.window
     // user api call
     
-    func apiCallRequest(methodType: String, urlRequest: String, completion: (resultData : NSData) -> ()) -> Void
+    func apiCallRequest(methodType: String, urlRequest: String, param:Dictionary < String, AnyObject >, completion: (resultData : NSData) -> ()) -> Void
     {
         var baseUrl: String! = "http://lookvenue.herokuapp.com/"
         var method: String! = methodType
@@ -29,19 +30,17 @@ class WebServiceCall: NSObject {
                 Alamofire.request(.GET, url)
                     .validate()
                     .response { request, response, data, error in
-                         //println(response)
-//                        let swiftJsonVar = JSON(json.value!)
-//                        if swiftJsonVar["meta"]["status"]["code"] > 200 {
-//                            self.navigationController?.popViewControllerAnimated(true)
-//                        }
-//                        let alert = UIAlertView(title: swiftJsonVar["meta"]["msg"]["subj"].stringValue, message: swiftJsonVar["meta"]["msg"]["body"].stringValue, delegate: nil, cancelButtonTitle: "Close")
-                        //alert.show()
                         
                         if(error != nil) {
                            
-                            println(error?.localizedDescription)
-                            var alert = UIAlertView(title: "No Internet!", message: error!.localizedDescription, delegate: self, cancelButtonTitle: "Ok")
-                            alert.show()
+//                            println(error?.localizedDescription)
+//                            var alert = UIAlertView(title: "No Internet!", message: error!.localizedDescription, delegate: self, cancelButtonTitle: "Ok")
+//                            alert.show()
+                            let loadingProcess = MBProgressHUD.showHUDAddedTo(self.window!, animated: true)
+                            loadingProcess.mode = MBProgressHUDMode.Text
+                            loadingProcess.detailsLabelText = error!.localizedDescription
+                            loadingProcess.hide(true, afterDelay: 5)
+                            //exit(0)
                             
                         }
                         else {
@@ -50,11 +49,6 @@ class WebServiceCall: NSObject {
                         
                         
                     }
-//                    .response { request, response, data, error in
-//                        //println(data)
-//                        
-//                        completion(resultData: data!)
-//                }
            
         }
         
@@ -75,15 +69,27 @@ class WebServiceCall: NSObject {
         }
             
         else {
-            Alamofire.request(.POST, url)
-                .response { request, response, data, error in
-                    println(request)
-                    println(response)
-                    println(error)
-                }
+//            var jsonData = NSJSONSerialization.dataWithJSONObject(param, options: nil, error: nil)
+//            let jsonString = NSString(data: jsonData!, encoding: NSUTF8StringEncoding)! as String
+//            println(jsonString)
+            
+            
+            Alamofire.request(.POST, url, parameters: param, encoding: .JSON)
                 .responseJSON { request, response, data, error in
-                    completion(resultData: data as! NSData)
- 
+                    println(data)
+                    if(error != nil) {
+                        println(response?.statusCode)
+                        let loadingProcess = MBProgressHUD.showHUDAddedTo(self.window!, animated: true)
+                        loadingProcess.mode = MBProgressHUDMode.Text
+                        
+                        loadingProcess.detailsLabelText = error!.localizedDescription
+                        loadingProcess.hide(true, afterDelay: 5)
+                    }
+                    else {
+                        let resultString : NSData = NSKeyedArchiver.archivedDataWithRootObject(data!)
+                        completion(resultData: resultString)
+                    }
+                    //MBProgressHUD.hideAllHUDsForView(self.window!, animated: true)
             }
         }
     }
@@ -98,20 +104,11 @@ class WebServiceCall: NSObject {
         var url: String = baseUrl + urlRequest
         
         var authentication:String = authentication
-        println(url)
-        
-        //authentication = (login.remember_token as NSString) as String
-        //println("Hello user\(authentication)")
         let headers = [
             "Authorization": "\(authentication)",
             "Cookie": "remember_token=\(authentication)",
             "Content-Type": "application/json"
         ]
-//        let param = [
-//            "property_id": "2",
-//            "remove_image_ids": "",
-//            "add_image_ids": ""
-//        ]
         if( method == "GET") {
             
                 Alamofire.request(.GET, url, headers: headers)
@@ -120,9 +117,12 @@ class WebServiceCall: NSObject {
 //                        println(data)
                         if(error != nil) {
                             println(response?.statusCode)
-                            println(error?.localizedDescription)
-                            var alert = UIAlertView(title: "No Internet!", message: error!.localizedDescription, delegate: self, cancelButtonTitle: "Ok")
-                            alert.show()
+                            let loadingProcess = MBProgressHUD.showHUDAddedTo(self.window!, animated: true)
+                            loadingProcess.mode = MBProgressHUDMode.Text
+                            
+                            loadingProcess.detailsLabelText = error!.localizedDescription
+                            loadingProcess.hide(true, afterDelay: 5)
+                            
                             
                         }
                         else {
@@ -134,20 +134,65 @@ class WebServiceCall: NSObject {
             
             }
         else {
-            println("parameters====\(param)")
             
-            Alamofire.request(.POST, url, parameters: param , headers: headers)
-                .response{ request, response, data, error in
-                    println(request)
-                    println(response)
-                    println(error)
-                }
+            Alamofire.request(.POST, url, parameters: param, encoding: .JSON, headers: headers)
                 .responseJSON { request, response, data, error in
                     println(response)
+                    if(error != nil) {
+                        
+                        let loadingProcess = MBProgressHUD.showHUDAddedTo(self.window!, animated: true)
+                        loadingProcess.mode = MBProgressHUDMode.Text
+                        
+                        loadingProcess.detailsLabelText = error!.localizedDescription
+                        loadingProcess.hide(true, afterDelay: 5)
+                    }
+                    else {
+                        let resultString : NSData = NSKeyedArchiver.archivedDataWithRootObject(data!)
+                        completion(resultData: resultString)
+                    }
+                    
             }
         }
     }
 
+    func imageUploadingResult(data : NSData) -> NSString {
+        var error : NSError?
+        //var imageUploadingResultArray : NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &error) as! NSDictionary
+        let tempDict:NSDictionary = NSKeyedUnarchiver.unarchiveObjectWithData(data)! as! NSDictionary
+        var result : NSString = NSString()
+        result = tempDict.valueForKey("message") as! NSString
+        return result
+    }
+    
+    func signUpResult(data : NSData) -> NSArray {
+        var error : NSError?
+//        var tempDict : NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &error) as! NSDictionary
+        let tempDict:NSDictionary = NSKeyedUnarchiver.unarchiveObjectWithData(data)! as! NSDictionary
+        println(tempDict)
+        var result : NSMutableArray = NSMutableArray()
+        var tempResult:NSDictionary = tempDict as NSDictionary
+        result.addObject(tempResult)
+        if((result.valueForKey("error")) != nil) {
+            //result = result.valueForKey("error") as! NSMutableArray
+            return result
+        }
+        else {
+            NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("email") as! NSString, forKey: "email")
+            NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("archive") as! NSInteger, forKey: "archive")
+            NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("created_at") as! NSString, forKey: "created_at")
+            NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("encrypted_password") as! NSString, forKey: "encrypted_password")
+            NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("id") as! NSNumber, forKey: "id")
+            NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("remember_token") as! NSString, forKey: "remember_token")
+            //NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("device_token") as! NSString, forKey: "device_token")
+            NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("updated_at") as! NSString, forKey: "updated_at")
+            //NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("name") as! NSString, forKey: "name")
+            
+            var authentication = NSUserDefaults.standardUserDefaults().objectForKey("remember_token") as! NSString
+            return result
+        }
+        
+        
+    }
     
     
     func getAreaArray(data : NSData) -> NSArray
@@ -253,7 +298,6 @@ class WebServiceCall: NSObject {
         //NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("name") as! NSString, forKey: "name")
         
         var authentication = NSUserDefaults.standardUserDefaults().objectForKey("remember_token") as! NSString
-        println(authentication)
         return loginDetailsArray
     }
     

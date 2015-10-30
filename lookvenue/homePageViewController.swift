@@ -8,12 +8,11 @@
 
 import UIKit
 
-class homePageViewController: ViewController,ENSideMenuDelegate {
+class homePageViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.sideMenuController()?.sideMenu?.delegate = self
         
         // center image in nav bar
         
@@ -33,23 +32,6 @@ class homePageViewController: ViewController,ENSideMenuDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    func ToggleButtonAction(sender:UIButton)
-    {
-        toggleSideMenuView()
-    }
-    // MARK: - ENSideMenu Delegate
-    func sideMenuWillOpen() {
-        println("sideMenuWillOpen")
-    }
-    
-    func sideMenuWillClose() {
-        println("sideMenuWillClose")
-    }
-    
-    func sideMenuShouldOpenSideMenu() -> Bool {
-        println("sideMenuShouldOpenSideMenu")
-        return true
     }
     
 

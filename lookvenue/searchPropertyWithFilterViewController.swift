@@ -119,7 +119,7 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
         var urlRequest: String = base + param
         var serviceCall : WebServiceCall = WebServiceCall()
         
-        serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, completion: {(resultData : NSData) -> Void in
+        serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, param: [:], completion: {(resultData : NSData) -> Void in
             self.areaListArray = serviceCall.getAreaArray(resultData)
             self.getAreasArray()
             self.indicator.stopAnimating()
@@ -176,7 +176,7 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
         var urlRequest: String = base
         var serviceCall : WebServiceCall = WebServiceCall()
         indicator.startAnimating()
-        serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, completion: {(resultData : NSData) -> Void in
+        serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, param: [:], completion: {(resultData : NSData) -> Void in
             self.vanueListArray = serviceCall.getAreaArray(resultData)
             self.getVanuesArray()
             self.indicator.stopAnimating()
@@ -200,7 +200,7 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
         
         var serviceCall : WebServiceCall = WebServiceCall()
         indicator.startAnimating()
-        serviceCall.apiCallRequest(methodType, urlRequest: urlRequest) { (resultData) -> () in
+        serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, param: [:]) { (resultData) -> () in
             self.priceListArray = serviceCall.getPriceArray(resultData)
             self.getPriceArray()
             self.indicator.stopAnimating()
@@ -414,11 +414,11 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
     @IBAction func applyFilter(sender: AnyObject) {
         var methodType: String = "GET"
         var base: String = "search.json?area_ids=1&property_type_ids=1,2,3&price_range_ids=1"
-        var param: String = "Delhi/NCR"
+        //var param: String = "Delhi/NCR"
         var urlRequest: String = base
         var serviceCall : WebServiceCall = WebServiceCall()
         
-        serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, completion: {(resultData : NSData) -> Void in
+        serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, param: [:], completion: {(resultData : NSData) -> Void in
             self.searchListArray = serviceCall.getSearchVenueArray(resultData)
             self.getSearchVenueArray()
             self.indicator.stopAnimating()

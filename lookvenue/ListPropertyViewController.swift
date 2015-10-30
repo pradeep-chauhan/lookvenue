@@ -44,6 +44,16 @@ class ListPropertyViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     
+    @IBAction func addNewProperty(sender: AnyObject) {
+        var storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        var dash : UINavigationController = storyBoard.instantiateViewControllerWithIdentifier("addNav") as! UINavigationController
+        
+        self.menuContainerViewController.centerViewController = dash
+        self.menuContainerViewController.toggleLeftSideMenuCompletion { () -> Void in
+            
+        }
+    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         

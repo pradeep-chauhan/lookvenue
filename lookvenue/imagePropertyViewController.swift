@@ -18,8 +18,8 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
     var selectedSearchVanueDictionary = NSDictionary()
     let cloudinary: CLCloudinary = CLCloudinary()
     var editPropertyArray : NSMutableArray = NSMutableArray()
-    var addImages = Set<String>()
-    var deleteImages = Set<String>()
+    var addImages: NSMutableArray = NSMutableArray()
+    var deleteImages:NSMutableArray = NSMutableArray()
     var LoginDetails: loginDetails = loginDetails()
     var alert:UIAlertView!
     var statusMode:Bool = true
@@ -42,24 +42,31 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
         toolbar.hidden = true
         imageCollectionView?.allowsSelection = false
         edit.title = "Edit"
-        totalImagesMutableCopyArray = editPropertyArray[0]["images"] as! NSArray
-        totalImages = totalImagesMutableCopyArray.mutableCopy() as! NSMutableArray
         
-        for ( var i = 0; i < totalImages.count; i++ ) {
-            var cloudinary_image_id = totalImages[i]["cloudinary_image_id"] as! NSString as String
-            addImages.insert(cloudinary_image_id)
+        if ( editPropertyArray.count > 0 ) {
+            totalImagesMutableCopyArray = editPropertyArray[0]["images"] as! NSArray
+            totalImages = totalImagesMutableCopyArray.mutableCopy() as! NSMutableArray
+            
+            for ( var i = 0; i < totalImages.count; i++ ) {
+                var cloudinary_image_id = totalImages[i]["cloudinary_image_id"] as! NSString as String
+                addImages.addObject(cloudinary_image_id)
+            }
         }
-        println(addImages)
-//        cloudinary.config().setValue("dtpcuqqq2", forKey: "cloud_name")
-//        cloudinary.config().setValue("897166688766548", forKey: "api_key")
-//        cloudinary.config().setValue("HZ3xp9PcVYWyaUaNB8yivz9FX8E", forKey: "api_secret")
+        
+        else {
+            totalImages = []
+        }
+        
+        cloudinary.config().setValue("dtpcuqqq2", forKey: "cloud_name")
+        cloudinary.config().setValue("897166688766548", forKey: "api_key")
+        cloudinary.config().setValue("HZ3xp9PcVYWyaUaNB8yivz9FX8E", forKey: "api_secret")
         
         
         // my cloudinary account
         
-        cloudinary.config().setValue("dykhnkdyi", forKey: "cloud_name")
-        cloudinary.config().setValue("243966527335567", forKey: "api_key")
-        cloudinary.config().setValue("2cus07IvyULcSWjJ-TaD8zMRneA", forKey: "api_secret")
+//        cloudinary.config().setValue("dykhnkdyi", forKey: "cloud_name")
+//        cloudinary.config().setValue("243966527335567", forKey: "api_key")
+//        cloudinary.config().setValue("2cus07IvyULcSWjJ-TaD8zMRneA", forKey: "api_secret")
         
         var transformation: CLTransformation = CLTransformation.transformation() as AnyObject as! CLTransformation
         transformation.setWidthWithInt(100)
@@ -222,6 +229,9 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
     // Delete cell or image from collection view
     
     @IBAction func deleteCell(sender: AnyObject) {
+        let loadingProgress = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        loadingProgress.labelText = "Deleting"
+        loadingProgress.detailsLabelText = "Please wait"
         var selectedIndexPath = imageCollectionView?.indexPathsForSelectedItems()
         if let indexPath = selectedIndexPath {
             for item in indexPath {
@@ -229,11 +239,12 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
                 imageCollectionView?.deselectItemAtIndexPath(item as? NSIndexPath, animated: true)
                 var cloudinary_image_id = totalImages[item.row]["cloudinary_image_id"] as! NSString as String
                 var delete_key = ["cloudinary_image_id":"\(cloudinary_image_id)"]
-                deleteImages.insert("\(cloudinary_image_id)")
-                
+                deleteImages.addObject(cloudinary_image_id)
                 totalImages.removeObjectAtIndex(item.row)
+                highlightCell(item as! NSIndexPath, flag: false)
             }
             imageCollectionView?.deleteItemsAtIndexPaths(indexPath)
+            updateImagesToserver()
         }
     }
     
@@ -274,19 +285,6 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
         loadingProgress.labelText = "Uploading"
         loadingProgress.detailsLabelText = "Please wait"
         // Loading Window Show
-//        alert = UIAlertView(title: "Uploading...", message: nil, delegate: self, cancelButtonTitle: nil)
-//        var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 20, 37, 37)) as UIActivityIndicatorView
-//        loadingIndicator.center = CGPointMake(alert.bounds.size.width / 2, alert.bounds.size.height - 50)
-//        
-//        loadingIndicator.hidesWhenStopped = true
-//        
-//        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
-//        loadingIndicator.startAnimating();
-//        
-//        alert.setValue(loadingIndicator, forKey: "accessoryView")
-//        loadingIndicator.startAnimating()
-//        
-//        alert.show();
         
         uploadToCloudinary("\(imageURL)")
         dismissViewControllerAnimated(true, completion: nil)
@@ -300,9 +298,7 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
         //upload your metadata to your rest endpoint
         var count = totalImages.count
         var upload_key = ["cloudinary_image_id":"\(publicKey)"]
-        addImages.insert("\(publicKey)")
-        println("addImages = \(addImages)")
-        println("addImages = \(deleteImages)")
+        addImages.addObject(publicKey)
         totalImages.addObject(upload_key)
         if (count < totalImages.count)
         {
@@ -317,43 +313,31 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
     }
     
     func updateImagesToserver() {
-        
         var updateImages : [String: AnyObject] = [:]
         updateImages["add_image_ids"] = addImages
         updateImages["remove_image_ids"] = deleteImages
-//        var updateImages = [
-//            "add_image_ids": addImages,
-//            "remove_image_ids": deleteImages
-//        ]
-        println(updateImages)
         var authentication = NSUserDefaults.standardUserDefaults().objectForKey("remember_token") as! NSString
         var methodType: String = "POST"
         var base: String = "image/create_update_images.json"
         var propertyId = (editPropertyArray[0]["id"] as! NSNumber).stringValue
         var urlRequest: String = base
         var serviceCall : WebServiceCall = WebServiceCall()
-        var uploadImages = [
-            "property_id": propertyId,
-            "image_ids": updateImages
-        ]
-        var dict : [String: AnyObject] = [:]
-        dict["property_id"] = propertyId
-        dict["image_ids"] = updateImages
-//        println(dict)
-//        var error : NSError?
-//        if let jsonData = NSJSONSerialization.dataWithJSONObject(dict, options: nil, error: &error) {
-//            let jsonString = NSString(data: jsonData, encoding: NSUTF8StringEncoding)! as String
-//            println(jsonString)
-//        } else {
-//            println("Error in JSON conversion: \(error!.localizedDescription)")
-//        }
+        var uploadImages : [String: AnyObject] = [:]
+        uploadImages["property_id"] = propertyId
+        uploadImages["image_ids"] = updateImages
         
-         MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
-        serviceCall.adminApiCallRequest(methodType, urlRequest: urlRequest, param:uploadImages as! Dictionary<String, AnyObject>, authentication: authentication as String, completion: { (resultData) -> () in
-           
-//            self.calendarDetailsListArray = serviceCall.getCalendarDetailsArray(resultData)
-//            self.getCalendarDetailsArray()
-//            println("calendar details====\(self.calendarDetailsArray)")
+        
+        serviceCall.adminApiCallRequest(methodType, urlRequest: urlRequest, param:uploadImages as Dictionary<String, AnyObject>, authentication: authentication as String, completion: { (resultData) -> () in
+            var result = serviceCall.imageUploadingResult(resultData)
+            if ( result != "") {
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                let message = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+                message.mode = MBProgressHUDMode.Text
+                message.detailsLabelText = "Done Successfully"
+                message.hide(true, afterDelay: 3)
+            }
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            
         })
     }
     

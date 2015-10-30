@@ -44,7 +44,6 @@ class DashBoardViewController: UIViewController, UITabBarDelegate, UITableViewDe
         
         //self.navigationController?.setToolbarHidden(true, animated: false)
         self.navigationItem.title = selectedPropertyDetailsArray[0]["name"] as! NSString as String
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         let leftBarButton: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
         //set image for button
         leftBarButton.setImage(UIImage(named: "menu-icon.png"), forState: UIControlState.Normal)

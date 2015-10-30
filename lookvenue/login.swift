@@ -100,8 +100,8 @@ class login:UIViewController, UITextFieldDelegate {
         var urlRequest: String = base
         var serviceCall : WebServiceCall = WebServiceCall()
         //indicator.startAnimating()
-        serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, completion: {(resultData : NSData) -> Void in
-            
+        serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, param: [:], completion: {(resultData : NSData) -> Void in
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             self.loginDetailsListArray = serviceCall.getLoginDetailsArray(resultData)
             self.getLoginDetailsArray()
             
@@ -136,28 +136,39 @@ class login:UIViewController, UITextFieldDelegate {
                     self.propertyListArray = serviceCall.getPropertyDetailsArray(resultData)
                     self.getPropertyArray()
                     //println(self.propertyArray)
-                    var storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                    var dash : DashBoardViewController = storyBoard.instantiateViewControllerWithIdentifier("DashboardView") as! DashBoardViewController
-                    
-                    var dash1 : ListPropertyViewController = storyBoard.instantiateViewControllerWithIdentifier("ListPropertyViewController") as! ListPropertyViewController
-                    dash1.LoginDetails = self.LoginDetails
-                    dash1.LoginDetailsArray = self.loginDetailsArray
-                    dash1.propertyArray = self.propertyArray
-                    //dash.LoginDetails = self.LoginDetails
-                    dash.LoginDetailsArray = self.loginDetailsArray
-                    var selectedPropertyDetailsArray:NSMutableArray = NSMutableArray()
-                    var tempDict : NSDictionary = self.propertyArray[0] as! NSDictionary
-                    selectedPropertyDetailsArray.addObject(tempDict)
-                    dashData.sharedInstance.selectedPropertyDetailsArray = selectedPropertyDetailsArray
-                    dash.LoginDetails = self.LoginDetails
-                    self.menuContainerViewController.leftMenuViewController = dash1
-                    self.navigationController?.pushViewController(dash, animated: true)
+                    println(self.propertyListArray.count)
+                    if( self.propertyListArray.count > 0) {
+                        
+                        var storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                        var dash : DashBoardViewController = storyBoard.instantiateViewControllerWithIdentifier("DashboardView") as! DashBoardViewController
+                        
+                        var dash1 : ListPropertyViewController = storyBoard.instantiateViewControllerWithIdentifier("ListPropertyViewController") as! ListPropertyViewController
+                        dash1.LoginDetails = self.LoginDetails
+                        dash1.LoginDetailsArray = self.loginDetailsArray
+                        dash1.propertyArray = self.propertyArray
+                        //dash.LoginDetails = self.LoginDetails
+                        dash.LoginDetailsArray = self.loginDetailsArray
+                        var selectedPropertyDetailsArray:NSMutableArray = NSMutableArray()
+                        var tempDict : NSDictionary = self.propertyArray[0] as! NSDictionary
+                        selectedPropertyDetailsArray.addObject(tempDict)
+                        dashData.sharedInstance.selectedPropertyDetailsArray = selectedPropertyDetailsArray
+                        dash.LoginDetails = self.LoginDetails
+                        self.menuContainerViewController.leftMenuViewController = dash1
+                        self.navigationController?.pushViewController(dash, animated: true)
+                    }
+                    else {
+                        var storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                        var dash : addNewPropertyViewController = storyBoard.instantiateViewControllerWithIdentifier("addNewPropertyViewController") as! addNewPropertyViewController
+                        
+                        self.navigationController?.pushViewController(dash, animated: true)
+                    }
+                   
                    
                 }
                
                 
             }
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            
         })
         
         // Calling view Controller

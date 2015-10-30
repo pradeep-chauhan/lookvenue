@@ -29,6 +29,7 @@ class addPropertyTableViewCell: UITableViewCell {
    
     @IBOutlet weak var mobile: UITextField!
     
+    @IBOutlet weak var addPropertyButton: UIButton!
     var pickerSelectValue = ""
     
    

@@ -23,45 +23,78 @@ class propertyInfoSegmentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        var authentication = ( self.LoginDetails.remember_token as NSString) as String
-        var methodType: String = "GET"
-        var propertyId = (selectedPropertyDetailsArray[0]["id"] as! NSNumber).stringValue
-        //println(propertyId)
-        var base: String = "properties/\(propertyId).json"
-        var param: String = ""
-        var urlRequest: String = base
-        var serviceCall : WebServiceCall = WebServiceCall()
-        
         // Loading window show
         
         let loadingProgress = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         loadingProgress.labelText = "Loading"
         
-//        var alert = UIAlertView(title: "Loading...", message: nil, delegate: self, cancelButtonTitle: nil)
-//        var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 20, 37, 37)) as UIActivityIndicatorView
-//        loadingIndicator.center = CGPointMake(alert.bounds.size.width / 2, alert.bounds.size.height - 50)
-//       
-//        loadingIndicator.hidesWhenStopped = true
-//        
-//        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
-//        loadingIndicator.startAnimating();
-//        
-//        alert.setValue(loadingIndicator, forKey: "accessoryView")
-//        loadingIndicator.startAnimating()
-//        
-//        alert.show();
-        
-        
-        serviceCall.adminApiCallRequest(methodType, urlRequest: urlRequest, param: [:], authentication: authentication) { (resultData : NSData) -> Void in
-            self.editPropertyListArray = serviceCall.getEditPropertyArray(resultData)
-            self.getEditPropertyArray()
-            //self.indicator.stopAnimating()
-            //println(self.editPropertyArray)
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
-            //alert.dismissWithClickedButtonIndex(0, animated: true)
+        if( self.selectedPropertyDetailsArray.count > 0 ) {
             
+            
+            var authentication = ( self.LoginDetails.remember_token as NSString) as String
+            var methodType: String = "GET"
+            var propertyId = (selectedPropertyDetailsArray[0]["id"] as! NSNumber).stringValue
+            //println(propertyId)
+            var base: String = "properties/\(propertyId).json"
+            var param: String = ""
+            var urlRequest: String = base
+            var serviceCall : WebServiceCall = WebServiceCall()
+            
+            serviceCall.adminApiCallRequest(methodType, urlRequest: urlRequest, param: [:], authentication: authentication) { (resultData : NSData) -> Void in
+                self.editPropertyListArray = serviceCall.getEditPropertyArray(resultData)
+                self.getEditPropertyArray()
+                //self.indicator.stopAnimating()
+                //println(self.editPropertyArray)
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                //alert.dismissWithClickedButtonIndex(0, animated: true)
+                
+                if(self.segmentControl.selectedSegmentIndex == 0)
+                {
+                    
+                    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                    self.addpropertyViewController = storyBoard.instantiateViewControllerWithIdentifier("editPropertyView") as! addProperty
+                    self.addpropertyViewController.editPropertyArray = self.editPropertyArray
+                    self.addpropertyViewController.selectedPropertyDetailsArray = self.selectedPropertyDetailsArray
+                    self.addpropertyViewController.LoginDetails = self.LoginDetails
+                    self.addpropertyViewController.view.frame = CGRectMake(0, 0, self.containerView.frame.size.width, self.containerView.frame.size.height)
+                    self.containerView.addSubview(self.addpropertyViewController.view)
+                    self.addChildViewController(self.addpropertyViewController)
+                    self.addpropertyViewController.didMoveToParentViewController(self)
+                    
+                }
+                else if(self.segmentControl.selectedSegmentIndex == 1)
+                {
+                    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                    self.imageProperty = storyBoard.instantiateViewControllerWithIdentifier("propertyImages") as! imagePropertyViewController
+                    self.imageProperty.editPropertyArray = self.editPropertyArray
+                    self.imageProperty.LoginDetails = self.LoginDetails
+                    self.imageProperty.view.frame = self.containerView.bounds
+                    self.containerView.addSubview(self.imageProperty.view)
+                    self.addChildViewController(self.imageProperty)
+                    self.imageProperty.didMoveToParentViewController(self)
+                }
+                
+            }
+        }
+        else {
+            
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.navigationController?.navigationBar.barTintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1.0)
+            self.navigationItem.title = "Add Property"
+            let leftBarButton: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+            // image for button
+            leftBarButton.setImage(UIImage(named: "arrow-left.png"), forState: UIControlState.Normal)
+            //set frame
+            leftBarButton.frame = CGRectMake(0, 0,20, 20)
+            leftBarButton.addTarget(self, action: "backButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+            
+            let leftMenubarButton = UIBarButtonItem(customView: leftBarButton)
+            //assign button to navigationbar
+            self.navigationItem.leftBarButtonItem = leftMenubarButton
+            
+            self.selectedPropertyDetailsArray = []
+            self.editPropertyArray = []
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             if(self.segmentControl.selectedSegmentIndex == 0)
             {
                 
@@ -69,7 +102,7 @@ class propertyInfoSegmentViewController: UIViewController {
                 self.addpropertyViewController = storyBoard.instantiateViewControllerWithIdentifier("editPropertyView") as! addProperty
                 self.addpropertyViewController.editPropertyArray = self.editPropertyArray
                 self.addpropertyViewController.selectedPropertyDetailsArray = self.selectedPropertyDetailsArray
-                self.addpropertyViewController.LoginDetails = self.LoginDetails
+                //self.addpropertyViewController.LoginDetails = self.LoginDetails
                 self.addpropertyViewController.view.frame = CGRectMake(0, 0, self.containerView.frame.size.width, self.containerView.frame.size.height)
                 self.containerView.addSubview(self.addpropertyViewController.view)
                 self.addChildViewController(self.addpropertyViewController)
@@ -81,16 +114,22 @@ class propertyInfoSegmentViewController: UIViewController {
                 let storyBoard = UIStoryboard(name: "Main", bundle: nil)
                 self.imageProperty = storyBoard.instantiateViewControllerWithIdentifier("propertyImages") as! imagePropertyViewController
                 self.imageProperty.editPropertyArray = self.editPropertyArray
-                self.imageProperty.LoginDetails = self.LoginDetails
+                //self.imageProperty.LoginDetails = self.LoginDetails
                 self.imageProperty.view.frame = self.containerView.bounds
                 self.containerView.addSubview(self.imageProperty.view)
                 self.addChildViewController(self.imageProperty)
                 self.imageProperty.didMoveToParentViewController(self)
             }
-            
+
         }
         
+        
 
+    }
+    
+    func backButtonPressed() {
+        
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     func getEditPropertyArray() -> Void

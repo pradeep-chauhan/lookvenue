@@ -100,7 +100,7 @@ class MyMenuTableViewController: UITableViewController {
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("homePageView") as! UIViewController
             break
         }
-        sideMenuController()?.setContentViewController(destViewController)
+        //sideMenuController()?.setContentViewController(destViewController)
     }
     
 

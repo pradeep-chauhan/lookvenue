@@ -226,6 +226,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="addPropertyButton" destination="XxL-Kf-VIk" id="JEY-0u-g0m"/>
                 <outlet property="address" destination="jgT-Qb-LPi" id="Fo6-7c-oe4"/>
                 <outlet property="area" destination="bv5-Wj-crg" id="lDc-zr-JHs"/>
                 <outlet property="city" destination="jaI-Ug-j9V" id="o6U-Ij-0El"/>

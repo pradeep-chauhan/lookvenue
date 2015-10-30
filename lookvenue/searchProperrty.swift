@@ -58,6 +58,7 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
 
     override func viewDidLoad() {
         
+        
         if UIDevice().userInterfaceIdiom == .Phone {
             switch UIScreen.mainScreen().nativeBounds.height {
             case 480:
@@ -136,19 +137,23 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         area.minimumCharactersToSearch = 0 // Show all results without without typing anything
         area.style = .Squared
         
-        
-        
+        let loadingProgress = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        loadingProgress.labelText = "Loading"
+        loadingProgress.detailsLabelText = "Please wait"
         var methodType: String = "GET"
         var base: String = "areas/get_areas_by_city_name?city_name="
         var param: String = "Delhi/NCR"
         var urlRequest: String = base + param
         var serviceCall : WebServiceCall = WebServiceCall()
         
-        serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, completion: {(resultData : NSData) -> Void in
+        serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, param:[:], completion: {(resultData : NSData) -> Void in
              self.areaListArray = serviceCall.getAreaArray(resultData)
             self.getAreasArray()
-            self.indicator.stopAnimating()
+            self.getVenue()
+            self.getPrice()
+            
         })
+        
     }
     
     func leftSideMenuButtonPressed() {
@@ -215,24 +220,31 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         var param: String = ""
         var urlRequest: String = base
         var serviceCall : WebServiceCall = WebServiceCall()
-        indicator.startAnimating()
-        serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, completion: {(resultData : NSData) -> Void in
-             self.vanueListArray = serviceCall.getAreaArray(resultData)
-            self.getVanuesArray()
-            self.indicator.stopAnimating()
-            
-            var venueTypemultipleSelect = SHMultipleSelect()
-            venueTypemultipleSelect.selectedTextField = self.currentlySelectedTextField
-            venueTypemultipleSelect.delegate = self
-            venueTypemultipleSelect.rowsCount = self.vanueListArray.count
-            venueTypemultipleSelect.show()
-            self.venueType.resignFirstResponder()
-        })
+        
+        var venueTypemultipleSelect = SHMultipleSelect()
+        venueTypemultipleSelect.selectedTextField = self.currentlySelectedTextField
+        venueTypemultipleSelect.delegate = self
+        venueTypemultipleSelect.rowsCount = self.vanueListArray.count
+        venueTypemultipleSelect.show()
+        self.venueType.resignFirstResponder()
         
     }
     
-    @IBAction func pricePickerRange(sender: AnyObject) {
-        
+    func getVenue() {
+        multiselectViewCall = "venue"
+        var methodType: String = "GET"
+        var base: String = "property_types/"
+        var param: String = ""
+        var urlRequest: String = base
+        var serviceCall : WebServiceCall = WebServiceCall()
+        serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, param:[:], completion: {(resultData : NSData) -> Void in
+            self.vanueListArray = serviceCall.getAreaArray(resultData)
+            self.getVanuesArray()
+            
+        })
+
+    }
+    func getPrice () {
         multiselectViewCall = "price"
         var methodType: String = "GET"
         var base: String = "price_ranges"
@@ -240,21 +252,23 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         var urlRequest: String = base
         
         var serviceCall : WebServiceCall = WebServiceCall()
-        indicator.startAnimating()
-        serviceCall.apiCallRequest(methodType, urlRequest: urlRequest) { (resultData) -> () in
+        serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, param:[:]) { (resultData) -> () in
             self.priceListArray = serviceCall.getPriceArray(resultData)
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             self.getPriceArray()
-            self.indicator.stopAnimating()
-            
-            var priceRangemultipleSelect = SHMultipleSelect()
-            priceRangemultipleSelect.selectedTextField = self.currentlySelectedTextField
-            priceRangemultipleSelect.delegate = self
-            priceRangemultipleSelect.rowsCount = self.priceListArray.count
-            priceRangemultipleSelect.show()
-            self.priceRange.resignFirstResponder()
-
         }
     }
+    
+    @IBAction func pricePickerRange(sender: AnyObject) {
+        
+        var priceRangemultipleSelect = SHMultipleSelect()
+        priceRangemultipleSelect.selectedTextField = self.currentlySelectedTextField
+        priceRangemultipleSelect.delegate = self
+        priceRangemultipleSelect.rowsCount = self.priceListArray.count
+        priceRangemultipleSelect.show()
+        self.priceRange.resignFirstResponder()
+    }
+    
     
 //    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
 //        self.view.resignFirstResponder()
@@ -480,7 +494,7 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         var urlRequest: String = base
         var serviceCall : WebServiceCall = WebServiceCall()
         
-        serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, completion: {(resultData : NSData) -> Void in
+        serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, param:[:], completion: {(resultData : NSData) -> Void in
             self.searchListArray = serviceCall.getSearchVenueArray(resultData)
             //println(self.searchListArray)
             self.getSearchVenueArray()
