@@ -19,6 +19,8 @@ class WebServiceCall: NSObject {
     var window = UIApplication.sharedApplication().delegate!.window
     // user api call
     
+    // Simple web calling function
+    
     func apiCallRequest(methodType: String, urlRequest: String, param:Dictionary < String, AnyObject >, completion: (resultData : NSData) -> ()) -> Void
     {
         var baseUrl: String! = "http://lookvenue.herokuapp.com/"
@@ -94,7 +96,7 @@ class WebServiceCall: NSObject {
         }
     }
     
-    // admin call
+    // admin function call
     
     func adminApiCallRequest(methodType: String, urlRequest: String, param: Dictionary < String, AnyObject > , authentication: String , completion: (resultData : NSData) -> ()) -> Void
     {
@@ -133,6 +135,57 @@ class WebServiceCall: NSObject {
                     }
             
             }
+        else if (method == "PUT") {
+            println("param = \(param)")
+            println("url = \(url)")
+            println("demo")
+            
+            var jsonData = NSJSONSerialization.dataWithJSONObject(param, options: nil, error: nil)
+            let jsonString = NSString(data: jsonData!, encoding: NSUTF8StringEncoding)! as String
+            println(jsonString)
+            
+            let loadingProcess = MBProgressHUD.showHUDAddedTo(self.window!, animated: true)
+            
+            Alamofire.request(.PUT, url, parameters: param, encoding: .JSON, headers: headers)
+                .responseJSON { request, response, data, error in
+                    //println(response)
+//                        let resultString : NSData = NSKeyedArchiver.archivedDataWithRootObject(data!)
+//                        completion(resultData: resultString)
+                        if( response?.statusCode == 200 ) {
+                            loadingProcess.mode = MBProgressHUDMode.Text
+                            loadingProcess.detailsLabelText = "Successfully updated"
+                        }
+                        else {
+                            loadingProcess.mode = MBProgressHUDMode.Text
+                            loadingProcess.detailsLabelText = "Not updated"
+                        }
+                   
+//                    if(error != nil) {
+//                        
+//                        
+//                        
+//                        
+//                        loadingProcess.mode = MBProgressHUDMode.Text
+//                        
+//                        loadingProcess.detailsLabelText = error!.localizedDescription
+//                        //loadingProcess.hide(true, afterDelay: 5)
+//                    }
+//                    else {
+//                        let resultString : NSData = NSKeyedArchiver.archivedDataWithRootObject(data!)
+//                        completion(resultData: resultString)
+//                        if( response?.statusCode == 200 ) {
+//                          loadingProcess.mode = MBProgressHUDMode.Text
+//                            loadingProcess.detailsLabelText = "Successfully updated"
+//                        }
+//                        else {
+//                            loadingProcess.mode = MBProgressHUDMode.Text
+//                            loadingProcess.detailsLabelText = "Not updated"
+//                        }
+//                    }
+                    loadingProcess.hide(true, afterDelay: 2)
+                   //MBProgressHUD.hideAllHUDsForView(self.window!, animated: true)
+            }
+        }
         else {
             
             Alamofire.request(.POST, url, parameters: param, encoding: .JSON, headers: headers)
@@ -154,7 +207,9 @@ class WebServiceCall: NSObject {
             }
         }
     }
-
+    
+    // Image uploading
+    
     func imageUploadingResult(data : NSData) -> NSString {
         var error : NSError?
         //var imageUploadingResultArray : NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &error) as! NSDictionary
@@ -163,6 +218,19 @@ class WebServiceCall: NSObject {
         result = tempDict.valueForKey("message") as! NSString
         return result
     }
+    
+    // Calendar booking
+    
+//    func bookingResult(data : NSData) -> NSString {
+//        var error : NSError?
+//        //var imageUploadingResultArray : NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: &error) as! NSDictionary
+//        let tempDict:NSDictionary = NSKeyedUnarchiver.unarchiveObjectWithData(data)! as! NSDictionary
+//        var result : NSString = NSString()
+//        result = tempDict.valueForKey("status") as! NSString
+//        return result
+//    }
+    
+    // Sign up
     
     func signUpResult(data : NSData) -> NSArray {
         var error : NSError?
@@ -194,6 +262,7 @@ class WebServiceCall: NSObject {
         
     }
     
+    // Get area list
     
     func getAreaArray(data : NSData) -> NSArray
     {
@@ -212,6 +281,8 @@ class WebServiceCall: NSObject {
         return areaArray
     }
     
+    // Get venue type
+    
     func getVanueArray(data : NSData) -> NSArray
     {
         var error : NSError?
@@ -228,6 +299,8 @@ class WebServiceCall: NSObject {
         
         return vanueArray
     }
+    
+    // Get price ranhe
     
     func getPriceArray(data : NSData) -> NSArray
     {
@@ -266,6 +339,8 @@ class WebServiceCall: NSObject {
         return searchVenueArray
     }
     
+    // Get Login Details
+    
     func getLoginDetailsArray(data : NSData) -> NSArray
     {
         var error : NSError?
@@ -287,6 +362,9 @@ class WebServiceCall: NSObject {
         login.updated_at = tempDict.valueForKey("updated_at") as! NSString
           
         loginDetailsArray.addObject(tempDict)
+        
+        // Session
+        
         NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("email") as! NSString, forKey: "email")
         NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("archive") as! NSInteger, forKey: "archive")
         NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("created_at") as! NSString, forKey: "created_at")
@@ -300,6 +378,8 @@ class WebServiceCall: NSObject {
         var authentication = NSUserDefaults.standardUserDefaults().objectForKey("remember_token") as! NSString
         return loginDetailsArray
     }
+    
+    // Get Property Details
     
     func getPropertyDetailsArray(data : NSData) -> NSArray
     {
@@ -318,6 +398,8 @@ class WebServiceCall: NSObject {
         }
         return propertyDetailsArray
     }
+    
+    //Edit property details
     
     func getEditPropertyArray(data : NSData) -> NSArray
     {
@@ -338,6 +420,9 @@ class WebServiceCall: NSObject {
         //println(searchVenueArray)
         return editPropertyArray
     }
+    
+    // Get calendar details
+    
     func getCalendarDetailsArray(data : NSData) -> NSArray
     {
         var error : NSError?

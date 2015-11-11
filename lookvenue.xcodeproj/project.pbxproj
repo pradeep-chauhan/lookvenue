@@ -80,6 +80,7 @@
 		F99043AD1BB6B35F00F39773 /* SBPickerSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = F99043A91BB6B35F00F39773 /* SBPickerSelector.xib */; };
 		F99043AE1BB6B35F00F39773 /* SBPickerSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = F99043AC1BB6B35F00F39773 /* SBPickerSelector.m */; };
 		F99043B51BB6B59100F39773 /* SearchDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99043B41BB6B59100F39773 /* SearchDetails.swift */; };
+		F99214FB1BED2FE3005F39E8 /* dashboard-1.png in Resources */ = {isa = PBXBuildFile; fileRef = F99214FA1BED2FE3005F39E8 /* dashboard-1.png */; };
 		F995A8FD1B7B27570064CE5D /* OpenSans.swift in Sources */ = {isa = PBXBuildFile; fileRef = F995A8FC1B7B27570064CE5D /* OpenSans.swift */; };
 		F995A90B1B7B28510064CE5D /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = F995A9001B7B28510064CE5D /* LICENSE.txt */; };
 		F995A90C1B7B28510064CE5D /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F995A9011B7B28510064CE5D /* OpenSans-Bold.ttf */; };
@@ -104,6 +105,8 @@
 		F99DD1A01B96CE2C00B1172D /* SearchVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99DD19F1B96CE2C00B1172D /* SearchVenue.swift */; };
 		F99DD1A51B96DF2D00B1172D /* venueSearchResultCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99DD1A41B96DF2D00B1172D /* venueSearchResultCollectionViewController.swift */; };
 		F99DD1A91B970F5700B1172D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99DD1A81B970F5700B1172D /* CollectionViewCell.swift */; };
+		F9B0F26E1BEB3ECC009E9E92 /* calendar-red.png in Resources */ = {isa = PBXBuildFile; fileRef = F9B0F26C1BEB3ECC009E9E92 /* calendar-red.png */; };
+		F9B0F26F1BEB3ECC009E9E92 /* settings-red.png in Resources */ = {isa = PBXBuildFile; fileRef = F9B0F26D1BEB3ECC009E9E92 /* settings-red.png */; };
 		F9B628341BA6F6BB0034D7EC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F995A91E1B7BA0320064CE5D /* MapKit.framework */; };
 		F9B6288F1BA721880034D7EC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9B628861BA721340034D7EC /* Alamofire.framework */; };
 		F9B628901BA721920034D7EC /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F9B628861BA721340034D7EC /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -126,6 +129,7 @@
 		F9B628C41BA750990034D7EC /* nophoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9B628C31BA750990034D7EC /* nophoto.jpg */; };
 		F9C479171BE3720300E9DB95 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9C479161BE3720300E9DB95 /* QuartzCore.framework */; };
 		F9C4791C1BE3720F00E9DB95 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9C4791B1BE3720F00E9DB95 /* CoreGraphics.framework */; };
+		F9C4791E1BE376B600E9DB95 /* look-venue.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C4791D1BE376B600E9DB95 /* look-venue.png */; };
 		F9DDF9361BE0AADF00006FCA /* addNewPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DDF9351BE0AADF00006FCA /* addNewPropertyViewController.swift */; };
 		F9DE5CE71BA5C33C0033ABBE /* images.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DE5CE61BA5C33C0033ABBE /* images.swift */; };
 		F9E8054E1BDAC80B00CD7839 /* dashDataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E8054D1BDAC80B00CD7839 /* dashDataList.swift */; };
@@ -184,14 +188,14 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		F9B628411BA6F7640034D7EC /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
 				F9B628901BA721920034D7EC /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -279,6 +283,7 @@
 		F99043AB1BB6B35F00F39773 /* SBPickerSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPickerSelector.h; sourceTree = "<group>"; };
 		F99043AC1BB6B35F00F39773 /* SBPickerSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPickerSelector.m; sourceTree = "<group>"; };
 		F99043B41BB6B59100F39773 /* SearchDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetails.swift; sourceTree = "<group>"; };
+		F99214FA1BED2FE3005F39E8 /* dashboard-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dashboard-1.png"; sourceTree = "<group>"; };
 		F995A8FB1B7B27570064CE5D /* OpenSansSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenSansSwift.h; sourceTree = "<group>"; };
 		F995A8FC1B7B27570064CE5D /* OpenSans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSans.swift; sourceTree = "<group>"; };
 		F995A9001B7B28510064CE5D /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -310,6 +315,8 @@
 		F99DD19F1B96CE2C00B1172D /* SearchVenue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVenue.swift; sourceTree = "<group>"; };
 		F99DD1A41B96DF2D00B1172D /* venueSearchResultCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = venueSearchResultCollectionViewController.swift; sourceTree = "<group>"; };
 		F99DD1A81B970F5700B1172D /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		F9B0F26C1BEB3ECC009E9E92 /* calendar-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-red.png"; sourceTree = "<group>"; };
+		F9B0F26D1BEB3ECC009E9E92 /* settings-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-red.png"; sourceTree = "<group>"; };
 		F9B6287E1BA721330034D7EC /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "../../softwares/ios framework/UI Controls/Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		F9B628921BA74E7A0034D7EC /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		F9B628931BA74E7A0034D7EC /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
@@ -347,6 +354,7 @@
 		F9B628C31BA750990034D7EC /* nophoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nophoto.jpg; sourceTree = "<group>"; };
 		F9C479161BE3720300E9DB95 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F9C4791B1BE3720F00E9DB95 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F9C4791D1BE376B600E9DB95 /* look-venue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "look-venue.png"; sourceTree = "<group>"; };
 		F9DDF9351BE0AADF00006FCA /* addNewPropertyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addNewPropertyViewController.swift; sourceTree = "<group>"; };
 		F9DE5CE61BA5C33C0033ABBE /* images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = images.swift; sourceTree = "<group>"; };
 		F9E8054D1BDAC80B00CD7839 /* dashDataList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dashDataList.swift; sourceTree = "<group>"; };
@@ -616,10 +624,13 @@
 				F9B628C31BA750990034D7EC /* nophoto.jpg */,
 				F97CE3CB1BBC3F4E001CFACD /* arrow-left.png */,
 				F97CE3CC1BBC3F4E001CFACD /* filter-outline.png */,
+				F99214FA1BED2FE3005F39E8 /* dashboard-1.png */,
 				F97CE3B51BBC39EF001CFACD /* home.png */,
 				F97CE3B61BBC39EF001CFACD /* magnify.png */,
 				F97CE3B71BBC39EF001CFACD /* menu.png */,
 				F96D2B5D1BC7CED9000D18BA /* account-dash.png */,
+				F9B0F26C1BEB3ECC009E9E92 /* calendar-red.png */,
+				F9B0F26D1BEB3ECC009E9E92 /* settings-red.png */,
 				F96D2B5E1BC7CED9000D18BA /* bank-dash.png */,
 				F96D2B5F1BC7CED9000D18BA /* calendar-dash.png */,
 				F96D2B601BC7CED9000D18BA /* home-dash.png */,
@@ -633,6 +644,7 @@
 				F96D2B6C1BC7D084000D18BA /* star-dash.png */,
 				F97CE3E31BBD4B52001CFACD /* manage.png */,
 				F97CE3E11BBD4B4A001CFACD /* list.png */,
+				F9C4791D1BE376B600E9DB95 /* look-venue.png */,
 				F97CE3B81BBC39EF001CFACD /* phone.png */,
 				F90AB8A11B7A8410002931E6 /* look-venue-logo.png */,
 				F97CE3C31BBC3DEC001CFACD /* menu-icon.png */,
@@ -868,6 +880,7 @@
 				F96F78871BE35F3B00F330F9 /* left_arrow.png in Resources */,
 				F97CE3E21BBD4B4A001CFACD /* list.png in Resources */,
 				F97CE3C51BBC3DEC001CFACD /* menu-icon.png in Resources */,
+				F9B0F26E1BEB3ECC009E9E92 /* calendar-red.png in Resources */,
 				F97CE3C61BBC3DEC001CFACD /* search-icon.png in Resources */,
 				F97CE3D61BBD0F7F001CFACD /* tab-email.png in Resources */,
 				F96D2B6E1BC7D084000D18BA /* star-dash.png in Resources */,
@@ -875,6 +888,7 @@
 				F97CE3BF1BBC39EF001CFACD /* phone.png in Resources */,
 				F96D2B6D1BC7D084000D18BA /* feedback-dash.png in Resources */,
 				F97CE3CE1BBC3F4E001CFACD /* filter-outline.png in Resources */,
+				F9C4791E1BE376B600E9DB95 /* look-venue.png in Resources */,
 				F96D2B671BC7CED9000D18BA /* home-dash.png in Resources */,
 				F9727B341BC4EFE3005591D4 /* Main.storyboard in Resources */,
 				F995A90D1B7B28510064CE5D /* OpenSans-BoldItalic.ttf in Resources */,
@@ -891,11 +905,13 @@
 				F995A9101B7B28510064CE5D /* OpenSans-Italic.ttf in Resources */,
 				F96F78881BE35F3B00F330F9 /* left_arrow@2x.png in Resources */,
 				F96D2B681BC7CED9000D18BA /* phone-dash.png in Resources */,
+				F99214FB1BED2FE3005F39E8 /* dashboard-1.png in Resources */,
 				F97CE3E41BBD4B52001CFACD /* manage.png in Resources */,
 				F97CE3BD1BBC39EF001CFACD /* magnify.png in Resources */,
 				F995A90F1B7B28510064CE5D /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				F97CE3CD1BBC3F4E001CFACD /* arrow-left.png in Resources */,
 				F995A90E1B7B28510064CE5D /* OpenSans-ExtraBold.ttf in Resources */,
+				F9B0F26F1BEB3ECC009E9E92 /* settings-red.png in Resources */,
 				F96F78891BE35F3B00F330F9 /* right_arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1052,7 +1068,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jeetesh Sisodia (5MPVRP6R22)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jeetesh Sisodia (5MPVRP6R22)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1074,6 +1091,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "6f27848d-6479-4539-b798-fb61913e491e";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1097,7 +1115,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jeetesh Sisodia (5MPVRP6R22)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jeetesh Sisodia (5MPVRP6R22)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1112,6 +1131,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "6f27848d-6479-4539-b798-fb61913e491e";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

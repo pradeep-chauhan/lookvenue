@@ -39,6 +39,7 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
         
+        
         toolbar.hidden = true
         imageCollectionView?.allowsSelection = false
         edit.title = "Edit"

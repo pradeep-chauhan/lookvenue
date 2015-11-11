@@ -10,7 +10,7 @@ import UIKit
 let reuseIdentifierImage = "ImageCellIdentifier"
 class infoViewController:UIViewController,UICollectionViewDelegate,UICollectionViewDataSource, CLUploaderDelegate {
 
-    
+    var currentSelection:NSIndexPath!
     var selectedSearchVanueDictionary = NSDictionary()
     let cloudinary: CLCloudinary = CLCloudinary()
     @IBOutlet weak var Description: UITextView!
@@ -34,8 +34,19 @@ class infoViewController:UIViewController,UICollectionViewDelegate,UICollectionV
         
         super.viewDidLoad()
         
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = UICollectionViewScrollDirection.Horizontal
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumLineSpacing = 0
+        
+        imageCollectionView.pagingEnabled = true
+        imageCollectionView.collectionViewLayout = flowLayout
+        
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
+        
+        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "nextcell", userInfo: nil, repeats: true)
+        
         
         cloudinary.config().setValue("dtpcuqqq2", forKey: "cloud_name")
         cloudinary.config().setValue("897166688766548", forKey: "api_key")
@@ -89,20 +100,30 @@ class infoViewController:UIViewController,UICollectionViewDelegate,UICollectionV
             var totalImageCount = (totalImages.count)
             cell.slideNo.text = " \(currentImage) / \(totalImageCount) "
             cell.slideNo.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
-            
+            currentSelection = indexPath
         return cell
         // Configure the cell+
         
     }
     
-    
+    func nextcell() {
+        
+        if ((currentSelection.row) == (totalImages.count - 1)) {
+            currentSelection = NSIndexPath(forRow: 0, inSection: 0)
+            imageCollectionView.scrollToItemAtIndexPath(currentSelection, atScrollPosition: UICollectionViewScrollPosition.Right, animated: false)
+        }
+        else {
+            currentSelection = NSIndexPath(forRow: currentSelection.row + 1, inSection: currentSelection.section)
+            imageCollectionView.scrollToItemAtIndexPath(currentSelection, atScrollPosition: UICollectionViewScrollPosition.Right, animated: true)
+        }
+       
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
     /*
     // MARK: - Navigation
 

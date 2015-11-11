@@ -12,6 +12,10 @@ class login:UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var username: UITextField!
     
+    @IBOutlet weak var buttonSaprator: UILabel!
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var forgotPasswordButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var password: UITextField!
     var propertyArray : NSMutableArray = NSMutableArray()
     var propertyListArray : NSArray!
@@ -23,6 +27,11 @@ class login:UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loginButton.layer.cornerRadius = 5
+        self.loginButton.backgroundColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1)
+        self.forgotPasswordButton.tintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1)
+        self.signUpButton.tintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1)
+        self.buttonSaprator.tintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1)
         
         self.username.delegate = self
         self.password.delegate = self
@@ -67,9 +76,15 @@ class login:UIViewController, UITextFieldDelegate {
     }
     
     func leftSideMenuButtonPressed() {
-        self.menuContainerViewController.toggleLeftSideMenuCompletion { () -> Void in
+        if ( self.menuContainerViewController == nil ) {
             
         }
+        else {
+            self.menuContainerViewController.toggleLeftSideMenuCompletion { () -> Void in
+                
+            }
+        }
+        
     }
     
     // MARK: - ENSideMenu Delegate
@@ -136,7 +151,7 @@ class login:UIViewController, UITextFieldDelegate {
                     self.propertyListArray = serviceCall.getPropertyDetailsArray(resultData)
                     self.getPropertyArray()
                     //println(self.propertyArray)
-                    println(self.propertyListArray.count)
+                    //println(self.propertyListArray.count)
                     if( self.propertyListArray.count > 0) {
                         
                         var storyBoard = UIStoryboard(name: "Main", bundle: nil)

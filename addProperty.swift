@@ -95,7 +95,7 @@ class addProperty: UIViewController, UITableViewDelegate, UITableViewDataSource 
             cell.state.text = ""
         }
         
-        cell.addPropertyButton.addTarget(self, action: ":savePropertyInfo", forControlEvents: UIControlEvents.TouchUpInside)
+        cell.addPropertyButton.addTarget(self, action: "savePropertyInfo:", forControlEvents: UIControlEvents.TouchUpInside)
         return cell
     }
     
@@ -103,21 +103,12 @@ class addProperty: UIViewController, UITableViewDelegate, UITableViewDataSource 
     func savePropertyInfo() {
         println("add property")
         var indexPath = NSIndexPath(forItem: 0, inSection: 0)
-        var row = tableView.cellForRowAtIndexPath(indexPath) as UITableViewCell?
-        var cell = tableView.dequeueReusableCellWithIdentifier("addPropertyTableViewCell") as! addNewPropertyViewController
-        
-        //var email = cell.
+        let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! addPropertyTableViewCell
+        var email = cell.email.text
         
         
     }
     
-    
-//    func SACalendar(calendar: SaCalendar!, didDisplayCalendarForMonth month: Int32, year: Int32) {
-//        println("done")
-//    }
-//    func SACalendar2(calendar1: SACalendar, didSelectDate day: Int32, month: Int32, year: Int32) {
-////        prnit(day)
-//    }
     /*
     // MARK: - Navigation
 

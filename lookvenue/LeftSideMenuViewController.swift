@@ -96,7 +96,7 @@ class LeftSideMenuViewController: UIViewController, UITableViewDelegate, UITable
             self.menuContainerViewController.centerViewController = dash
         }
         else {
-            println(indexPath.row)
+            //println(indexPath.row)
         }
         self.menuContainerViewController.toggleLeftSideMenuCompletion { () -> Void in
             

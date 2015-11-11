@@ -21,7 +21,7 @@ class DashBoardViewController: UIViewController, UITabBarDelegate, UITableViewDe
     var LoginDetailsArray:NSMutableArray = NSMutableArray()
     
     var menuName = [ "Edit Proprty","Calendar","Settings" ]
-    var menuImage = [ "home-small-red.png","home-small-red.png","home-small-red.png" ]
+    var menuImage = [ "home-small-red.png","calendar-red.png","settings-red.png" ]
     
     var selectedPropertyDetailsArray : NSMutableArray = NSMutableArray()
     
@@ -38,7 +38,7 @@ class DashBoardViewController: UIViewController, UITabBarDelegate, UITableViewDe
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1.0)
-        self.DashBoardTabBar.tintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1.0)
+        //self.DashBoardTabBar.tintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1.0)
         //self.DashBoardTabBar.barTintColor
         // center image in nav bar
         

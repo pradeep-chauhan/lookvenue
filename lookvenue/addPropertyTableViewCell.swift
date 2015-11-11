@@ -36,6 +36,9 @@ class addPropertyTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.addPropertyButton.layer.cornerRadius = 5
+        self.addPropertyButton.backgroundColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1.0)
+
         // Initialization code
     }
     
@@ -45,5 +48,7 @@ class addPropertyTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+    
+    
     
 }

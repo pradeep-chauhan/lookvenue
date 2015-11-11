@@ -10,8 +10,12 @@ import UIKit
 
 class addNewPropertyViewController: UIViewController {
 
+    @IBOutlet weak var addPropertyButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addPropertyButton.layer.cornerRadius = 5
+        self.addPropertyButton.backgroundColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1.0)
+
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1.0)

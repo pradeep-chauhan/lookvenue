@@ -10,6 +10,7 @@ import UIKit
 
 class contactUs: ViewController {
 
+    @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var messageView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +18,7 @@ class contactUs: ViewController {
         self.messageView.layer.borderWidth = 0.5
         self.messageView.layer.cornerRadius = 5
         self.messageView.clipsToBounds = true
+        self.sendButton.layer.cornerRadius = 5
         // Do any additional setup after loading the view.
     }
 

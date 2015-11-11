@@ -24,7 +24,7 @@ class propertyInfoSegmentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Loading window show
-        
+        self.segmentControl.tintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1)
         let loadingProgress = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         loadingProgress.labelText = "Loading"
         

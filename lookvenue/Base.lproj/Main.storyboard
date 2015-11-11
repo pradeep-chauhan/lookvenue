@@ -50,6 +50,8 @@
             <string>OpenSans</string>
             <string>OpenSans</string>
             <string>OpenSans</string>
+            <string>OpenSans</string>
+            <string>OpenSans</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -133,7 +135,7 @@
                                     <segue destination="CUb-Jt-FLG" kind="show" id="iJh-gq-wla"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="look-venue" translatesAutoresizingMaskIntoConstraints="NO" id="Loq-t2-j6C">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="look-venue.png" translatesAutoresizingMaskIntoConstraints="NO" id="Loq-t2-j6C">
                                 <rect key="frame" x="110" y="77" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Pp4-UR-v4C"/>
@@ -167,7 +169,11 @@
                     <navigationItem key="navigationItem" id="5Ci-c0-FtC"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="buttonSaprator" destination="B6h-BH-xr9" id="G8Q-Qm-Kgx"/>
+                        <outlet property="forgotPasswordButton" destination="qmu-ic-LQu" id="crM-Sa-KrI"/>
+                        <outlet property="loginButton" destination="vDu-0y-UbM" id="mcI-Oc-fQp"/>
                         <outlet property="password" destination="ZuN-Eu-OOz" id="P2Z-xl-6jN"/>
+                        <outlet property="signUpButton" destination="NDc-AJ-hMP" id="aYT-KM-KmW"/>
                         <outlet property="username" destination="DME-vd-c3a" id="wwB-io-Q3h"/>
                     </connections>
                 </viewController>
@@ -238,6 +244,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="buttonSaprator" destination="bgb-Q4-W7V" id="e3H-D1-28j"/>
+                        <outlet property="forgotButton" destination="5jB-cv-tJl" id="nR1-Nr-uql"/>
+                        <outlet property="loginButton" destination="P7m-PW-tFn" id="9OP-Xe-ocB"/>
+                        <outlet property="signUpbutton" destination="kRZ-9q-u0N" id="7pd-mn-NYY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XmB-Gz-RPk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -295,7 +307,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="look-venue" translatesAutoresizingMaskIntoConstraints="NO" id="IIk-fl-lO7">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="look-venue.png" translatesAutoresizingMaskIntoConstraints="NO" id="IIk-fl-lO7">
                                 <rect key="frame" x="119" y="46" width="83" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="ec8-P4-7Q4"/>
@@ -317,7 +329,7 @@
                                     <constraint firstAttribute="height" constant="1" id="Tly-Uw-dMW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWF-FN-sDa">
@@ -327,7 +339,7 @@
                                     <constraint firstAttribute="height" constant="1" id="pVU-nu-oux"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cN7-8x-PT5">
@@ -337,7 +349,7 @@
                                     <constraint firstAttribute="height" constant="1" id="4xc-Di-rJ4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Yz-S4-au3">
@@ -393,8 +405,10 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="email" destination="7RP-UN-9te" id="95u-S2-fC4"/>
+                        <outlet property="loginButton" destination="5Yz-S4-au3" id="PEH-v7-38P"/>
                         <outlet property="name" destination="VaN-Je-19y" id="RGh-OZ-UqC"/>
                         <outlet property="password" destination="dav-k2-du2" id="ibe-Lo-Xf3"/>
+                        <outlet property="signUpButton" destination="DUz-yu-i0Q" id="Q14-Fj-xia"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zf8-Za-mi1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -416,6 +430,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GX2-eP-bc5">
                                 <rect key="frame" x="112" y="269" width="97" height="30"/>
                                 <state key="normal" title="Add Property">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -427,6 +442,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="CG0-eR-BN3"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="addPropertyButton" destination="GX2-eP-bc5" id="cAJ-Q8-L0k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YtX-FJ-pxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -795,7 +813,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Io-gu-V7K" id="WTi-s4-5yD">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="38h-tM-pZS">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="38h-tM-pZS">
                                                     <rect key="frame" x="8" y="0.0" width="44" height="43"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjI-CE-uRl">
@@ -812,17 +830,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <tabBar hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lif-1x-N3k">
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lif-1x-N3k">
                                 <rect key="frame" x="0.0" y="519" width="320" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="rBt-76-xjy"/>
                                 </constraints>
                                 <items>
-                                    <tabBarItem title="Home" image="home-dash.png" id="6Jh-i5-LHq"/>
+                                    <tabBarItem title="Home" image="dashboard-1.png" id="6Jh-i5-LHq"/>
                                     <tabBarItem tag="1" title="Edit Property" image="bank-dash.png" id="Lfz-Kr-FUL"/>
                                     <tabBarItem tag="2" title="Calendar" image="calendar-dash.png" id="3BS-vK-dHX"/>
                                     <tabBarItem tag="3" title="Contact" image="account-dash.png" id="bgn-bg-rLt"/>
-                                    <tabBarItem tag="4" title="Setting" image="settings-dash.png" id="zjN-yb-f7I"/>
+                                    <tabBarItem tag="4" title="Setting" image="34BBAAD5-1BEA-4ACF-89C7-C063B1080ED5" id="zjN-yb-f7I"/>
                                 </items>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tabBar>
@@ -871,7 +889,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M9Y-ko-d44" id="GTx-uh-y3B">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home-small-red.png" translatesAutoresizingMaskIntoConstraints="NO" id="ESl-Qi-wJt">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home.png" translatesAutoresizingMaskIntoConstraints="NO" id="ESl-Qi-wJt">
                                                     <rect key="frame" x="8" y="8" width="50" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="Qyw-CI-pJC"/>
@@ -1194,18 +1212,12 @@
                                             <constraint firstAttribute="trailingMargin" secondItem="9cF-fT-Pms" secondAttribute="trailing" constant="8" id="zux-Jp-ViE"/>
                                         </constraints>
                                     </view>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="acM-h5-NLZ">
-                                        <rect key="frame" x="151" y="274" width="20" height="20"/>
-                                        <color key="color" red="0.73333333329999995" green="0.24313725489999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="yCz-R7-ABI" firstAttribute="leading" secondItem="8uo-Cz-YCB" secondAttribute="leading" id="1Rq-zS-25t"/>
                                     <constraint firstItem="yCz-R7-ABI" firstAttribute="top" secondItem="8uo-Cz-YCB" secondAttribute="top" id="6Ln-iH-kX3"/>
-                                    <constraint firstAttribute="centerY" secondItem="acM-h5-NLZ" secondAttribute="centerY" id="6eR-mn-IaC"/>
                                     <constraint firstItem="yCz-R7-ABI" firstAttribute="centerX" secondItem="8uo-Cz-YCB" secondAttribute="centerX" id="Fvh-L9-pPU"/>
-                                    <constraint firstAttribute="centerX" secondItem="acM-h5-NLZ" secondAttribute="centerX" constant="-1" id="g8v-VS-ZA6"/>
                                     <constraint firstAttribute="bottom" secondItem="yCz-R7-ABI" secondAttribute="bottom" id="gc3-qg-fAp"/>
                                     <constraint firstAttribute="trailing" secondItem="yCz-R7-ABI" secondAttribute="trailing" id="iZd-Gv-JFp"/>
                                     <constraint firstItem="yCz-R7-ABI" firstAttribute="centerY" secondItem="8uo-Cz-YCB" secondAttribute="centerY" id="urg-Hv-oId"/>
@@ -1230,7 +1242,6 @@
                         <outlet property="city" destination="6qw-X7-uaK" id="5t2-xY-LVH"/>
                         <outlet property="cityLabel" destination="7Ed-cx-U2s" id="MLB-M9-QZD"/>
                         <outlet property="dateOfEnquiry" destination="9cF-fT-Pms" id="TuM-gP-Rrf"/>
-                        <outlet property="indicator" destination="acM-h5-NLZ" id="QQD-GE-1Ag"/>
                         <outlet property="pageView" destination="yCz-R7-ABI" id="LnK-NI-WeL"/>
                         <outlet property="priceRange" destination="MaK-Bi-uA7" id="mdo-md-9dG"/>
                         <outlet property="scrollView" destination="8uo-Cz-YCB" id="KiB-VG-HXA"/>
@@ -1693,6 +1704,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="800"/>
                     <connections>
+                        <outlet property="applyFilterButton" destination="sfz-aX-5fq" id="EY0-NQ-TQl"/>
                         <outlet property="area" destination="DKb-H7-98A" id="GzN-Uc-lof"/>
                         <outlet property="areaLabel" destination="QLI-Ns-FHE" id="niV-Wi-r6e"/>
                         <outlet property="capacity" destination="vus-C3-RIw" id="1aN-vl-ahw"/>
@@ -1937,7 +1949,7 @@
                                             <constraint firstAttribute="height" constant="226" id="IFR-mA-wXE"/>
                                         </constraints>
                                     </view>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8S4-8C-U6y">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8S4-8C-U6y">
                                         <rect key="frame" x="0.0" y="8" width="414" height="226"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="nLd-E8-jHs">
@@ -2221,6 +2233,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="messageView" destination="4aN-aq-dzP" id="U89-0I-aZI"/>
+                        <outlet property="sendButton" destination="Kag-Pb-JvZ" id="lug-83-KZw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2V2-T8-pFG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2458,7 +2471,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LE6-Uq-8ag">
+                            <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LE6-Uq-8ag">
                                 <rect key="frame" x="237" y="50" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="Egh-xy-xp2"/>
@@ -2500,7 +2513,7 @@
                                     <action selector="logoutButton:" destination="SZQ-qf-YFW" eventType="touchUpInside" id="XSI-nc-mtF"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tWw-Yd-GD1">
+                            <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tWw-Yd-GD1">
                                 <rect key="frame" x="237" y="89" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="N8l-nE-ghB"/>
@@ -2531,6 +2544,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="emailNotification" destination="tWw-Yd-GD1" id="l8o-Zj-vNp"/>
+                        <outlet property="logoutButton" destination="wds-Ud-iAv" id="Tjz-aD-lD2"/>
                         <outlet property="pushNotification" destination="LE6-Uq-8ag" id="7U3-3g-63Z"/>
                     </connections>
                 </viewController>
@@ -2549,9 +2563,51 @@
                     <view key="view" contentMode="scaleToFill" id="GPB-n5-2E8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgC-YM-43q">
+                                <rect key="frame" x="16" y="28" width="288" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="hFN-hm-v1m"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                                <state key="normal" title="Change Month/Year">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeCalendar:" destination="g6I-ZQ-QFS" eventType="touchUpInside" id="DX1-p0-0Ez"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7B-1A-5xv">
+                                <rect key="frame" x="16" y="518" width="288" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="8hF-t1-O6e"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
+                                <state key="normal" title="Book Now">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="bookingUpdate:" destination="g6I-ZQ-QFS" eventType="touchUpInside" id="CxQ-Ay-QR1"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sgC-YM-43q" firstAttribute="leading" secondItem="GPB-n5-2E8" secondAttribute="leadingMargin" id="AV4-ND-xYb"/>
+                            <constraint firstItem="e7B-1A-5xv" firstAttribute="leading" secondItem="GPB-n5-2E8" secondAttribute="leadingMargin" id="Ans-Tm-AF4"/>
+                            <constraint firstItem="e7B-1A-5xv" firstAttribute="trailing" secondItem="GPB-n5-2E8" secondAttribute="trailingMargin" id="GDm-fL-mvD"/>
+                            <constraint firstItem="sgC-YM-43q" firstAttribute="top" secondItem="1Zp-Ae-GQN" secondAttribute="bottom" constant="8" id="PLP-5w-ALU"/>
+                            <constraint firstItem="XPp-S1-DLL" firstAttribute="top" secondItem="e7B-1A-5xv" secondAttribute="bottom" constant="20" id="ni6-FM-ISj"/>
+                            <constraint firstItem="sgC-YM-43q" firstAttribute="trailing" secondItem="GPB-n5-2E8" secondAttribute="trailingMargin" id="qPO-Pm-vEg"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="bookingButton" destination="e7B-1A-5xv" id="K9J-EL-8KB"/>
+                        <outlet property="changeCalendar" destination="sgC-YM-43q" id="HaP-Op-At1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eWD-ab-5a4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2560,7 +2616,7 @@
         <!--Navigation Controller-->
         <scene sceneID="IX5-Mi-dUO">
             <objects>
-                <navigationController storyboardIdentifier="navigationStart" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="ViQ-lc-06w" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navigationStart" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" hidesBarsWhenVerticallyCompact="YES" id="ViQ-lc-06w" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CJN-0h-rTQ">
@@ -2584,7 +2640,7 @@
         <!--Navigation Controller-->
         <scene sceneID="EJ5-AY-JUd">
             <objects>
-                <navigationController storyboardIdentifier="loginNav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="Z7x-2P-Zco" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="loginNav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" hidesBarsWhenVerticallyCompact="YES" id="Z7x-2P-Zco" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JgA-QB-u5N">
@@ -2604,7 +2660,7 @@
         <!--Navigation Controller-->
         <scene sceneID="D8d-7v-BAl">
             <objects>
-                <navigationController storyboardIdentifier="signUpNav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="2JO-Ut-Ple" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="signUpNav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" hidesBarsWhenVerticallyCompact="YES" id="2JO-Ut-Ple" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fHs-TT-ixN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2623,7 +2679,7 @@
         <!--Navigation Controller-->
         <scene sceneID="eZW-t1-HBy">
             <objects>
-                <navigationController storyboardIdentifier="dashNav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="TYm-cb-1gV" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="dashNav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" hidesBarsWhenVerticallyCompact="YES" id="TYm-cb-1gV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZFD-JV-UmX">
@@ -2647,7 +2703,7 @@
         <!--Navigation Controller-->
         <scene sceneID="WgU-M2-oSi">
             <objects>
-                <navigationController storyboardIdentifier="addNav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="hwU-BV-NN7" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="addNav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" hidesBarsWhenVerticallyCompact="YES" id="hwU-BV-NN7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="b21-QL-MbI">
@@ -2670,15 +2726,122 @@
         </scene>
     </scenes>
     <resources>
+        <image name="34BBAAD5-1BEA-4ACF-89C7-C063B1080ED5" width="24" height="24">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
+GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
+DBIAwAAAgAKACtISCRMVWk5TLm9iamVjdHOhFIADgAnSEgkXGqIYGYAEgAWACBAA0h0JHh9fEBROU1RJ
+RkZSZXByZXNlbnRhdGlvboAGgAdPERYOTU0AKgAACQgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAD///92/////////////////////////3YAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///+m
+/////////////////////////6YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD////J/////////////////////////8kAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8B////vP///7r///9T
+////Ff///4/////8//////////////////////////z///+P////Ff///1P///+6////vP///wEAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAD///9f/////////////////////v//////////////////////////
+/////////////////////v///////////////////18AAAAAAAAAAAAAAAAAAAAAAAAAAP///wz////m
+////////////////////////////////////////////////////////////////////////////////
+/////////+b///8MAAAAAAAAAAAAAAAAAAAAAP///4P/////////////////////////////////////
+////3v///5n///+Z////3v////////////////////////////////////////+DAAAAAAAAAAAAAAAA
+AAAAAP///1n////4//////////////////////////////+f////CAAAAAAAAAAA////CP///5//////
+//////////////////////////j///9ZAAAAAAAAAAAAAAAAAAAAAAAAAAD///80////3///////////
+/////////97///8IAAAAAAAAAAAAAAAAAAAAAP///wj////e////////////////////3////zQAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////dv///////////////////5oAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAD///+a////////////////////dgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+////df///////////////////5oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///+a////////////////
+////dQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///83////4////////////////////97///8I
+AAAAAAAAAAAAAAAAAAAAAP///wj////e////////////////////4////zcAAAAAAAAAAAAAAAAAAAAA
+AAAAAP///1r////4//////////////////////////////+f////CAAAAAAAAAAA////CP///5//////
+//////////////////////////j///9aAAAAAAAAAAAAAAAAAAAAAP///4P/////////////////////
+////////////////////3v///5n///+Z////3v////////////////////////////////////////+D
+AAAAAAAAAAAAAAAAAAAAAP///wz////m////////////////////////////////////////////////
+/////////////////////////////////////////+b///8MAAAAAAAAAAAAAAAAAAAAAAAAAAD///9f
+/////////////////////f///////////////////////////////////////////////f//////////
+/////////18AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8B////vP///7n///9S////Gf///5z////8
+//////////////////////////z///+O////Ff///1L///+5////vP///wEAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD////J/////////////////////////8kAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAD///+m/////////////////////////6YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///92////////////////
+/////////3YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgEA
+AAMAAAABABgAAAEBAAMAAAABABgAAAECAAMAAAAEAAAJtgEDAAMAAAABAAEAAAEGAAMAAAABAAIAAAER
+AAQAAAABAAAACAESAAMAAAABAAEAAAEVAAMAAAABAAQAAAEWAAMAAAABABgAAAEXAAQAAAABAAAJAAEc
+AAMAAAABAAEAAAFSAAMAAAABAAIAAAFTAAMAAAAEAAAJvodzAAcAAAxIAAAJxgAAAAAACAAIAAgACAAB
+AAEAAQABAAAMSExpbm8CEAAAbW50clJHQiBYWVogB84AAgAJAAYAMQAAYWNzcE1TRlQAAAAASUVDIHNS
+R0IAAAAAAAAAAAAAAAAAAPbWAAEAAAAA0y1IUCAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAARY3BydAAAAVAAAAAzZGVzYwAAAYQAAABsd3RwdAAAAfAAAAAUYmtwdAAA
+AgQAAAAUclhZWgAAAhgAAAAUZ1hZWgAAAiwAAAAUYlhZWgAAAkAAAAAUZG1uZAAAAlQAAABwZG1kZAAA
+AsQAAACIdnVlZAAAA0wAAACGdmlldwAAA9QAAAAkbHVtaQAAA/gAAAAUbWVhcwAABAwAAAAkdGVjaAAA
+BDAAAAAMclRSQwAABDwAAAgMZ1RSQwAABDwAAAgMYlRSQwAABDwAAAgMdGV4dAAAAABDb3B5cmlnaHQg
+KGMpIDE5OTggSGV3bGV0dC1QYWNrYXJkIENvbXBhbnkAAGRlc2MAAAAAAAAAEnNSR0IgSUVDNjE5NjYt
+Mi4xAAAAAAAAAAAAAAASc1JHQiBJRUM2MTk2Ni0yLjEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhZWiAAAAAAAADzUQABAAAAARbMWFlaIAAAAAAAAAAAAAAAAAAA
+AABYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAA
+ts9kZXNjAAAAAAAAABZJRUMgaHR0cDovL3d3dy5pZWMuY2gAAAAAAAAAAAAAABZJRUMgaHR0cDovL3d3
+dy5pZWMuY2gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZGVzYwAA
+AAAAAAAuSUVDIDYxOTY2LTIuMSBEZWZhdWx0IFJHQiBjb2xvdXIgc3BhY2UgLSBzUkdCAAAAAAAAAAAA
+AAAuSUVDIDYxOTY2LTIuMSBEZWZhdWx0IFJHQiBjb2xvdXIgc3BhY2UgLSBzUkdCAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAGRlc2MAAAAAAAAALFJlZmVyZW5jZSBWaWV3aW5nIENvbmRpdGlvbiBpbiBJRUM2MTk2
+Ni0yLjEAAAAAAAAAAAAAACxSZWZlcmVuY2UgVmlld2luZyBDb25kaXRpb24gaW4gSUVDNjE5NjYtMi4x
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB2aWV3AAAAAAATpP4AFF8uABDPFAAD7cwABBMLAANcngAA
+AAFYWVogAAAAAABMCVYAUAAAAFcf521lYXMAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAKPAAAAAnNp
+ZyAAAAAAQ1JUIGN1cnYAAAAAAAAEAAAAAAUACgAPABQAGQAeACMAKAAtADIANwA7AEAARQBKAE8AVABZ
+AF4AYwBoAG0AcgB3AHwAgQCGAIsAkACVAJoAnwCkAKkArgCyALcAvADBAMYAywDQANUA2wDgAOUA6wDw
+APYA+wEBAQcBDQETARkBHwElASsBMgE4AT4BRQFMAVIBWQFgAWcBbgF1AXwBgwGLAZIBmgGhAakBsQG5
+AcEByQHRAdkB4QHpAfIB+gIDAgwCFAIdAiYCLwI4AkECSwJUAl0CZwJxAnoChAKOApgCogKsArYCwQLL
+AtUC4ALrAvUDAAMLAxYDIQMtAzgDQwNPA1oDZgNyA34DigOWA6IDrgO6A8cD0wPgA+wD+QQGBBMEIAQt
+BDsESARVBGMEcQR+BIwEmgSoBLYExATTBOEE8AT+BQ0FHAUrBToFSQVYBWcFdwWGBZYFpgW1BcUF1QXl
+BfYGBgYWBicGNwZIBlkGagZ7BowGnQavBsAG0QbjBvUHBwcZBysHPQdPB2EHdAeGB5kHrAe/B9IH5Qf4
+CAsIHwgyCEYIWghuCIIIlgiqCL4I0gjnCPsJEAklCToJTwlkCXkJjwmkCboJzwnlCfsKEQonCj0KVApq
+CoEKmAquCsUK3ArzCwsLIgs5C1ELaQuAC5gLsAvIC+EL+QwSDCoMQwxcDHUMjgynDMAM2QzzDQ0NJg1A
+DVoNdA2ODakNww3eDfgOEw4uDkkOZA5/DpsOtg7SDu4PCQ8lD0EPXg96D5YPsw/PD+wQCRAmEEMQYRB+
+EJsQuRDXEPURExExEU8RbRGMEaoRyRHoEgcSJhJFEmQShBKjEsMS4xMDEyMTQxNjE4MTpBPFE+UUBhQn
+FEkUahSLFK0UzhTwFRIVNBVWFXgVmxW9FeAWAxYmFkkWbBaPFrIW1hb6Fx0XQRdlF4kXrhfSF/cYGxhA
+GGUYihivGNUY+hkgGUUZaxmRGbcZ3RoEGioaURp3Gp4axRrsGxQbOxtjG4obshvaHAIcKhxSHHscoxzM
+HPUdHh1HHXAdmR3DHeweFh5AHmoelB6+HukfEx8+H2kflB+/H+ogFSBBIGwgmCDEIPAhHCFIIXUhoSHO
+IfsiJyJVIoIiryLdIwojOCNmI5QjwiPwJB8kTSR8JKsk2iUJJTglaCWXJccl9yYnJlcmhya3JugnGCdJ
+J3onqyfcKA0oPyhxKKIo1CkGKTgpaymdKdAqAio1KmgqmyrPKwIrNitpK50r0SwFLDksbiyiLNctDC1B
+LXYtqy3hLhYuTC6CLrcu7i8kL1ovkS/HL/4wNTBsMKQw2zESMUoxgjG6MfIyKjJjMpsy1DMNM0YzfzO4
+M/E0KzRlNJ402DUTNU01hzXCNf02NzZyNq426TckN2A3nDfXOBQ4UDiMOMg5BTlCOX85vDn5OjY6dDqy
+Ou87LTtrO6o76DwnPGU8pDzjPSI9YT2hPeA+ID5gPqA+4D8hP2E/oj/iQCNAZECmQOdBKUFqQaxB7kIw
+QnJCtUL3QzpDfUPARANER0SKRM5FEkVVRZpF3kYiRmdGq0bwRzVHe0fASAVIS0iRSNdJHUljSalJ8Eo3
+Sn1KxEsMS1NLmkviTCpMcky6TQJNSk2TTdxOJU5uTrdPAE9JT5NP3VAnUHFQu1EGUVBRm1HmUjFSfFLH
+UxNTX1OqU/ZUQlSPVNtVKFV1VcJWD1ZcVqlW91dEV5JX4FgvWH1Yy1kaWWlZuFoHWlZaplr1W0VblVvl
+XDVchlzWXSddeF3JXhpebF69Xw9fYV+zYAVgV2CqYPxhT2GiYfViSWKcYvBjQ2OXY+tkQGSUZOllPWWS
+ZedmPWaSZuhnPWeTZ+loP2iWaOxpQ2maafFqSGqfavdrT2una/9sV2yvbQhtYG25bhJua27Ebx5veG/R
+cCtwhnDgcTpxlXHwcktypnMBc11zuHQUdHB0zHUodYV14XY+dpt2+HdWd7N4EXhueMx5KnmJeed6Rnql
+ewR7Y3vCfCF8gXzhfUF9oX4BfmJ+wn8jf4R/5YBHgKiBCoFrgc2CMIKSgvSDV4O6hB2EgITjhUeFq4YO
+hnKG14c7h5+IBIhpiM6JM4mZif6KZIrKizCLlov8jGOMyo0xjZiN/45mjs6PNo+ekAaQbpDWkT+RqJIR
+knqS45NNk7aUIJSKlPSVX5XJljSWn5cKl3WX4JhMmLiZJJmQmfyaaJrVm0Kbr5wcnImc951kndKeQJ6u
+nx2fi5/6oGmg2KFHobaiJqKWowajdqPmpFakx6U4pammGqaLpv2nbqfgqFKoxKk3qamqHKqPqwKrdavp
+rFys0K1ErbiuLa6hrxavi7AAsHWw6rFgsdayS7LCszizrrQltJy1E7WKtgG2ebbwt2i34LhZuNG5SrnC
+uju6tbsuu6e8IbybvRW9j74KvoS+/796v/XAcMDswWfB48JfwtvDWMPUxFHEzsVLxcjGRsbDx0HHv8g9
+yLzJOsm5yjjKt8s2y7bMNcy1zTXNtc42zrbPN8+40DnQutE80b7SP9LB00TTxtRJ1MvVTtXR1lXW2Ndc
+1+DYZNjo2WzZ8dp22vvbgNwF3IrdEN2W3hzeot8p36/gNuC94UThzOJT4tvjY+Pr5HPk/OWE5g3mlucf
+56noMui86Ubp0Opb6uXrcOv77IbtEe2c7ijutO9A78zwWPDl8XLx//KM8xnzp/Q09ML1UPXe9m32+/eK
++Bn4qPk4+cf6V/rn+3f8B/yY/Sn9uv5L/tz/bf//0iIjJCVaJGNsYXNzbmFtZVgkY2xhc3Nlc18QEE5T
+Qml0bWFwSW1hZ2VSZXCjJicoXxAQTlNCaXRtYXBJbWFnZVJlcFpOU0ltYWdlUmVwWE5TT2JqZWN00iIj
+KitXTlNBcnJheaIqKNIiIy0uXk5TTXV0YWJsZUFycmF5oy0qKNMwMQkyMzRXTlNXaGl0ZVxOU0NvbG9y
+U3BhY2VEMCAwABADgAvSIiM2N1dOU0NvbG9yojYo0iIjOTpXTlNJbWFnZaI5KF8QD05TS2V5ZWRBcmNo
+aXZlctE9PlRyb290gAEACAARABoAIwAtADIANwBFAEsAVABbAGgAbwB3AHkAfgCAAIIAhwCSAJQAlgCY
+AJ0AoACiAKQApgCoAK0AxADGAMgW2hbfFuoW8xcGFwoXHRcoFzEXNhc+F0EXRhdVF1kXYBdoF3UXehd8
+F34XgxeLF44XkxebF54XsBezF7gAAAAAAAACAQAAAAAAAAA/AAAAAAAAAAAAAAAAAAAXug
+</mutableData>
+        </image>
         <image name="account-dash.png" width="24" height="24"/>
         <image name="bank-dash.png" width="24" height="24"/>
         <image name="calendar-dash.png" width="24" height="24"/>
+        <image name="dashboard-1.png" width="30" height="30"/>
         <image name="feedback-dash.png" width="24" height="24"/>
-        <image name="home-dash.png" width="24" height="24"/>
-        <image name="home-small-red.png" width="40" height="40"/>
-        <image name="look-venue" width="235" height="190"/>
+        <image name="home.png" width="256" height="256"/>
         <image name="look-venue-logo" width="235" height="190"/>
-        <image name="settings-dash.png" width="24" height="24"/>
+        <image name="look-venue.png" width="235" height="190"/>
         <image name="share-dash.png" width="24" height="24"/>
         <image name="star-dash.png" width="24" height="24"/>
         <image name="tab-email.png" width="40" height="40"/>

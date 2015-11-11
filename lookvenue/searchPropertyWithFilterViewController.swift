@@ -15,6 +15,7 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
     @IBOutlet weak var venueType: UITextField!
     @IBOutlet weak var city: UITextField!
     
+    @IBOutlet weak var applyFilterButton: UIButton!
     @IBOutlet weak var capacity: UITextField!
     @IBOutlet weak var coverdArea: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -56,11 +57,12 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
     
     override func viewDidLoad() {
         
+        self.applyFilterButton.layer.cornerRadius = 5
         self.scrollView.contentSize = CGSize(width: 0, height: 800)
         self.scrollView.showsVerticalScrollIndicator = true
         view.addSubview(scrollView)
         
-        indicator.startAnimating()
+        //indicator.startAnimating()
         super.viewDidLoad()
         
         cityLabel.textColor = UIColor.redColor()
@@ -122,7 +124,7 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
         serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, param: [:], completion: {(resultData : NSData) -> Void in
             self.areaListArray = serviceCall.getAreaArray(resultData)
             self.getAreasArray()
-            self.indicator.stopAnimating()
+            //self.indicator.stopAnimating()
         })
         
     }
@@ -175,11 +177,11 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
         var param: String = ""
         var urlRequest: String = base
         var serviceCall : WebServiceCall = WebServiceCall()
-        indicator.startAnimating()
+        //indicator.startAnimating()
         serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, param: [:], completion: {(resultData : NSData) -> Void in
             self.vanueListArray = serviceCall.getAreaArray(resultData)
             self.getVanuesArray()
-            self.indicator.stopAnimating()
+            //self.indicator.stopAnimating()
             
             var venueTypemultipleSelect = SHMultipleSelect()
             venueTypemultipleSelect.selectedTextField = self.currentlySelectedTextField
@@ -199,11 +201,11 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
         var urlRequest: String = base
         
         var serviceCall : WebServiceCall = WebServiceCall()
-        indicator.startAnimating()
+        //indicator.startAnimating()
         serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, param: [:]) { (resultData) -> () in
             self.priceListArray = serviceCall.getPriceArray(resultData)
             self.getPriceArray()
-            self.indicator.stopAnimating()
+            //self.indicator.stopAnimating()
             
             var priceRangemultipleSelect = SHMultipleSelect()
             priceRangemultipleSelect.selectedTextField = self.currentlySelectedTextField
@@ -421,7 +423,7 @@ class searchPropertyWithFilterViewController: UIViewController, UITextFieldDeleg
         serviceCall.apiCallRequest(methodType, urlRequest: urlRequest, param: [:], completion: {(resultData : NSData) -> Void in
             self.searchListArray = serviceCall.getSearchVenueArray(resultData)
             self.getSearchVenueArray()
-            self.indicator.stopAnimating()
+            //self.indicator.stopAnimating()
             if((self.searchListArray.count) > 0) {
                 var storyBoard = UIStoryboard(name: "Main", bundle: nil)
                 var dash : venueSearchResultCollectionViewController = storyBoard.instantiateViewControllerWithIdentifier("venueSearchResult") as! venueSearchResultCollectionViewController

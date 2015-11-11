@@ -14,10 +14,15 @@ class signUp: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var name: UITextField!
     
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     var signUPListArray:NSArray!
     var signUPArray:NSMutableArray = NSMutableArray()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.signUpButton.layer.cornerRadius = 5
+        self.signUpButton.backgroundColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1)
+        self.loginButton.tintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1)
         
         self.password.delegate = self
         self.email.delegate = self

@@ -10,7 +10,11 @@ import UIKit
 
 class forgotPassword:ViewController {
 
+    @IBOutlet weak var forgotButton: UIButton!
     
+    @IBOutlet weak var buttonSaprator: UILabel!
+    @IBOutlet weak var signUpbutton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     @IBAction func loginButton(sender: AnyObject) {
         var alert = UIAlertController(title: "Message", message: "Thank You! Pradeep- Its working now", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler:nil))
@@ -20,7 +24,12 @@ class forgotPassword:ViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.forgotButton.layer.cornerRadius = 5
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.forgotButton.backgroundColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1)
+        self.loginButton.tintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1)
+        self.signUpbutton.tintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1)
+        self.buttonSaprator.tintColor = UIColor(red: 210.0/255.0, green: 63.0/255.0, blue: 49.0/255.0, alpha: 1)
         //navigationController?.hidesBarsOnTap = true
         // Do any additional setup after loading the view.
     }

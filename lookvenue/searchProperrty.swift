@@ -19,7 +19,6 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
     @IBOutlet weak var venueLabel: UILabel!
     @IBOutlet weak var areaLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
     //@IBOutlet weak var tokanView: KSTokenField!
     
     @IBOutlet weak var searchButton: UIButton!
@@ -58,7 +57,7 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
 
     override func viewDidLoad() {
         
-        
+        self.searchButton.layer.cornerRadius = 5
         if UIDevice().userInterfaceIdiom == .Phone {
             switch UIScreen.mainScreen().nativeBounds.height {
             case 480:
@@ -92,7 +91,6 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         //self.scrollView.contentSize = CGSize(width: 0, height: 600)
         //self.scrollView.showsVerticalScrollIndicator = true
         view.addSubview(scrollView)
-        indicator.startAnimating()
         super.viewDidLoad()
         
         cityLabel.textColor = UIColor.redColor()
@@ -139,7 +137,7 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
         
         let loadingProgress = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         loadingProgress.labelText = "Loading"
-        loadingProgress.detailsLabelText = "Please wait"
+        //loadingProgress.detailsLabelText = "Please wait"
         var methodType: String = "GET"
         var base: String = "areas/get_areas_by_city_name?city_name="
         var param: String = "Delhi/NCR"
@@ -498,7 +496,6 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
             self.searchListArray = serviceCall.getSearchVenueArray(resultData)
             //println(self.searchListArray)
             self.getSearchVenueArray()
-            self.indicator.stopAnimating()
             if((self.searchListArray.count) > 0) {
                 self.searchDetails.cityTextfieldValue = self.city.text
                 self.searchDetails.areaTextfieldValue = self.area.descriptionText

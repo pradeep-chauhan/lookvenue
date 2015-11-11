@@ -19,6 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("logout"), name: "logout", object: nil)
+        
+        
         var mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
         let mfSideMenuContainer = mainStoryBoard.instantiateViewControllerWithIdentifier("MFSideMenuContainerViewController") as! MFSideMenuContainerViewController
         let leftViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("LeftSideMenuViewController") as! LeftSideMenuViewController
@@ -38,6 +42,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        
+        UINavigationBar.appearance().titleTextAttributes = [ NSFontAttributeName: UIFont(name: "OpenSans", size: 16)!,NSForegroundColorAttributeName:UIColor.whiteColor()]
+       
         
         return true
     }
@@ -70,7 +77,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
-
+    func logout () {
+//        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+//        self.window?.rootViewController = nil
+//        let loginNAV = storyBoard.instantiateViewControllerWithIdentifier("loginNav") as! UINavigationController
+//        self.window?.rootViewController = loginNAV
+        
+        var mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+        let mfSideMenuContainer = mainStoryBoard.instantiateViewControllerWithIdentifier("MFSideMenuContainerViewController") as! MFSideMenuContainerViewController
+        let leftViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("LeftSideMenuViewController") as! LeftSideMenuViewController
+        let centerViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("navigationStart") as! UINavigationController
+        self.window?.rootViewController = mfSideMenuContainer
+        mfSideMenuContainer.leftMenuViewController = leftViewController
+        mfSideMenuContainer.centerViewController = centerViewController
+        
+    }
 
 }
 
