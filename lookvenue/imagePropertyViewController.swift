@@ -82,6 +82,7 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
         return totalImages.count
         
     }
+    
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -155,9 +156,7 @@ class imagePropertyViewController: UIViewController,UIImagePickerControllerDeleg
         actionSheet.addAction(gallery)
         actionSheet.addAction(camera)
         actionSheet.addAction(dismissAction)
-        presentViewController(actionSheet, animated: true, completion: nil)
-        
-        
+        presentViewController(actionSheet, animated: true, completion: nil)  
 
     }
     

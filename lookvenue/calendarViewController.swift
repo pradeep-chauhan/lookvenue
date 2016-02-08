@@ -122,15 +122,6 @@ class calendarViewController: UIViewController, CKCalendarDelegate, SBPickerSele
             upload_data["bulk_data"] = bulk_data
             
             serviceCall.adminApiCallRequest(methodType, urlRequest: urlRequest, param:upload_data as Dictionary<String, AnyObject>, authentication: authentication as String, completion: { (resultData) -> () in
-//                var result = serviceCall.bookingResult(resultData)
-//                if ( result != "") {
-//                    MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
-//                    let message = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-//                    message.mode = MBProgressHUDMode.Text
-//                    message.detailsLabelText = "Done Successfully"
-//                    message.hide(true, afterDelay: 3)
-//                }
-//                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                 
             })
             

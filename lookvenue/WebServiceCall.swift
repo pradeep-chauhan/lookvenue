@@ -138,6 +138,7 @@ class WebServiceCall: NSObject {
         else if (method == "PUT") {
             println("param = \(param)")
             println("url = \(url)")
+            println("hearder = \(headers)")
             println("demo")
             
             var jsonData = NSJSONSerialization.dataWithJSONObject(param, options: nil, error: nil)
@@ -376,6 +377,7 @@ class WebServiceCall: NSObject {
         //NSUserDefaults.standardUserDefaults().setObject(tempDict.valueForKey("name") as! NSString, forKey: "name")
         
         var authentication = NSUserDefaults.standardUserDefaults().objectForKey("remember_token") as! NSString
+        println(authentication)
         return loginDetailsArray
     }
     

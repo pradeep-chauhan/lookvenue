@@ -72,6 +72,7 @@ class LeftSideMenuViewController: UIViewController, UITableViewDelegate, UITable
         cell.backgroundColor = UIColor.clearColor()
         return cell
     }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //print(indexPath.row)
         

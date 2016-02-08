@@ -840,7 +840,7 @@
                                     <tabBarItem tag="1" title="Edit Property" image="bank-dash.png" id="Lfz-Kr-FUL"/>
                                     <tabBarItem tag="2" title="Calendar" image="calendar-dash.png" id="3BS-vK-dHX"/>
                                     <tabBarItem tag="3" title="Contact" image="account-dash.png" id="bgn-bg-rLt"/>
-                                    <tabBarItem tag="4" title="Setting" image="34BBAAD5-1BEA-4ACF-89C7-C063B1080ED5" id="zjN-yb-f7I"/>
+                                    <tabBarItem tag="4" title="Setting" image="3739A5EE-C580-4726-99A1-A889CDA1474B" id="zjN-yb-f7I"/>
                                 </items>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tabBar>
@@ -2726,7 +2726,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="34BBAAD5-1BEA-4ACF-89C7-C063B1080ED5" width="24" height="24">
+        <image name="3739A5EE-C580-4726-99A1-A889CDA1474B" width="24" height="24">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

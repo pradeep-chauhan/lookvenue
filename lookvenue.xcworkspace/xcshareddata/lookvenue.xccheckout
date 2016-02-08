@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>5687D287-8A5C-4BF7-9715-42F39DD2A0FC</string>
+	<key>IDESourceControlProjectName</key>
+	<string>lookvenue</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0B938989A607007B9CE796CB85DEC9C78E03C490</key>
+		<string>https://github.com/pradeep-chauhan/lookvenue.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>lookvenue.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0B938989A607007B9CE796CB85DEC9C78E03C490</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/pradeep-chauhan/lookvenue.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0B938989A607007B9CE796CB85DEC9C78E03C490</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0B938989A607007B9CE796CB85DEC9C78E03C490</string>
+			<key>IDESourceControlWCCName</key>
+			<string>lookvenue</string>
+		</dict>
+	</array>
+</dict>
+</plist>

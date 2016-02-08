@@ -167,6 +167,7 @@ class searchProperrty:UIViewController, UITextFieldDelegate,SHMultipleSelectDele
     func getVanuesArray() -> Void
     {
         vanuesArray = vanueListArray as! NSMutableArray
+        println(vanuesArray)
         
     }
     
